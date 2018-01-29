@@ -45,20 +45,18 @@ class AppController extends Controller
         $this->loadComponent('Flash');
 
         $this->loadComponent('Auth', [
-          'loginRedirect' => [
-              'controller' => 'Users',
-              'action' => 'index'
-          ],
-          'logoutRedirect' => [
-              'controller' => 'Users',
-              'action' => 'login'
-          ],
-          'authenticate' => [
+        'loginAction' => [
+            'controller' => 'Users',
+            'action' => 'login',
+        ],
+        'authError' => 'Did you really think you are allowed to see that?',
+        'authenticate' => [
             'Form' => [
               'fields' => ['username' => 'email', 'password' => 'password']
             ]
-          ]
-        ]);
+        ],
+        'storage' => 'Session'
+    ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -69,6 +67,10 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event){
       $this->Auth->allow('login');
+    }
+
+    public function isAuthorized($user){
+      return true;
     }
 
 }

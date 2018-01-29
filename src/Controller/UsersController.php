@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -17,6 +18,11 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+
+    public function beforeFilter(Event $event){
+      parent::beforeFilter($event);
+      $this->Auth->allow(['add']);
+    }
     public function index()
     {
         $users = $this->paginate($this->Users);
@@ -102,5 +108,19 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function login(){
+      if(!$this->Auth->user()){
+        if($this->request->is('post')){
+          $user = $this->Auth->identify();
+          if($user){
+            $this->Auth->setUser($user);
+            return $this->redirect($this->Auth->redirectUrl());
+          }
+          $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
+        }
+      }else{
+        $this->redirect($this->Auth->redirectUrl());
+      }
     }
 }
