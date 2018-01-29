@@ -18,8 +18,10 @@
             echo $this->Form->control('name');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
-            echo $this->Form->control('active');
-            echo $this->Form->control('role');
+            if($current_user['role']=== 'admin'){
+              echo $this->Form->control('active');
+              echo $this->Form->control('role');
+            }
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

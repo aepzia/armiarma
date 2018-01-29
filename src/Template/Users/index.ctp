@@ -18,7 +18,6 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('active') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -30,7 +29,6 @@
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->name) ?></td>
                 <td><?= h($user->email) ?></td>
-                <td><?= h($user->password) ?></td>
                 <td><?= h($user->active) ?></td>
                 <td><?= h($user->role) ?></td>
                 <td class="actions">

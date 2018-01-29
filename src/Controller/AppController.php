@@ -66,7 +66,7 @@ class AppController extends Controller
         //$this->loadComponent('Csrf');
     }
     public function beforeFilter(Event $event){
-      $this->Auth->allow('login');
+      $this->set('current_user',$this->Auth->user());
     }
 
     public function isAuthorized($user){
