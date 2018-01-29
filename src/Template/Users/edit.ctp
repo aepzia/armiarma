@@ -23,7 +23,7 @@
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('email');
-            echo $this->Form->control('password');
+            echo $this->Form->control('password',['value'=>'']);
             echo $this->Form->control('active');
             echo $this->Form->control('role');
         ?>

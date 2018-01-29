@@ -123,4 +123,7 @@ class UsersController extends AppController
         $this->redirect($this->Auth->redirectUrl());
       }
     }
+    public function logout(){
+      return $this->redirect($this->Auth->logout());
+    }
 }
