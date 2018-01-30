@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * Readers Controller
  *
@@ -17,6 +17,12 @@ class ReadersController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+
+   public function beforeFilter(Event $event){
+     parent::beforeFilter($event);
+     $this->Auth->allow(['add']);
+   }
+
     public function index()
     {
         $readers = $this->paginate($this->Readers);
