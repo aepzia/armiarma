@@ -24,7 +24,7 @@
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak');
             echo $this->Form->control('web');
-            echo $this->Form->control('fitx');
+            echo $this->Form->control('fitx', ['type' => 'file']);
             echo $this->Form->control('user_id', ['options' => $users]);
         ?>
     </fieldset>
