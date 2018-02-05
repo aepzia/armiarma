@@ -53,10 +53,11 @@ class EventsController extends AppController
     {
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
-            $filename = $this->request->data['image_file_name']['name'];
-			      $tmp_name = $this->request->data['image_file_name']['tmp_name'];
-            $isMove=move_uploaded_file($tmp_name,'/webroot/files/Event/image_file_name/' . $filename );
+            $filename = $this->request->data['fitx']['name'];
+			      $tmp_name = $this->request->data['fitx']['tmp_name'];
+            $isMove=move_uploaded_file($tmp_name,'C:/xampp/htdocs/armiarma/webroot/files/Events/file_name/' . $filename );
             $event = $this->Events->patchEntity($event, $this->request->getData());
+            $event['fitx']= $filename;
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
