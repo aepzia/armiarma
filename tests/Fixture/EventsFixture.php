@@ -27,6 +27,7 @@ class EventsFixture extends TestFixture
         'web' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'fitx' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'user_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'active' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -53,7 +54,8 @@ class EventsFixture extends TestFixture
             'sarrerak' => 'Lorem ipsum dolor sit amet',
             'web' => 'Lorem ipsum dolor sit amet',
             'fitx' => 'Lorem ipsum dolor sit amet',
-            'user_id' => 1
+            'user_id' => 1,
+            'active' => 1
         ],
     ];
 }

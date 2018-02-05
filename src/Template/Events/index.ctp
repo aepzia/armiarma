@@ -27,6 +27,7 @@
                 <th scope="col"><?= $this->Paginator->sort('web') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fitx') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('active') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -43,6 +44,7 @@
                 <td><?= h($event->web) ?></td>
                 <td><?= h($event->fitx) ?></td>
                 <td><?= $event->has('user') ? $this->Html->link($event->user->name, ['controller' => 'Users', 'action' => 'view', $event->user->id]) : '' ?></td>
+                <td><?= h($event->active) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $event->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->id]) ?>

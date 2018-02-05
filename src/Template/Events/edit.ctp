@@ -32,6 +32,7 @@
             echo $this->Form->control('web');
             echo $this->Form->control('fitx');
             echo $this->Form->control('user_id', ['options' => $users]);
+            echo $this->Form->control('active');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

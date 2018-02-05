@@ -16,6 +16,9 @@ use Cake\ORM\Entity;
  * @property string $web
  * @property string $fitx
  * @property int $user_id
+ * @property bool $active
+ *
+ * @property \App\Model\Entity\User $user
  */
 class Event extends Entity
 {
@@ -38,6 +41,8 @@ class Event extends Entity
         'sarrerak' => true,
         'web' => true,
         'fitx' => true,
-        'user_id' => true
+        'user_id' => true,
+        'active' => true,
+        'user' => true
     ];
 }

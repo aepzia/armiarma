@@ -58,5 +58,9 @@
             <th scope="row"><?= __('Data') ?></th>
             <td><?= h($event->data) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Active') ?></th>
+            <td><?= $event->active ? __('Yes') : __('No'); ?></td>
+        </tr>
     </table>
 </div>

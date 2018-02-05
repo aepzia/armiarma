@@ -26,6 +26,7 @@
             echo $this->Form->control('web');
             echo $this->Form->control('fitx', ['type' => 'file']);
             echo $this->Form->control('user_id', ['options' => $users]);
+            echo $this->Form->control('active');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

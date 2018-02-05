@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Events Model
  *
- * @property |\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  *
  * @method \App\Model\Entity\Event get($primaryKey, $options = [])
  * @method \App\Model\Entity\Event newEntity($data = null, array $options = [])
@@ -100,6 +100,11 @@ class EventsTable extends Table
             ->maxLength('fitx', 255)
             ->requirePresence('fitx', 'create')
             ->notEmpty('fitx');
+
+        $validator
+            ->boolean('active')
+            ->requirePresence('active', 'create')
+            ->notEmpty('active');
 
         return $validator;
     }
