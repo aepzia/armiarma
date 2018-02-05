@@ -43,8 +43,10 @@
             <td><?= h($event->web) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Fitx') ?></th>
-            <td><?= h($event->fitx) ?></td>
+            <th scope="row"><?= __('Irudia') ?></th>
+            <td>
+                <?= $this->Html->link(__('Ver imagen'), '/webroot/files/Event/file_name/' . $event ->fitx, ['target' => '_blank']) ?>
+            </td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
