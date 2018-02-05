@@ -52,6 +52,11 @@ class CreateEvents extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
+        $table->addColumn('user_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
         $table->create();
     }
 }

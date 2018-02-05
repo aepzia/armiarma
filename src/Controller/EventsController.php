@@ -6,6 +6,7 @@ use App\Controller\AppController;
 /**
  * Events Controller
  *
+ * @property \App\Model\Table\EventsTable $Events
  *
  * @method \App\Model\Entity\Event[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -19,6 +20,9 @@ class EventsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
         $events = $this->paginate($this->Events);
 
         $this->set(compact('events'));
@@ -34,7 +38,7 @@ class EventsController extends AppController
     public function view($id = null)
     {
         $event = $this->Events->get($id, [
-            'contain' => []
+            'contain' => ['Users']
         ]);
 
         $this->set('event', $event);
@@ -57,7 +61,8 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $this->set(compact('event'));
+        $users = $this->Events->Users->find('list', ['limit' => 200]);
+        $this->set(compact('event', 'users'));
     }
 
     /**
@@ -81,7 +86,8 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $this->set(compact('event'));
+        $users = $this->Events->Users->find('list', ['limit' => 200]);
+        $this->set(compact('event', 'users'));
     }
 
     /**

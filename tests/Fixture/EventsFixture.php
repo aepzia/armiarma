@@ -26,6 +26,7 @@ class EventsFixture extends TestFixture
         'sarrerak' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'web' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'fitx' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'user_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -46,12 +47,13 @@ class EventsFixture extends TestFixture
             'id' => 1,
             'izenburua' => 'Lorem ipsum dolor sit amet',
             'laburpena' => 'Lorem ipsum dolor sit amet',
-            'data' => '2018-02-04',
+            'data' => '2018-02-05',
             'tokia' => 'Lorem ipsum dolor sit amet',
             'prezioa' => 'Lorem ipsum dolor sit amet',
             'sarrerak' => 'Lorem ipsum dolor sit amet',
             'web' => 'Lorem ipsum dolor sit amet',
-            'fitx' => 'Lorem ipsum dolor sit amet'
+            'fitx' => 'Lorem ipsum dolor sit amet',
+            'user_id' => 1
         ],
     ];
 }
