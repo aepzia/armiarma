@@ -21,6 +21,6 @@ class AddUser extends AbstractMigration
       $user->active= true;
       $user->role = 'admin';
 
-    $UsersTable->save($user);
+      $UsersTable->save($user);
     }
 }

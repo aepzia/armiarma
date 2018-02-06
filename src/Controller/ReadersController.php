@@ -3,6 +3,15 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Mailer\Email;
+
+/*Email::configTransport('gmail',[
+  'host' => 'ssl://smtp.gmail.com',
+  'port' => 465,
+  'username' => 'ababaze@gmail.com',
+  'password' => 'abauaiazb',
+  'className' => 'Smtp'
+]);*/
 /**
  * Readers Controller
  *
@@ -58,7 +67,10 @@ class ReadersController extends AppController
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
             if ($this->Readers->save($reader)) {
                 $this->Flash->success(__('The reader has been saved.'));
-
+                $email = new Email();
+                $email->to('ababaze@gmail.com')
+                      ->subject('prona')
+                      ->send('My message');
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The reader could not be saved. Please, try again.'));
