@@ -19,7 +19,10 @@
         <?php
             echo $this->Form->control('izenburua');
             echo $this->Form->control('laburpena');
-            echo $this->Form->control('data');
+            echo $this->Form->control('data', [
+              'monthNames' => ['01' => 'Urtarrila', '02' => 'Otsaila','03'=> 'Martxoa', '04' =>'Apirila', '05'=> 'Maiatza' , '06'=>'Ekaina' , '07'=>'Uztaila',
+              '08'=> 'Abuztua', '09'=>'Iraila', '10' => 'Urria' , '11'=>'Azaroa', '12'=>'Abendua']
+            ]);
             echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak');
