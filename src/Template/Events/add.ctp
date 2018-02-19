@@ -6,16 +6,16 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Events'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Eragiketak') ?></li>
+        <li><?= $this->Html->link(__('Erabiltzaile lisa'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Erabiltzaile lista'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Erabiltzaile berria'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="events form large-9 medium-8 columns content">
     <?= $this->Form->create($event,array('enctype'=>'multipart/form-data')); ?>
     <fieldset>
-        <legend><?= __('Add Event') ?></legend>
+        <legend><?= __('Ekintza gehitu') ?></legend>
         <?php
             echo $this->Form->control('izenburua');
             echo $this->Form->control('laburpena');
@@ -29,6 +29,6 @@
             echo $this->Form->control('active');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Gorde')) ?>
     <?= $this->Form->end() ?>
 </div>
