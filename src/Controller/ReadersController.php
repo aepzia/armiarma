@@ -34,6 +34,8 @@ class ReadersController extends AppController
 
     public function index()
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $readers = $this->paginate($this->Readers);
 
         $this->set(compact('readers'));
@@ -48,6 +50,8 @@ class ReadersController extends AppController
      */
     public function view($id = null)
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $reader = $this->Readers->get($id, [
             'contain' => []
         ]);
@@ -62,15 +66,17 @@ class ReadersController extends AppController
      */
     public function add()
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $reader = $this->Readers->newEntity();
         if ($this->request->is('post')) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
             if ($this->Readers->save($reader)) {
                 $this->Flash->success(__('The reader has been saved.'));
-                $email = new Email();
+              /*  $email = new Email();
                 $email->to('ababaze@gmail.com')
                       ->subject('prona')
-                      ->send('My message');
+                      ->send('My message');*/
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The reader could not be saved. Please, try again.'));
@@ -87,6 +93,8 @@ class ReadersController extends AppController
      */
     public function edit($id = null)
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $reader = $this->Readers->get($id, [
             'contain' => []
         ]);

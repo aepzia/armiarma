@@ -20,6 +20,8 @@ class EventsController extends AppController
      */
     public function index()
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -37,6 +39,8 @@ class EventsController extends AppController
      */
     public function view($id = null)
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $event = $this->Events->get($id, [
             'contain' => ['Users']
         ]);
@@ -51,6 +55,8 @@ class EventsController extends AppController
      */
     public function add()
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
             $filename = $this->request->data['fitx']['name'];
@@ -78,6 +84,8 @@ class EventsController extends AppController
      */
     public function edit($id = null)
     {
+        $this -> viewBuilder() -> layout('admin');
+
         $event = $this->Events->get($id, [
             'contain' => []
         ]);

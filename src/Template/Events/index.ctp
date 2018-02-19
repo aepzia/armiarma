@@ -3,7 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Event[]|\Cake\Collection\CollectionInterface $events
  */
+ echo $this->Html->css('calendar.css');
 ?>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -12,39 +14,38 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="events index large-9 medium-8 columns content">
+<div class="agenda events index large-9 medium-8 columns content">
     <h3><?= __('Events') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-condensed table-bordered">
         <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+          <tr>
+              <th>Data</th>
+              <th>Lekua</th>
+              <th>Ekitaldia</th>
+              <th scope="col" class="actions"><?= __('Akzioak') ?></th>
+
+          </tr>
+            <!--<tr>
+                <th scope="col"><?= $this->Paginator->sort('data') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('izenburua') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('laburpena') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('data') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tokia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('prezioa') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('sarrerak') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('web') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fitx') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('active') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
+            </tr>-->
         </thead>
         <tbody>
             <?php foreach ($events as $event): ?>
             <tr>
-                <td><?= $this->Number->format($event->id) ?></td>
-                <td><?= h($event->izenburua) ?></td>
-                <td><?= h($event->laburpena) ?></td>
-                <td><?= h($event->data) ?></td>
+                <td class="agenda-date">
+                  <div class="dayofmonth"><?= h($event->data->day)?></div>
+                  <div class="shortdate text-muted"><?= h($event->data->month)?>, <?= h($event->data->year)?></div>
+
+                </td>
                 <td><?= h($event->tokia) ?></td>
-                <td><?= h($event->prezioa) ?></td>
-                <td><?= h($event->sarrerak) ?></td>
-                <td><?= h($event->web) ?></td>
-                <td><?= h($event->fitx) ?></td>
-                <td><?= $event->has('user') ? $this->Html->link($event->user->name, ['controller' => 'Users', 'action' => 'view', $event->user->id]) : '' ?></td>
-                <td><?= h($event->active) ?></td>
+                <td><?= h($event->izenburua) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $event->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->id]) ?>
