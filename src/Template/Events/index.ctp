@@ -8,21 +8,21 @@
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Event'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Eragiketak') ?></li>
+        <li><?= $this->Html->link(__('Ekintza berria'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Erabiltzaile lista'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Erabiltzaile berria'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="agenda events index large-9 medium-8 columns content">
-    <h3><?= __('Events') ?></h3>
+    <h3><?= __('Ekintzak') ?></h3>
     <table class="table table-condensed table-bordered">
         <thead>
           <tr>
               <th>Data</th>
               <th>Lekua</th>
               <th>Ekitaldia</th>
-              <th scope="col" class="actions"><?= __('Akzioak') ?></th>
+              <th scope="col" class="actions"><?= __('Eragiketak') ?></th>
 
           </tr>
             <!--<tr>
@@ -39,11 +39,7 @@
         <tbody>
             <?php foreach ($events as $event): ?>
             <tr>
-                <td class="agenda-date">
-                  <div class="dayofmonth"><?= h($event->data->day)?></div>
-                  <div class="shortdate text-muted"><?= h($event->data->month)?>, <?= h($event->data->year)?></div>
-
-                </td>
+                <td><?= h($event->data->year) . '/'. h($event->data->month) . '/'. h($event->data->day)?></td>
                 <td><?= h($event->tokia) ?></td>
                 <td><?= h($event->izenburua) ?></td>
                 <td class="actions">
