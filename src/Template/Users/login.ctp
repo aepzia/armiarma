@@ -6,10 +6,10 @@
 <div class="users form">
     <?= $this->Form->create() ?>
     <fieldset>
-        <legend><?= __('Please enter your username and password') ?></legend>
+        <legend><?= __('Mesedez sartu zure erabiltzaile eta pasahitza') ?></legend>
         <?= $this->Form->control('email') ?>
-        <?= $this->Form->control('password') ?>
+        <?= $this->Form->control('password', ['label' => 'Pasahitza']) ?>
     </fieldset>
-    <?= $this->Form->button(__('Login')); ?>
+    <?= $this->Form->button(__('Hasi saioa')); ?>
     <?= $this->Form->end() ?>
 </div>
