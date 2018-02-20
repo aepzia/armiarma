@@ -1,53 +1,51 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \Cake\Datasource\EntityInterface[]|\Cake\Collection\CollectionInterface $users
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('active') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('role') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?= $this->Number->format($user->id) ?></td>
-                <td><?= h($user->name) ?></td>
-                <td><?= h($user->email) ?></td>
-                <td><?= h($user->active) ?></td>
-                <td><?= h($user->role) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<html>
+    <head>
+      <title> Table </title>
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h2 style="color: #448aff;text-align: center;"> Erabiltzaile lista</h2>
+<hr>
+  <table class="table table-striped">
+    <div class="dropdown">
+      <a class="btn-top" style="margin-right: 15px;" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'add')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-plus"></span> &nbsp Erabiltzaile berria</a>
+  </div>
+</br>
 </div>
+   <thead>
+        <tr class="row-name">
+          <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+          <th scope="col"><?= $this->Paginator->sort('email') ?></th>
+          <th scope="col"><?= $this->Paginator->sort('active') ?></th>
+          <th scope="col"><?= $this->Paginator->sort('role') ?></th>
+          <th scope="col" class="actions"><?= __('') ?></th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr class="row-content">
+          <?php foreach ($users as $user): ?>
+          <tr>
+              <td><?= h($user->name) ?></td>
+              <td><?= h($user->email) ?></td>
+              <td><?= h($user->active) ?></td>
+              <td><?= h($user->role) ?></td>
+              <td class="actions">
+                  <a class="btn btn-danger edit" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'delete',$user->id)) ?>" aria-label="Settings">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn btn-info edit" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'edit',$user->id)) ?>" aria-label="Settings">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </a>
+            </td>
+          </tr>
+          <?php endforeach; ?>
+        </tr>
+     </tbody>
+  </table>
+    </body>
+</html>
