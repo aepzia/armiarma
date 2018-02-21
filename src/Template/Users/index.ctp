@@ -35,12 +35,14 @@
               <td><?= h($user->active) ?></td>
               <td><?= h($user->role) ?></td>
               <td class="actions">
-                  <a class="btn btn-danger edit" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'delete',$user->id)) ?>" aria-label="Settings">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </a>
-                  <a class="btn btn-info edit" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'edit',$user->id)) ?>" aria-label="Settings">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </a>
+                    <?= $this->Form->postLink('',
+                      ['action' => 'delete', $user->id],
+                      ['scape' => false, 'class' => 'btn btn-danger edit fa fa-trash','confirm' => __('Ziur zaude # {0} erabiltzailea ezabatu nahi duzula?', $user->name)]
+                      ) ?>
+                    <?= $this->Html->link('',
+                      ['action' => 'edit', $user->id],
+                      ['scape' => false, 'class' => 'btn btn-info edit fa fa-pencil-square-o']
+                      ) ?>
             </td>
           </tr>
           <?php endforeach; ?>
