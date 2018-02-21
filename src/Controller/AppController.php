@@ -49,7 +49,7 @@ class AppController extends Controller
             'controller' => 'Users',
             'action' => 'login',
         ],
-        'authError' => 'Did you really think you are allowed to see that?',
+        'authError' => '',
         'authenticate' => [
             'Form' => [
               'fields' => ['username' => 'email', 'password' => 'password']
