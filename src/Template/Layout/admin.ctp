@@ -21,8 +21,8 @@
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-            	<li><?= $this -> Html -> link('Erabiltzaileak', ['controller' => 'Users', 'action' => 'index']) ?></li>
-							<li><?= $this -> Html -> link('Irakurleak', ['controller' => 'Readers', 'action' => 'index']) ?></li>
+            	<li><?= $this -> Html -> link('Erakundeak', ['controller' => 'Users', 'action' => 'index']) ?></li>
+							<li><?= $this -> Html -> link('Erabiltzaileak', ['controller' => 'Readers', 'action' => 'index']) ?></li>
 							<li><?= $this -> Html -> link('Ekintzak', ['controller' => 'Events', 'action' => 'index']) ?></li>
             </ul>
             <ul class="right">

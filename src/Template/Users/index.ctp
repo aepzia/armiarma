@@ -9,11 +9,11 @@
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
     <body>
-        <h2 style="color: #448aff;text-align: center;"> Erabiltzaile lista</h2>
+        <h2 style="color: #448aff;text-align: center;"> Erakunde lista</h2>
 <hr>
   <table class="table table-striped">
     <div class="dropdown">
-      <a class="btn-top" style="margin-right: 15px;" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'add')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-plus"></span> &nbsp Erabiltzaile berria</a>
+      <a class="btn-top" style="margin-right: 15px;" href="<?php echo $this->Url->build(array('controller'=>'Users','action'=>'add')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-plus"></span> &nbsp Erakunde berria</a>
   </div>
 </br>
 </div>
