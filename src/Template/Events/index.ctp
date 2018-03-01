@@ -101,11 +101,11 @@
   width: 100%;
 }
 .list--item figcaption {
-  padding: 6px 12px 12px;
+  padding: 15px 5px 30px;
   font-size: 12px;
   color: #444;
 }
-.list--item header, .list--item figcaption {
+.list--item header{
   padding-left: 35%;
 }
 .list--item header {
@@ -179,35 +179,42 @@
     <tr>
       <article class="list--item">
         <figure>
-          <img src="//placehold.it/250x250" alt="">
+          <img src="<?= 'http://localhost/armiarma/webroot/files/Event/file_name/' . $event ->fitx ?>" alt="">
           <header>
           <div class="floater">
             <?= h($event->data->day)?>
           </br>
             <?= $hilabeteak[h($event->data->month)]?>
           </div>
-
           <?= h($event->izenburua) ?>
+          </br>
           <?= h($event->tokia) ?>
-          <?= h($event->izenburua) ?>
           </header>
           <figcaption>
             <?= h($event->laburpena) ?>
+          </br>
+            <?= 'Sarrerak erosteko tokia: '.h($event->sarrerak).' Prezioa: '. h($event->prezioa)?>
+          </br>
+            <?= 'Informazio gehiago: '.h($event->web)?>
+            </br>
+            </br>
+            <div style="padding-left: 50%">
             <?php echo $this->Html->link(
-                '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>',
+                '<span class="glyphicon glyphicon-pencil left" aria-hidden="true"></span>',
                 array('action' => 'edit', $event->id),
                 array(
                     'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
                 )
             ); ?>
             <?php echo $this->Form->postLink(
-                '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>',
+                '<span class="glyphicon glyphicon-trash left" aria-hidden="true"></span>',
                 array('action' => 'delete', $event->id),
                 array(
                     'escape' => false, 'class' => 'btn btn-danger', 'role' => 'button',
                     'confirm' => __('Ziur zaude # {0} erabiltzailea ezabatu nahi duzula?', $event->name)
                 )
             ); ?>
+          </div>
           </figcaption>
         </figure>
       </article>
