@@ -99,7 +99,8 @@ class EventsTable extends Table
             ->scalar('fitx')
             ->maxLength('fitx', 255)
             ->requirePresence('fitx', 'create')
-            ->notEmpty('fitx');
+            ->allowEmpty('fitx');
+
 
         $validator
             ->boolean('active')

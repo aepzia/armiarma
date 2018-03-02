@@ -90,7 +90,15 @@ class EventsController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $event = $this->Events->patchEntity($event, $this->request->getData());
+            if (empty($this->request->data['fitx']['name'])) {
+                unset($this->request->data['fitx']);
+            } else {
+              $resume = $this->request->data['Student']['fitx'];
+              move_uploaded_file($resume['tmp_name'], 'C:/xampp/htdocs/armiarma/webroot/files/Event/file_name/' . $resume['name']);
+              $this->request->data['Student']['resume'] = $resume['name'];
+              $event = $this->Events->patchEntity($event, $this->request->getData());
+            }
+
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
