@@ -4,6 +4,15 @@
  * @var \App\Model\Entity\Event $event
  */
 ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Eragiketak') ?></li>
@@ -19,11 +28,18 @@
         <?php
             echo $this->Form->control('izenburua');
             echo $this->Form->control('laburpena');
-            echo $this->Form->control('data', [
-              'monthNames' => ['01' => 'Urtarrila', '02' => 'Otsaila','03'=> 'Martxoa', '04' =>'Apirila', '05'=> 'Maiatza' , '06'=>'Ekaina' , '07'=>'Uztaila',
-              '08'=> 'Abuztua', '09'=>'Iraila', '10' => 'Urria' , '11'=>'Azaroa', '12'=>'Abendua']
-            ]);
-            echo $this->Form->control('tokia');
+            echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector'));?>
+            <script>
+            $( ".selector" ).datepicker({
+              dateFormat: "yy-mm-dd",
+              firstDay: 1,
+              dayNamesMin: [ "Al.", "As.", "Az.", "Og.", "Or.", "Lr.", "Ig." ],
+              monthNames: [ "Urtarrila", "Otsaila", "Martxoa", "Apirila", "Maiatza", "Ekaina", "Uztaila", "Abuztua","Iraila", "Urria", "Azaroa", "Abendua" ]
+
+            });
+            </script>
+
+      <?php echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak');
             echo $this->Form->control('web');
