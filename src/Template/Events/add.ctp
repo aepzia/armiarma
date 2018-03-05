@@ -28,7 +28,8 @@
         <?php
             echo $this->Form->control('izenburua');
             echo $this->Form->control('laburpena');
-            echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector'));?>
+            echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector','dateFormat'=> 'yy-mm-dd',
+));?>
             <script>
             $( ".selector" ).datepicker({
               dateFormat: "yy-mm-dd",
