@@ -25,7 +25,14 @@ class UsersController extends AppController
     }
     public function index()
     {
+      if($this->Auth->user() != 'null'){
+        $current_user = $this->Auth->user();
+      }
+      if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
+      } else if(isset($current_user) && $current_user['role'] == 'user'){
+        $this -> viewBuilder() -> layout('erakundea');
+      }
 
         $users = $this->paginate($this->Users);
 

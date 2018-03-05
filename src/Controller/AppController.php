@@ -71,7 +71,10 @@ class AppController extends Controller
     }
 
     public function isAuthorized($user){
-      return true;
+      if(isset($user['active']) && $user['active'] == 1){
+        return true;
+      }
+      return false;
     }
 
 }

@@ -20,12 +20,19 @@ class EventsController extends AppController
      */
     public function index()
     {
-        $this -> viewBuilder() -> layout('admin');
-
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
+        }
+        if(isset($current_user) && $current_user['role'] == 'admin'){
+          $this -> viewBuilder() -> layout('admin');
+        } else if(isset($current_user) && $current_user['role'] == 'user'){
+          $this -> viewBuilder() -> layout('erakundea');
+        }
         $this->paginate = [
             'contain' => ['Users']
         ];
-        $events = $this->paginate($this->Events);
+
+        $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
 
         $this->set(compact('events'));
     }
@@ -55,8 +62,14 @@ class EventsController extends AppController
      */
     public function add()
     {
+      if($this->Auth->user() != 'null'){
+        $current_user = $this->Auth->user();
+      }
+      if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
-
+      } else if(isset($current_user) && $current_user['role'] == 'user'){
+        $this -> viewBuilder() -> layout('erakundea');
+      }
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
             $filename = $this->request->data['fitx']['name'];
