@@ -32,7 +32,11 @@ class EventsController extends AppController
             'contain' => ['Users']
         ];
 
-        $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
+        if ($current_user['role'] == 'admin'){
+          $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
+        }if($current_user['role'] == 'user'){
+          $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC') , 'conditions' => array('user_id' => $current_user['id']) )));
+        }
 
         $this->set(compact('events'));
     }

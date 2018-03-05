@@ -30,8 +30,6 @@ class UsersController extends AppController
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
-      } else if(isset($current_user) && $current_user['role'] == 'user'){
-        $this -> viewBuilder() -> layout('erakundea');
       }
 
         $users = $this->paginate($this->Users);
@@ -48,7 +46,14 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-      $this -> viewBuilder() -> layout('admin');
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
+        }
+        if(isset($current_user) && $current_user['role'] == 'admin'){
+          $this -> viewBuilder() -> layout('admin');
+        } else if(isset($current_user) && $current_user['role'] == 'user'){
+          $this -> viewBuilder() -> layout('erakundea');
+        }
 
         $user = $this->Users->get($id, [
             'contain' => []
@@ -92,8 +97,14 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-      $this -> viewBuilder() -> layout('admin');
-
+      if($this->Auth->user() != 'null'){
+        $current_user = $this->Auth->user();
+      }
+      if(isset($current_user) && $current_user['role'] == 'admin'){
+        $this -> viewBuilder() -> layout('admin');
+      } else if(isset($current_user) && $current_user['role'] == 'user'){
+        $this -> viewBuilder() -> layout('erakundea');
+      }
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
