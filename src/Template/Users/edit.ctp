@@ -5,7 +5,7 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    
+
 </nav>
 <div class="users form large-9 medium-8 columns content">
     <?= $this->Form->create($user) ?>
@@ -15,8 +15,10 @@
             echo $this->Form->control('name');
             echo $this->Form->control('email');
             echo $this->Form->control('password',['value'=>'']);
-            echo $this->Form->control('active');
-            echo $this->Form->control('role');
+            if ($current_user['role'] == 'admin'){
+              echo $this->Form->control('active');
+              echo $this->Form->control('role');
+            }
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
