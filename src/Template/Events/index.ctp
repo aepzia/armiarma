@@ -179,7 +179,7 @@
     <tr>
       <article class="list--item">
         <figure>
-          <img src="<?= 'http://localhost/armiarma/webroot/files/Event/file_name/' . $event ->fitx ?>" alt="">
+          <img src="<?= 'http://armiarma.herokuapp.com/webroot/files/Event/file_name/' . $event ->fitx ?>" alt="">
           <header>
           <div class="floater">
             <?= h($event->data->day)?>
