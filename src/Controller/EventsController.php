@@ -78,7 +78,7 @@ class EventsController extends AppController
         if ($this->request->is('post')) {
             $filename = $this->request->data['fitx']['name'];
 			      $tmp_name = $this->request->data['fitx']['tmp_name'];
-            $isMove=move_uploaded_file($tmp_name,'armiarma.herokuapp.com/webroot/files/Event/file_name/' . $filename );
+              $isMove=move_uploaded_file($tmp_name,'/webroot/files/Event/file_name/' . $filename );
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $event['fitx']= $filename;
             if ($this->Events->save($event)) {
