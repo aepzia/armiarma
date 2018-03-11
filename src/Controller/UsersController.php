@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
+use google\appengine\api\mail\Message;
+
 
 /**
  * Users Controller
@@ -145,40 +147,18 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-              $to = "ababaze@gmail.com";
-              $subject = "HTML email";
-
-              $message = "
-              <html>
-              <head>
-              <title>HTML email</title>
-              </head>
-              <body>
-              <p>This email contains HTML Tags!</p>
-              <table>
-              <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              </tr>
-              <tr>
-              <td>John</td>
-              <td>Doe</td>
-              </tr>
-              </table>
-              </body>
-              </html>
-              ";
-
-              // Always set content-type when sending HTML email
-              $headers = "MIME-Version: 1.0" . "\r\n";
-              $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-              // More headers
-              $headers .= 'From: <webmaster@example.com>' . "\r\n";
-              $headers .= 'Cc: myboss@example.com' . "\r\n";
-
-              mail($to,$subject,$message,$headers);
-
+            try {
+              $message = new Message();
+            //  $message->setSender('from@example.com');
+              $message->addTo('ababaze@gmail.com');
+              $message->setSubject('Example email');
+              $message->setTextBody('Hello, world!');
+            //  $message->addAttachment('image.jpg', $image_data, $image_content_id);
+              $message->send();
+              echo 'Mail Sent';
+            } catch (InvalidArgumentException $e) {
+              echo 'There was an error';
+            }
             $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
           }
