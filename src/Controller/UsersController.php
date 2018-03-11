@@ -145,10 +145,17 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            $email = new Email();
-            $email->to('ababaze@gmail.com')
-                   ->subject('prona')
-                  ->send('My message');
+
+  // El mensaje
+  $mensaje = "Línea 1\r\nLínea 2\r\nLínea 3";
+
+  // Si cualquier línea es más larga de 70 caracteres, se debería usar wordwrap()
+  $mensaje = wordwrap($mensaje, 70, "\r\n");
+
+  // Enviarlo
+  mail('ababaze@gmail.com', 'Mi título', $mensaje);
+
+
             $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
           }
