@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Mailer\Email;
 
 /**
  * Users Controller
@@ -144,6 +145,10 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
+            $email = new Email();
+            $email->to('ababaze@gmail.com')
+                   ->subject('prona')
+                  ->send('My message');
             $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
           }
