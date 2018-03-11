@@ -145,16 +145,39 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
+              $to = "ababaze@gmail.com";
+              $subject = "HTML email";
 
-  // El mensaje
-  $mensaje = "Línea 1\r\nLínea 2\r\nLínea 3";
+              $message = "
+              <html>
+              <head>
+              <title>HTML email</title>
+              </head>
+              <body>
+              <p>This email contains HTML Tags!</p>
+              <table>
+              <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              </tr>
+              <tr>
+              <td>John</td>
+              <td>Doe</td>
+              </tr>
+              </table>
+              </body>
+              </html>
+              ";
 
-  // Si cualquier línea es más larga de 70 caracteres, se debería usar wordwrap()
-  $mensaje = wordwrap($mensaje, 70, "\r\n");
+              // Always set content-type when sending HTML email
+              $headers = "MIME-Version: 1.0" . "\r\n";
+              $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-  // Enviarlo
-  mail('ababaze@gmail.com', 'Mi título', $mensaje);
+              // More headers
+              $headers .= 'From: <webmaster@example.com>' . "\r\n";
+              $headers .= 'Cc: myboss@example.com' . "\r\n";
 
+              mail($to,$subject,$message,$headers);
 
             $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
