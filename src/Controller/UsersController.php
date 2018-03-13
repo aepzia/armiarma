@@ -145,13 +145,14 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
 
+
+
+
+            $this->Auth->setUser($user);
             $Email = new Email();
             $Email->to('ababaze@gmail.com');
             $Email->subject('Title');
             $Email->send('Message Content');
-
-
-            $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
