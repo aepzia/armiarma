@@ -16,7 +16,7 @@ class EmailsController extends AppController{
       $this->Email->replyTo = 'reply@address.com'; //reply to email//
       $this->Email->template = 'sample';//email template //
       $this->Email->sendAs = 'html';
-      if($this->Email->send()){
+      if($this->Email->deliver()){
       //mail send //
       }
 
