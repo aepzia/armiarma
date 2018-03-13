@@ -19,7 +19,6 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-     $components = array('Email');
 
     public function beforeFilter(Event $event){
       parent::beforeFilter($event);
