@@ -145,14 +145,7 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            $this->Email->smtpOptions = array(
-              'port'=>'587',
-              'timeout'=>'30',
-              'host' => 'smtp.sendgrid.net',
-              'username'=>'sendgrid_username',
-              'password'=>'sendgrid_password',
-              'client' => 'yourdomain.com'
-            );
+            
 
             $this->Email->delivery = 'smtp';
             $this->Email->from = 'Your Name ';
