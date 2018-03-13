@@ -146,7 +146,7 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
 
-            $Email = new CakeEmail();
+            $Email = new Email();
             $Email->config('smtp')
                   ->emailFormat('html')
                   ->to('ababaze@gmail.com')
