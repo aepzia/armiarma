@@ -146,9 +146,8 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
             //$email = new Email();
-            $this->email
-              ->to('ababaze@gmail.com')
-              ->send();
+            $this->Email->to='ababaze@gmail.com';
+              //->send();
 
 
 
