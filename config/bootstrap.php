@@ -144,7 +144,7 @@ if (!Configure::read('App.fullBaseUrl')) {
 
 Cache::setConfig(Configure::consume('Cache'));
 ConnectionManager::setConfig(Configure::consume('Datasources'));
-//Email::setConfigTransport(Configure::consume('EmailTransport'));
+Email::setConfigTransport(Configure::consume('EmailTransport'));
 //Plugin::load('MadalinIgnisca/Sendgrid', ['bootstrap' => true]);
 Email::setConfig(Configure::consume('Email'));
 Log::setConfig(Configure::consume('Log'));
