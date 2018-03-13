@@ -26,7 +26,7 @@ class UsersController extends AppController
     public function index()
     {
       if($this->Auth->user() != 'null'){
-        Email::deliver('ababaze@gmail.com', 'Subject', 'Message');
+        Email::deliver('ababaze@gmail.com', 'Subject', 'Message', ['from' => 'ababaze@gmil.com']);
         $current_user = $this->Auth->user();
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
