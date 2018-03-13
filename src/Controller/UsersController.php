@@ -4,7 +4,9 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
-require("https://github.com/sendgrid/sendgrid-php");
+
+require("plugins/sendgrid-php/sendgrid-php.php");
+
 
 
 /**
