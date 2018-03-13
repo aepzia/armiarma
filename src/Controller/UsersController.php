@@ -145,9 +145,9 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
             $this->Auth->setUser($user);
-            $this->email->from('ababaze@gmail.com');
-            $this->email->to('ababaze@gmail.com');
-            $this->email->subject('Title');
+            $this->email->_from('ababaze@gmail.com');
+            $this->email->_to('ababaze@gmail.com');
+            $this->email->_subject('Title');
             $this->email->send('Message Content');
             return $this->redirect($this->Auth->redirectUrl());
           }
