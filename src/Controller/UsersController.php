@@ -26,7 +26,6 @@ class UsersController extends AppController
     public function index()
     {
       if($this->Auth->user() != 'null'){
-        Email::deliver('ababaze@gmail.com', 'Subject', 'Message','default',true);
         $current_user = $this->Auth->user();
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
@@ -146,6 +145,10 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
             $this->Auth->setUser($user);
+            $Email = new Email();
+            $Email->to('ababaze@gmail.com');
+            $Email->subject('Title');
+            $Email->send('Message Content');
             return $this->redirect($this->Auth->redirectUrl());
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
