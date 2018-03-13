@@ -145,17 +145,12 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            require 'vendor/autoload.php';
-
-            // If you are not using Composer (recommended)
-            // require("path/to/sendgrid-php/sendgrid-php.php");
-
             $request_body = json_decode('{
               "personalizations": [
                 {
                   "to": [
                     {
-                      "email": "test@example.com"
+                      "email": "ababaze@gmail.com"
                     }
                   ],
                   "subject": "Hello World from the SendGrid PHP Library!"
