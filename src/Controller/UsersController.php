@@ -148,7 +148,6 @@ class UsersController extends AppController
 
             $Email = new Email();
             $Email->config('smtp')
-                  ->emailFormat('html')
                   ->to('ababaze@gmail.com')
                   ->subject('kjkjkjkjkjkj'); // all data is correct i checked several times
             if($Email->send('kjkfsjsjkjkjk'))
