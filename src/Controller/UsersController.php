@@ -145,11 +145,13 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-          
+
             $this->Email->to = 'Recipient Name ';
             $this->set('name', 'Recipient Name');
             $this->Email->subject = 'This is a subject';
-            $this->Email->send();
+            if($this->Email->send()){
+              $this->Flash->error('Email bidalia');
+            }
 
 
             $this->Auth->setUser($user);
