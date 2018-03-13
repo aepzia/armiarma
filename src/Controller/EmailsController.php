@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Mailer\Email;
 
-class EmailController extends AppController{
+class EmailsController extends AppController{
 
 //public $components=array('Email');
 
