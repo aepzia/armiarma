@@ -146,7 +146,6 @@ class UsersController extends AppController
           if($user){
 
             $Email = new Email();
-            $Email->from(array('ababaze@gmail.com' => 'Sender Name'));
             $Email->to('ababaze@gmail.com');
             $Email->subject('Title');
             $Email->send('Message Content');
