@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-//use Cake\Mailer\Email;
+use Cake\Mailer\Email;
 
 /**
  * Users Controller
@@ -13,7 +13,6 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-public $components=array('Email');
     /**
      * Index method
      *
@@ -146,12 +145,11 @@ public $components=array('Email');
           $user = $this->Auth->identify();
           if($user){
 
-            $this->Email->to = 'Recipient Name ';
-            $this->set('name', 'Recipient Name');
-            $this->Email->subject = 'This is a subject';
-            if($this->Email->send()){
-              $this->Flash->error('Email bidalia');
-            }
+            $Email = new Email();
+            $Email->from(array('sender_email' => 'Sender Name'));
+            $Email->to('receiver email');
+            $Email->subject('Title');
+            $Email->send('Message Content');
 
 
             $this->Auth->setUser($user);
