@@ -147,9 +147,9 @@ class UsersController extends AppController
           if($user){
 
             $Email = new Email();
-            $Email->config('smtp')
-                  ->to('ababaze@gmail.com')
-                  ->subject('kjkjkjkjkjkj'); // all data is correct i checked several times
+            $Email->config('smtp');
+            $Email->to('ababaze@gmail.com');
+            $Email->subject('kjkjkjkjkjkj'); // all data is correct i checked several times
             if($Email->send('kjkfsjsjkjkjk'))
             {
                 $this->Session->setFlash('Mail sent','default',array('class'=>'alert alert-success'));
