@@ -147,8 +147,7 @@ class UsersController extends AppController
           if($user){
 
             $email = new Email('default');
-            $email->from(['me@example.com' => 'My Site'])
-                ->to('ababaze@gmail.com')
+            $email->to('ababaze@gmail.com')
                 ->subject('About');
             if($email->send('hhkh'))
             {
