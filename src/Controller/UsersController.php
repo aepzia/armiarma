@@ -145,14 +145,8 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            $this->Email->delivery = 'smtp';
-            $this->Email->from = 'Your Name ';
-            $this->Email->to = 'Recipient Name ';
-            $this->set('name', 'Recipient Name');
-            $this->Email->subject = 'This is a subject';
-            $this->Email->template = 'registration';
-            $this->Email->sendAs = 'both';
-            $this->Email->send();
+            $this->SendgridEmail->init('user@example.org', 'me@example.org', 'test mail', 'email_template', 'mail category');
+            $this->SendgridEmail->send();
 
 
             $this->Auth->setUser($user);
