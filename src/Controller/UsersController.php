@@ -145,10 +145,20 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
             $this->Auth->setUser($user);
-            $this->email->_from('ababaze@gmail.com');
-            $this->email->_to('ababaze@gmail.com');
-            $this->email->_subject('Title');
-            $this->email->send('Message Content');
+            $Email = new Email();
+
+            $Email->smtpOptions = array(
+            ‘port’=>’25’,
+            ‘timeout’=>’30’,
+            ‘host’ => ‘smtp.sendgrid.net’,
+            ‘username’=>’your_sendgrid_username’,
+            ‘password’=>’your_sendgrid_password’,
+            ‘client’ => ‘smtp_helo_hostname’);
+
+            $Email->from('ababaze@gmail.com');
+            $Email->to('ababaze@gmail.com');
+            $Email->subject('Title');
+            $Email->send('Message Content');
             return $this->redirect($this->Auth->redirectUrl());
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
