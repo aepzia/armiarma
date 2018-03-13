@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
+require("https://github.com/sendgrid/sendgrid-php");
+
 
 /**
  * Users Controller
@@ -147,18 +149,19 @@ class UsersController extends AppController
             $this->Auth->setUser($user);
 
 
-            // El mensaje
-$mensaje = "Línea 1\r\nLínea 2\r\nLínea 3";
+            $from = new SendGrid\Email("Example User", "test@example.com");
+            $subject = "Sending with SendGrid is Fun";
+            $to = new SendGrid\Email("Example User", "test@example.com");
+            $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+            $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-// Si cualquier línea es más larga de 70 caracteres, se debería usar wordwrap()
-$mensaje = wordwrap($mensaje, 70, "\r\n");
+            $apiKey = getenv('SENDGRID_API_KEY');
+            $sg = new \SendGrid($apiKey);
 
-// Enviarlo
-if(mail('ababaze@gmail.com', 'Mi título', $mensaje)){
-  $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
-
-}
-
+            $response = $sg->client->mail()->send()->post($mail);
+            echo $response->statusCode();
+            print_r($response->headers());
+            echo $response->body();
             return $this->redirect($this->Auth->redirectUrl());
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
