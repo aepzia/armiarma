@@ -145,7 +145,7 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            $this->SendgridEmail->init('user@example.org', 'me@example.org', 'test mail', 'email_template', 'mail category');
+            //$this->SendgridEmail->init('user@example.org', 'me@example.org', 'test mail', 'email_template', 'mail category');
             $this->SendgridEmail->send();
 
 
