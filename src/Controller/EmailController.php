@@ -6,7 +6,7 @@ use Cake\Mailer\Email;
 
 class EmailController extends AppController{
 
-public $components=array('Email');
+//public $components=array('Email');
 
   function send(){
 
