@@ -1,4 +1,8 @@
 <?php
+namespace App\Controller;
+
+use App\Controller\AppController;
+
 class EmailController extends AppController{
 
 public $components=array('Email');
