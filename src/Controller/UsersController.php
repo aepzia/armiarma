@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-use Cake\Mailer\Email;
+//use Cake\Mailer\Email;
 
 /**
  * Users Controller
@@ -145,16 +145,40 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
+            require 'vendor/autoload.php';
 
-            $email = new Email('default');
-            $email->to('ababaze@gmail.com')
-                ->subject('About');
-            if($email->send('hhkh'))
-            {
-                $this->Session->setFlash('Mail sent','default',array('class'=>'alert alert-success'));
-            } else  {
-                $this->Session->setFlash('Problem during sending email','default',array('class'=>'alert alert-warning'));
-            }
+            // If you are not using Composer (recommended)
+            // require("path/to/sendgrid-php/sendgrid-php.php");
+
+            $request_body = json_decode('{
+              "personalizations": [
+                {
+                  "to": [
+                    {
+                      "email": "test@example.com"
+                    }
+                  ],
+                  "subject": "Hello World from the SendGrid PHP Library!"
+                }
+              ],
+              "from": {
+                "email": "test@example.com"
+              },
+              "content": [
+                {
+                  "type": "text/plain",
+                  "value": "Hello, Email!"
+                }
+              ]
+            }');
+
+            $apiKey = getenv('SENDGRID_API_KEY');
+            $sg = new \SendGrid($apiKey);
+
+            $response = $sg->client->mail()->send()->post($request_body);
+            echo $response->statusCode();
+            echo $response->body();
+            echo $response->headers();
 
 
             $this->Auth->setUser($user);
