@@ -4,7 +4,6 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
-require 'vendor/autoload.php';
 
 /**
  * Users Controller
@@ -146,11 +145,38 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
             $this->Auth->setUser($user);
-            $Email = new Email();
-            $Email->from('ababaze@gmail.com');
-            $Email->to('ababaze@gmail.com');
-            $Email->subject('Title');
-            $Email->send('Message Content');
+
+
+            $request_body = json_decode('{
+            "personalizations": [
+              {
+                "to": [
+                  {
+                    "email": "ababaze@gmail.com"
+                  }
+                ],
+                "subject": "Hello World from the SendGrid PHP Library!"
+              }
+            ],
+            "from": {
+              "email": "ababaze@gmail.com"
+            },
+            "content": [
+              {
+                "type": "text/plain",
+                "value": "Hello, Email!"
+              }
+            ]
+          }');
+
+          $apiKey = getenv('SENDGRID_API_KEY');
+          $sg = new \SendGrid($apiKey);
+
+          $response = $sg->client->mail()->send()->post($request_body);
+          echo $response->statusCode();
+          echo $response->body();
+          echo $response->headers();
+
             return $this->redirect($this->Auth->redirectUrl());
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
