@@ -147,34 +147,17 @@ class UsersController extends AppController
             $this->Auth->setUser($user);
 
 
-            $request_body = json_decode('{
-            "personalizations": [
-              {
-                "to": [
-                  {
-                    "email": "ababaze@gmail.com"
-                  }
-                ],
-                "subject": "Hello World from the SendGrid PHP Library!"
-              }
-            ],
-            "from": {
-              "email": "ababaze@gmail.com"
-            },
-            "content": [
-              {
-                "type": "text/plain",
-                "value": "Hello, Email!"
-              }
-            ]
-          }');
+            // El mensaje
+$mensaje = "Línea 1\r\nLínea 2\r\nLínea 3";
 
-          $apiKey = getenv('SENDGRID_API_KEY');
+// Si cualquier línea es más larga de 70 caracteres, se debería usar wordwrap()
+$mensaje = wordwrap($mensaje, 70, "\r\n");
 
-          $response = mail()->send()->post($request_body);
-          echo $response->statusCode();
-          echo $response->body();
-          echo $response->headers();
+// Enviarlo
+if(mail('ababaze@gmail.com', 'Mi título', $mensaje)){
+  $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
+
+}
 
             return $this->redirect($this->Auth->redirectUrl());
           }
