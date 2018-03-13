@@ -13,7 +13,7 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-
+public $components=array('Email');
     /**
      * Index method
      *
