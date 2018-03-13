@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
+require 'vendor/autoload.php';
 
 /**
  * Users Controller
@@ -146,12 +147,6 @@ class UsersController extends AppController
           if($user){
             $this->Auth->setUser($user);
             $Email = new Email();
-
-            $Email->smtpOptions = array(
-            'port'=>'25',
-            'timeout'=>'30',
-            'host' => 'smtp.sendgrid.net');
-
             $Email->from('ababaze@gmail.com');
             $Email->to('ababaze@gmail.com');
             $Email->subject('Title');
