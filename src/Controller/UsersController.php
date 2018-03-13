@@ -145,13 +145,18 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            $mensaje = "Línea 1\r\nLínea 2\r\nLínea 3";
-            $mensaje = wordwrap($mensaje, 70, "\r\n");
-            if(!mail('ababaze@gmail.com', 'Mi título', $mensaje)){
-              $this->Flash->error('Emailik ez');
 
+            $Email = new CakeEmail();
+            $Email->config('smtp')
+                  ->emailFormat('html')
+                  ->to('ababaze@gmail.com')
+                  ->subject('kjkjkjkjkjkj'); // all data is correct i checked several times
+            if($Email->send('kjkfsjsjkjkjk'))
+            {
+                $this->Session->setFlash('Mail sent','default',array('class'=>'alert alert-success'));
+            } else  {
+                $this->Session->setFlash('Problem during sending email','default',array('class'=>'alert alert-warning'));
             }
-
 
 
             $this->Auth->setUser($user);
