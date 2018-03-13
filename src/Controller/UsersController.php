@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Mailer\Email;
 
 /**
  * Users Controller
@@ -145,11 +146,11 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if($user){
 
-            $Email = new Email();
-            $Email->config('smtp');
-            $Email->to('ababaze@gmail.com');
-            $Email->subject('kjkjkjkjkjkj'); // all data is correct i checked several times
-            if($Email->send())
+            $email = new Email('default');
+            $email->from(['me@example.com' => 'My Site'])
+                ->to('ababaze@gmail.com')
+                ->subject('About');
+            if($email->send('hhkh'))
             {
                 $this->Session->setFlash('Mail sent','default',array('class'=>'alert alert-success'));
             } else  {
