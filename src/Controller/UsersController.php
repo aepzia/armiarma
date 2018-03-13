@@ -29,10 +29,9 @@ class UsersController extends AppController
         $current_user = $this->Auth->user();
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
-        $Email = new Email();
-        $Email->to('ababaze@gmail.com');
-        $Email->subject('Title');
-        $Email->send('Message Content');
+        $this->email->to('ababaze@gmail.com');
+        $this->email->subject('Title');
+        $this->email->send('Message Content');
         $this -> viewBuilder() -> layout('admin');
       }
 
