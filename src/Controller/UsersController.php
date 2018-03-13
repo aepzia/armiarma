@@ -1,4 +1,5 @@
 <?php
+<!--?php var $components = array('Email'); ?-->
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -145,35 +146,23 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
           if($user){
-            $request_body = json_decode('{
-              "personalizations": [
-                {
-                  "to": [
-                    {
-                      "email": "ababaze@gmail.com"
-                    }
-                  ],
-                  "subject": "Hello World from the SendGrid PHP Library!"
-                }
-              ],
-              "from": {
-                "email": "test@example.com"
-              },
-              "content": [
-                {
-                  "type": "text/plain",
-                  "value": "Hello, Email!"
-                }
-              ]
-            }');
+            $this->Email->smtpOptions = array(
+              'port'=>'587',
+              'timeout'=>'30',
+              'host' => 'smtp.sendgrid.net',
+              'username'=>'sendgrid_username',
+              'password'=>'sendgrid_password',
+              'client' => 'yourdomain.com'
+            );
 
-            $apiKey = getenv('SENDGRID_API_KEY');
-            $sg = new \SendGrid($apiKey);
-
-            $response = $sg->client->mail()->send()->post($request_body);
-            echo $response->statusCode();
-            echo $response->body();
-            echo $response->headers();
+            $this->Email->delivery = 'smtp';
+            $this->Email->from = 'Your Name ';
+            $this->Email->to = 'Recipient Name ';
+            $this->set('name', 'Recipient Name');
+            $this->Email->subject = 'This is a subject';
+            $this->Email->template = 'registration';
+            $this->Email->sendAs = 'both';
+            $this->Email->send();
 
 
             $this->Auth->setUser($user);
