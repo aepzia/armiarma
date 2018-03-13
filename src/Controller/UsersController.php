@@ -148,12 +148,9 @@ class UsersController extends AppController
             $Email = new Email();
 
             $Email->smtpOptions = array(
-            ‘port’=>’25’,
-            ‘timeout’=>’30’,
-            ‘host’ => ‘smtp.sendgrid.net’,
-            ‘username’=>’your_sendgrid_username’,
-            ‘password’=>’your_sendgrid_password’,
-            ‘client’ => ‘smtp_helo_hostname’);
+            'port'=>'25',
+            'timeout'=>'30',
+            'host' => 'smtp.sendgrid.net');
 
             $Email->from('ababaze@gmail.com');
             $Email->to('ababaze@gmail.com');
