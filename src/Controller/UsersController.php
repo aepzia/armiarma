@@ -148,7 +148,7 @@ class UsersController extends AppController
           if($user){
             $this->Auth->setUser($user);
 
-            Email::configTransport('semdgrid', [
+            Email::configTransport('sendgrid', [
                 'host' => 'smtp.sendgrid.net',
                 'port' => 587 ,
                 'username' => getenv('SENDGRID_USERNAME'),
