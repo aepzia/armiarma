@@ -149,7 +149,7 @@ class UsersController extends AppController
             $this->Auth->setUser($user);
 
 
-            $from = "test@example.com";
+            $from = "ababaze@gmail.com";
             $subject = "Sending with SendGrid is Fun";
             $to =  "ababaze@gmail.com";
             $content = "and easy to do anywhere, even with PHP";
