@@ -17,7 +17,6 @@
  * Configure paths required to find CakePHP + general filepath constants
  */
 require __DIR__ . '/paths.php';
-
 /*
  * Bootstrap CakePHP.
  *
@@ -28,6 +27,8 @@ require __DIR__ . '/paths.php';
  * - Setting the default application paths.
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
+require CORE_PATH . 'plugins' . DS . 'sendgrid-php/sendgrid-php.php';
+
 
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
