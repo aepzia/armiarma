@@ -149,10 +149,10 @@ class UsersController extends AppController
             $this->Auth->setUser($user);
 
 
-            $from = new SendGrid\Email("Example User", "test@example.com");
+            $from = "test@example.com";
             $subject = "Sending with SendGrid is Fun";
-            $to = new SendGrid\Email("Example User", "ababaze@gmail.com");
-            $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+            $to =  "ababaze@gmail.com"
+            $content = "and easy to do anywhere, even with PHP"
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
             $apiKey = getenv('SENDGRID_API_KEY');
