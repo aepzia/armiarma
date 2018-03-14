@@ -17,7 +17,7 @@
  * Configure paths required to find CakePHP + general filepath constants
  */
 require __DIR__ . '/paths.php';
-
+require("/plugins/sendgrid-php/sendgrid-php.php");
 /*
  * Bootstrap CakePHP.
  *
