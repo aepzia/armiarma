@@ -3,8 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-use Cake\Mailer\Email;
-use SendGrid;
+//use Cake\Mailer\Email;
+use SendGrid\Mail;
 
 
 /**
@@ -148,14 +148,20 @@ class UsersController extends AppController
           if($user){
             $this->Auth->setUser($user);
 
-            $this->Email->delivery = 'smtp';
-            $this->Email->from = 'Your Name ';
-            $this->Email->to = 'Recipient Name ';
-            $this->set('name', 'Recipient Name');
-            $this->Email->subject = 'This is a subject';
-            $this->Email->template = 'registration';
-            $this->Email->sendAs = 'both';
-            $this->Email->send();
+
+            $from = "test@example.com";
+            $subject = "Sending with SendGrid is Fun";
+            $to =  "ababaze@gmail.com";
+            $content = "and easy to do anywhere, even with PHP";
+            $mail = new Mail($from, $subject, $to, $content);
+
+            $apiKey = getenv('SENDGRID_API_KEY');
+            $sg = new \SendGrid($apiKey);
+
+            $response = $sg->client->mail()->send()->post($mail);
+            echo $response->statusCode();
+            print_r($response->headers());
+            echo $response->body();
 
             return $this->redirect($this->Auth->redirectUrl());
           }
