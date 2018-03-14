@@ -3,8 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-//use Cake\Mailer\Email;
-use SendGrid\Mail;
+use Cake\Mailer\Email;
+use SendGrid;
 
 
 /**
