@@ -151,7 +151,7 @@ class UsersController extends AppController
 
             $from = new SendGrid\Email("Example User", "test@example.com");
             $subject = "Sending with SendGrid is Fun";
-            $to = new SendGrid\Email("Example User", "test@example.com");
+            $to = new SendGrid\Email("Example User", "ababaze@gmail.com");
             $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
@@ -162,6 +162,7 @@ class UsersController extends AppController
             echo $response->statusCode();
             print_r($response->headers());
             echo $response->body();
+
             return $this->redirect($this->Auth->redirectUrl());
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
