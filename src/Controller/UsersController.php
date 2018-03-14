@@ -151,7 +151,7 @@ class UsersController extends AppController
             $email = new Email('default');
             $email->from(['ababaze@gmail.com' => 'My Site'])
                 ->to('ababaze@gmail.com')
-                ->subject('About')
+                ->subject('About');
 
 
             $apiKey = getenv('SENDGRID_API_KEY');
