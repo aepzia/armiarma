@@ -164,8 +164,8 @@ class UsersController extends AppController
                     'port' => 587 ,
                     'username' => getenv('SENDGRID_USERNAME'),
                     'password' => getenv('SENDGRID_PASSWORD'),
-                    'className' => 'stmp'
-                ])
+                    'className' => 'Smtp'
+                  ])
                 ->send();
 
             return $this->redirect($this->Auth->redirectUrl());
