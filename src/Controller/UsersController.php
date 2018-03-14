@@ -155,7 +155,7 @@ class UsersController extends AppController
 
 
             $apiKey = getenv('SENDGRID_API_KEY');
-            $sg = new \SendGrid($apiKey);
+            $sg = new SendGrid($apiKey);
 
             $response = $sg->client->mail()->send()->post($mail);
             echo $response->statusCode();
