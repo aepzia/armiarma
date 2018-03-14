@@ -153,7 +153,7 @@ class UsersController extends AppController
             $subject = "Sending with SendGrid is Fun";
             $to =  "ababaze@gmail.com";
             $content = "and easy to do anywhere, even with PHP";
-            $mail = new Mail($from, $subject, $to, $content);
+            $mail = new Email($from, $subject, $to, $content);
 
             $apiKey = getenv('SENDGRID_API_KEY');
             $sg = new \SendGrid($apiKey);
