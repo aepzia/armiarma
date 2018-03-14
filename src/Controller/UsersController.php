@@ -160,13 +160,7 @@ class UsersController extends AppController
             $email->from(['ababaze@gmail.com' => 'My Site'])
                 ->to('ababaze@gmail.com')
                 ->subject('About')
-                ->transport('sendgrid', [
-                    'host' => 'smtp.sendgrid.net',
-                    'port' => 587 ,
-                    'username' => getenv('SENDGRID_USERNAME'),
-                    'password' => getenv('SENDGRID_PASSWORD'),
-                    'className' => 'Smtp'
-                ])
+                ->transport('sendgrid')
                 ->send();
 
             return $this->redirect($this->Auth->redirectUrl());
