@@ -148,19 +148,17 @@ class UsersController extends AppController
           if($user){
             $this->Auth->setUser($user);
 
-            $email = new Email('default');
+            Email::configTransport('semdgrid', [
+                'host' => 'smtp.sendgrid.net',
+                'port' => 587 ,
+                'username' => getenv('SENDGRID_USERNAME'),
+                'password' => getenv('SENDGRID_PASSWORD'),
+            ]);
+            $email = new Email('sendgrid');
             $email->from(['ababaze@gmail.com' => 'My Site'])
                 ->to('ababaze@gmail.com')
-                ->subject('About');
-
-
-            $apiKey = getenv('SENDGRID_API_KEY');
-            $sg = new SendGrid($apiKey);
-
-            $response = $sg->client->mail()->send()->post($mail);
-            echo $response->statusCode();
-            print_r($response->headers());
-            echo $response->body();
+                ->subject('About')
+                ->send();
 
             return $this->redirect($this->Auth->redirectUrl());
           }
