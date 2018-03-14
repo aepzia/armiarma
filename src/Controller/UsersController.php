@@ -154,7 +154,7 @@ class UsersController extends AppController
                 'username' => getenv('SENDGRID_USERNAME'),
                 'password' => getenv('SENDGRID_PASSWORD'),
             ]);
-            $email = new Email('sendgrid');
+            $email = new Email();
             $email->from(['ababaze@gmail.com' => 'My Site'])
                 ->to('ababaze@gmail.com')
                 ->subject('About')
