@@ -164,6 +164,7 @@ class UsersController extends AppController
                     'port' => 587 ,
                     'username' => getenv('SENDGRID_USERNAME'),
                     'password' => getenv('SENDGRID_PASSWORD'),
+                    'className' => 'stmp'
                 ])
                 ->send();
 
