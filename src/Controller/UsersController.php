@@ -148,11 +148,11 @@ class UsersController extends AppController
           if($user){
             $this->Auth->setUser($user);
 
+            $email = new Email('default');
+            $email->from(['ababaze@gmail.com' => 'My Site'])
+                ->to('ababaze@gmail.com')
+                ->subject('About')
 
-            $subject = "Sending with SendGrid is Fun";
-            $to =  "ababaze@gmail.com";
-            $content = "and easy to do anywhere, even with PHP";
-            $mail = new Email($subject, $to, $content);
 
             $apiKey = getenv('SENDGRID_API_KEY');
             $sg = new \SendGrid($apiKey);
