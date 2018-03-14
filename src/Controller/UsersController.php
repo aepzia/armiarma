@@ -153,7 +153,7 @@ class UsersController extends AppController
                 'port' => 587 ,
                 'username' => getenv('SENDGRID_USERNAME'),
                 'password' => getenv('SENDGRID_PASSWORD'),
-                'className' => 'smtp'
+                'className' => 'Smtp'
             ]);
             $email = new Email('default');
 
