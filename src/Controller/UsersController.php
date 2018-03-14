@@ -154,13 +154,19 @@ class UsersController extends AppController
                 'username' => getenv('SENDGRID_USERNAME'),
                 'password' => getenv('SENDGRID_PASSWORD'),
                 'className' => 'sendgrid'
-
             ]);
             $email = new Email('sendgrid');
 
             $email->from(['ababaze@gmail.com' => 'My Site'])
                 ->to('ababaze@gmail.com')
                 ->subject('About')
+                ->trnsport('sendgrid', [
+                    'host' => 'smtp.sendgrid.net',
+                    'port' => 587 ,
+                    'username' => getenv('SENDGRID_USERNAME'),
+                    'password' => getenv('SENDGRID_PASSWORD'),
+                    'className' => 'sendgrid'
+                ])
                 ->send();
 
             return $this->redirect($this->Auth->redirectUrl());
