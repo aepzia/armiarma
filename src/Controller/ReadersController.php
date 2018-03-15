@@ -5,13 +5,6 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
 
-/*Email::configTransport('gmail',[
-  'host' => 'ssl://smtp.gmail.com',
-  'port' => 465,
-  'username' => 'ababaze@gmail.com',
-  'password' => 'abauaiazb',
-  'className' => 'Smtp'
-]);*/
 /**
  * Readers Controller
  *

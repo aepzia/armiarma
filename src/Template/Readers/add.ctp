@@ -40,11 +40,28 @@
                     ['value' => false, 'text' => 'Ez'],
                 ]
             );
-            echo $this->Form->label('Zure izen, abizen/deiturak eta eposta helbidea?');
+            echo $this->Form->label('"Aho Bizi / Belarri prest" ekimenari buruzko informazioa jaso nahi duzu?');
+            echo $this->Form->radio(
+                'ahobizi',
+                [
+                    ['value' => true, 'text' => 'Bai'],
+                    ['value' => false, 'text' => 'Ez'],
+                ]
+            );
+            echo $this->Form->label('Euskararen aldeko ekimenentan bolondres bezela aritzeko informazioa jaso nahiko zenuke?');
+            echo $this->Form->radio(
+                'bolondres',
+                [
+                    ['value' => true, 'text' => 'Bai'],
+                    ['value' => false, 'text' => 'Ez'],
+                ]
+            );
+            echo $this->Form->label('Zure izen, abizen/deiturak, eposta helbidea eta jatorriko herria?');
 
             echo $this->Form->control('izena');
             echo $this->Form->control('abizena');
             echo $this->Form->control('email');
+            echo $this->Form->control('herria');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Bidali')) ?>
