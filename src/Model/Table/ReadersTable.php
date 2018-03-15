@@ -61,6 +61,15 @@ class ReadersTable extends Table
             ->boolean('hizkuntzapolitikainfo')
             ->requirePresence('hizkuntzapolitikainfo', 'create')
             ->notEmpty('hizkuntzapolitikainfo');
+        $validator
+            ->boolean('ahobizi')
+            ->requirePresence('ahobizi', 'create')
+            ->notEmpty('ahobizi');
+        $validator
+            ->boolean('bolondres')
+            ->requirePresence('bolondres', 'create')
+            ->notEmpty('bolondres');
+
 
         $validator
             ->scalar('izena')
@@ -73,6 +82,11 @@ class ReadersTable extends Table
             ->maxLength('abizena', 255)
             ->requirePresence('abizena', 'create')
             ->notEmpty('abizena');
+        $validator
+            ->scalar('herria')
+            ->maxLength('herria', 255)
+            ->requirePresence('herria', 'create')
+            ->notEmpty('herria');
 
         $validator
             ->email('email')

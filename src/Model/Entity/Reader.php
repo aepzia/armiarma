@@ -32,6 +32,9 @@ class Reader extends Entity
         'hizkuntzapolitikainfo' => true,
         'izena' => true,
         'abizena' => true,
-        'email' => true
+        'email' => true,
+        'herria' => true,
+        'ahobizi' => true,
+        'bolondres' => true
     ];
 }
