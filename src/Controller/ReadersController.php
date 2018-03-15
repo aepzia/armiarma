@@ -59,18 +59,19 @@ class ReadersController extends AppController
      */
     public function add()
     {
-        $this -> viewBuilder() -> layout('admin');
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
+        }
+        if(isset($current_user) && $current_user['role'] == 'admin'){
+          $this -> viewBuilder() -> layout('admin');
+        }
 
         $reader = $this->Readers->newEntity();
         if ($this->request->is('post')) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
             if ($this->Readers->save($reader)) {
                 $this->Flash->success(__('The reader has been saved.'));
-              /*  $email = new Email();
-                $email->to('ababaze@gmail.com')
-                      ->subject('prona')
-                      ->send('My message');*/
-                return $this->redirect(['action' => 'index']);
+              //  return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The reader could not be saved. Please, try again.'));
         }
