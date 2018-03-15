@@ -13,7 +13,7 @@ class AddnewVarToReaders extends AbstractMigration
     public function change()
     {
         $table = $this->table('readers');
-        $table->addColumn('ahobizu', 'boolean', [
+        $table->addColumn('ahobizi', 'boolean', [
             'default' => null,
             'null' => false,
         ]);
