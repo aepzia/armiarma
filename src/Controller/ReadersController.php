@@ -70,6 +70,21 @@ class ReadersController extends AppController
         if ($this->request->is('post')) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
             if ($this->Readers->save($reader)) {
+                Email::configTransport('sendgrid',[
+                  'host' =>'smtp.sendgrid.net',
+                  'port' =>587,
+                  'username' => getenv('SENDGRID_USERNAME'),
+                  'password' => getenv('SENDGRID_PASSWORD'),
+                  'className' => 'Smtp'
+                ]);
+                $email = new Email('default');
+
+                $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                      ->to($reader->email)
+                      ->subject('Izena emana')
+                      ->transport('sendgrid')
+                      ->send('Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jarsoko duzu.');
+
                 $this->Flash->success(__('The reader has been saved.'));
                 return $this->redirect(['action' => 'add']);
             }
