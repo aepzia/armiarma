@@ -81,6 +81,21 @@ class UsersController extends AppController
             $user->role='user';
             $user->active=false;
             if ($this->Users->save($user)) {
+                Email::configTransport('sendgrid',[
+                  'host' =>'smtp.sendgrid.net',
+                  'port' =>587,
+                  'username' => getenv('SENDGRID_USERNAME'),
+                  'password' => getenv('SENDGRID_PASSWORD'),
+                  'className' => 'Smtp'
+                ]);
+                $email = new Email('default');
+
+                $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                      ->to($reader->email)
+                      ->subject('Izena emana')
+                      ->transport('sendgrid')
+                      ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
+
                 $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);

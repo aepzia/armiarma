@@ -83,7 +83,7 @@ class ReadersController extends AppController
                       ->to($reader->email)
                       ->subject('Izena emana')
                       ->transport('sendgrid')
-                      ->send('Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jarsoko duzu.');
+                      ->send('Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu.');
 
                 $this->Flash->success(__('The reader has been saved.'));
                 return $this->redirect(['action' => 'add']);
