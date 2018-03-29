@@ -139,7 +139,6 @@ class ReadersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     public function email(){
-      if($this -> request -> is('post')){
         Email::configTransport('sendgrid',[
           'host' =>'smtp.sendgrid.net',
           'port' =>587,
@@ -156,5 +155,4 @@ class ReadersController extends AppController
               ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
 
       }
-    }
 }
