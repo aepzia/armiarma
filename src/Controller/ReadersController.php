@@ -22,7 +22,7 @@ class ReadersController extends AppController
 
    public function beforeFilter(Event $event){
      parent::beforeFilter($event);
-     $this->Auth->allow(['add']);
+     $this->Auth->allow(['add','email']);
    }
 
     public function index()
@@ -137,5 +137,22 @@ class ReadersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function email(){
+      Email::configTransport('sendgrid',[
+        'host' =>'smtp.sendgrid.net',
+        'port' =>587,
+        'username' => getenv('SENDGRID_USERNAME'),
+        'password' => getenv('SENDGRID_PASSWORD'),
+        'className' => 'Smtp'
+      ]);
+      $email = new Email('default');
+
+      $email->from(['ababaze@gmail.com' => 'Armiarma'])
+            ->to($reader->email)
+            ->subject('Izena emana')
+            ->transport('sendgrid')
+            ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
+
     }
 }
