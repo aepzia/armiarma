@@ -149,7 +149,7 @@ class ReadersController extends AppController
       $email = new Email('default');
 
       $email->from(['ababaze@gmail.com' => 'Armiarma'])
-            ->to($reader->email)
+            ->to('ababaze@gmail.com')
             ->subject('Izena emana')
             ->transport('sendgrid')
             ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
