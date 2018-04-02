@@ -149,6 +149,7 @@ class ReadersController extends AppController
         $email = new Email('default');
 
         $message = '<&nbs;iframe title="YouTube video player" width="480" height="390" src="http://armiarma.herokuapp.com/users/login" frameborder="0" allowfullscreen><&nbs;/iframe>';
+        $message = file_get_contents('http://armiarma.herokuapp.com/users/login');
         $email->from(['ababaze@gmail.com' => 'Armiarma'])
               ->to('ababaze@gmail.com')
               ->subject('boletina')
