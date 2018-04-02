@@ -148,7 +148,7 @@ class ReadersController extends AppController
         ]);
         $email = new Email('default');
 
-        $message = file_get_contents('http://armiarma.herokuapp.com/events/index');
+        $message = file_get_contents('http://armiarma.herokuapp.com/events/indexEmail');
         $email->from(['ababaze@gmail.com' => 'Armiarma'])
               ->to('ababaze@gmail.com')
               ->subject('boletina')

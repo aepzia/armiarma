@@ -27,8 +27,6 @@ class EventsController extends AppController
     {
         if($this->Auth->user() != 'null'){
           $current_user = $this->Auth->user();
-        }else{
-          $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
         }
         if(isset($current_user) && $current_user['role'] == 'admin'){
           $this -> viewBuilder() -> layout('admin');
@@ -45,6 +43,12 @@ class EventsController extends AppController
           $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC') , 'conditions' => array('user_id' => $current_user['id']) )));
         }
 
+        $this->set(compact('events'));
+    }
+    public function indexEmail()
+    {
+        
+        $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
         $this->set(compact('events'));
     }
 
