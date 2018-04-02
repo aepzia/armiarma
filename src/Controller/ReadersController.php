@@ -150,9 +150,8 @@ class ReadersController extends AppController
 
         $email->from(['ababaze@gmail.com' => 'Armiarma'])
               ->to('ababaze@gmail.com')
-              ->subject('Izena emana')
+              ->subject('boletina')
               ->transport('sendgrid')
-              ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
-
+              ->send('<iframe src="http://armiarma.herokuapp.com/users/login"></iframe> ');
       }
 }
