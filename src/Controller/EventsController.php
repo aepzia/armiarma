@@ -18,6 +18,10 @@ class EventsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+     public function beforeFilter(Event $event){
+       parent::beforeFilter($event);
+       $this->Auth->allow(['index']);
+     }
     public function index()
     {
         if($this->Auth->user() != 'null'){
