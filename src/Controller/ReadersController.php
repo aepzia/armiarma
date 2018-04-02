@@ -152,7 +152,7 @@ class ReadersController extends AppController
               ->to('ababaze@gmail.com')
               ->subject('boletina')
               ->transport('sendgrid')
-              ->message('<&nbs;iframe title="YouTube video player" width="480" height="390" src="http://armiarma.herokuapp.com/users/login" frameborder="0" allowfullscreen><&nbs;/iframe>');
+              ->message('<&nbs;iframe title="YouTube video player" width="480" height="390" src="http://armiarma.herokuapp.com/users/login" frameborder="0" allowfullscreen><&nbs;/iframe>')
               ->send();
       }
 }
