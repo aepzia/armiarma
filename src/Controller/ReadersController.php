@@ -154,6 +154,7 @@ class ReadersController extends AppController
               ->to('ababaze@gmail.com')
               ->subject('boletina')
               ->transport('sendgrid')
+              ->emailFormat('html')
               ->send($message);
       }
 }
