@@ -27,6 +27,8 @@ class EventsController extends AppController
     {
         if($this->Auth->user() != 'null'){
           $current_user = $this->Auth->user();
+        }else{
+          $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
         }
         if(isset($current_user) && $current_user['role'] == 'admin'){
           $this -> viewBuilder() -> layout('admin');

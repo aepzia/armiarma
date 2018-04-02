@@ -198,6 +198,7 @@
             <?= 'Informazio gehiago: '.h($event->web)?>
             </br>
             </br>
+        
             <div style="padding-left: 50%">
             <?php echo $this->Html->link(
                 '<span class="glyphicon glyphicon-pencil left" aria-hidden="true"></span>',
