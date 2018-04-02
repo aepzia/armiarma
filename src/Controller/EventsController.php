@@ -48,7 +48,7 @@ class EventsController extends AppController
     public function indexEmail()
     {
 
-        $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
+        $events = $this->paginate($this->Events);
         $this->set(compact('events'));
     }
 
