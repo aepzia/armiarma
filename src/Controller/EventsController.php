@@ -21,7 +21,7 @@ class EventsController extends AppController
      */
      public function beforeFilter(Event $event){
        parent::beforeFilter($event);
-       $this->Auth->allow(['index']);
+       $this->Auth->allow(['indexEmail']);
      }
     public function index()
     {
@@ -47,7 +47,7 @@ class EventsController extends AppController
     }
     public function indexEmail()
     {
-        
+
         $events = $this->paginate($this->Events->find('all', array('order'=>array('data ASC'))));
         $this->set(compact('events'));
     }
