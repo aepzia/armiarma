@@ -152,6 +152,6 @@ class ReadersController extends AppController
               ->to('ababaze@gmail.com')
               ->subject('boletina')
               ->transport('sendgrid')
-              ->send('<iframe src="http://armiarma.herokuapp.com/users/login"></iframe> ');
+              ->send("<iframe src='http://armiarma.herokuapp.com/users/login'></iframe>");
       }
 }
