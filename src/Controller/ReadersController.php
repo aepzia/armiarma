@@ -138,7 +138,8 @@ class ReadersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    public function email(){
+    public function weekEmail(){
+
         Email::configTransport('sendgrid',[
           'host' =>'smtp.sendgrid.net',
           'port' =>587,
@@ -149,11 +150,44 @@ class ReadersController extends AppController
         $email = new Email('default');
 
         $message = file_get_contents('http://armiarma.herokuapp.com/events/indexEmail');
-        $email->from(['ababaze@gmail.com' => 'Armiarma'])
-              ->to('ababaze@gmail.com')
-              ->subject('boletina')
+        $email->from(['ababaze@gmail.com' => 'Armiarma']);
+
+        $readers = $this->paginate($this->Readers);
+        foreach ($readers as $reader):
+          if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
+            $email->$email->addTo($reader->mail);
+          }
+        endforeach;
+
+        $email->subject('boletina')
               ->transport('sendgrid')
               ->emailFormat('html')
               ->send($message);
       }
+      public function dayEmail(){
+
+          Email::configTransport('sendgrid',[
+            'host' =>'smtp.sendgrid.net',
+            'port' =>587,
+            'username' => getenv('SENDGRID_USERNAME'),
+            'password' => getenv('SENDGRID_PASSWORD'),
+            'className' => 'Smtp'
+          ]);
+          $email = new Email('default');
+
+          $message = file_get_contents('http://armiarma.herokuapp.com/events/indexEmail');
+          $email->from(['ababaze@gmail.com' => 'Armiarma']);
+
+          $readers = $this->paginate($this->Readers);
+          foreach ($readers as $reader):
+            if($reader->maiztasuna == 2){
+              $email->$email->addTo($reader->mail);
+            }
+          endforeach;
+
+          $email->subject('boletina')
+                ->transport('sendgrid')
+                ->emailFormat('html')
+                ->send($message);
+        }
 }
