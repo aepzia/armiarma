@@ -45,7 +45,7 @@ class EventsController extends AppController
 
         $this->set(compact('events'));
     }
-    public function indexEmail()
+    public function indexWeek()
     {
 
         $events = $this->paginate($this->Events);
