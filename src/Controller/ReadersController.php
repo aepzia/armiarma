@@ -175,7 +175,7 @@ class ReadersController extends AppController
           ]);
           $email = new Email('default');
 
-          $message = file_get_contents('http://armiarma.herokuapp.com/events/indexEmail');
+          $message = file_get_contents('http://armiarma.herokuapp.com/events/indexDay');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $readers = $this->paginate($this->Readers);

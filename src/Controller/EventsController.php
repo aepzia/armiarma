@@ -51,6 +51,12 @@ class EventsController extends AppController
         $events = $this->paginate($this->Events);
         $this->set(compact('events'));
     }
+    public function indexDay()
+    {
+
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
+    }
 
     /**
      * View method
