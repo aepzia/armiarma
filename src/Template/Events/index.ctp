@@ -175,7 +175,10 @@
       11 => "Azaroa",
       12 => "Abendua",
     );
-    foreach ($events as $event): ?>
+    foreach ($events as $event):
+      $today = date("Y-m-d H:i:s");
+      if($today< $event->data):
+    ?>
     <tr>
       <article class="list--item">
         <figure>
@@ -198,7 +201,7 @@
             <?= 'Informazio gehiago: '.h($event->web)?>
             </br>
             </br>
-        
+
             <div style="padding-left: 50%">
             <?php echo $this->Html->link(
                 '<span class="glyphicon glyphicon-pencil left" aria-hidden="true"></span>',
@@ -220,7 +223,9 @@
         </figure>
       </article>
     </tr>
-    <?php endforeach; ?>
+    <?php
+    endif;
+    endforeach; ?>
 
   </div>
 </div>
