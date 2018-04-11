@@ -155,7 +155,7 @@ class ReadersController extends AppController
         $readers = $this->paginate($this->Readers);
         foreach ($readers as $reader):
           if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-            $email->$email->addTo($reader->mail);
+            $email->$email->addTo($reader->email);
           }
         endforeach;
 
@@ -181,7 +181,7 @@ class ReadersController extends AppController
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->$email->addTo($reader->mail);
+              $email->$email->addTo($reader->email);
             }
           endforeach;
 
