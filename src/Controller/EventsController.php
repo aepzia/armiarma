@@ -92,7 +92,7 @@ class EventsController extends AppController
 
       } else if(isset($current_user) && $current_user['role'] == 'user'){
         $this -> viewBuilder() -> layout('erakundea');
-        $users = $this->Events->Users->find('all', array('conditions' => array('id' => $current_user['id'])));
+      //  $users = $this->Events->Users->find('all', array('conditions' => array('id' => $current_user['id'])));
 
       }
         $event = $this->Events->newEntity();
@@ -109,7 +109,7 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        //$users = $this->Events->Users->find('list', ['limit' => 200]);
+        $users = $this->Events->Users->find('list', ['limit' => 200]);
         $this->set(compact('event', 'users'));
     }
 
