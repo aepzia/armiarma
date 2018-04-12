@@ -98,6 +98,9 @@ class EventsController extends AppController
               $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $event['fitx']= $filename;
+            if($current_user['role'] == 'user'){
+              $event->user_id = $current_user['id'];
+            }
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
