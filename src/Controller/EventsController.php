@@ -109,7 +109,7 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $users = $this->Events->Users->find('list', ['limit' => 200]);
+        //$users = $this->Events->Users->find('list', ['limit' => 200]);
         $this->set(compact('event', 'users'));
     }
 
