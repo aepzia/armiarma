@@ -88,11 +88,9 @@ class EventsController extends AppController
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
-        $users = $this->Events->Users->find('list', ['limit' => 200]);
 
       } else if(isset($current_user) && $current_user['role'] == 'user'){
         $this -> viewBuilder() -> layout('erakundea');
-      //  $users = $this->Events->Users->find('all', array('conditions' => array('id' => $current_user['id'])));
 
       }
         $event = $this->Events->newEntity();
@@ -102,6 +100,11 @@ class EventsController extends AppController
               $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $event['fitx']= $filename;
+            if($current_user['role'] == 'user'){
+              $event['user_id'] =$current_user['id'];
+              $event['active'] =false;
+            }
+
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
