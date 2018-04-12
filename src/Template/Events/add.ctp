@@ -43,6 +43,9 @@
             if ($current_user['role'] == 'admin'){
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('active');
+          }else{
+            echo $this->Form->control('user_id', $current_user['id']);
+
           }
         ?>
     </fieldset>
