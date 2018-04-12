@@ -40,13 +40,11 @@
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
             echo $this->Form->control('web', ['label' => 'Beste webgune baterako lotura']);
             echo $this->Form->control('fitx', ['type' => 'file' , 'label' => 'Fitxategi bat']);
-            if ($current_user['role'] == 'admin'){
             echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('active');
-          }else{
-            echo $this->Form->control('user_id', $current_user['id']);
 
-          }
+            if ($current_user['role'] == 'admin'){
+            echo $this->Form->control('active');
+        }
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gorde')) ?>

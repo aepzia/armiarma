@@ -88,8 +88,12 @@ class EventsController extends AppController
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
+        $users = $this->Events->Users->find('list', ['limit' => 200]);
+
       } else if(isset($current_user) && $current_user['role'] == 'user'){
         $this -> viewBuilder() -> layout('erakundea');
+        $users = $this->Events->Users->find('all', 'conditions' => array('id' => $current_user['id']) );
+
       }
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
