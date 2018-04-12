@@ -42,9 +42,9 @@
             echo $this->Form->control('fitx', ['type' => 'file' , 'label' => 'Fitxategi bat']);
             echo $this->Form->control('user_id', ['options' => $users]);
 
-            if ($current_user['role'] == 'admin'){
+          //  if ($current_user['role'] == 'admin'){
             echo $this->Form->control('active');
-        }
+        //}
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gorde')) ?>
