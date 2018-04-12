@@ -92,7 +92,7 @@ class EventsController extends AppController
 
       } else if(isset($current_user) && $current_user['role'] == 'user'){
         $this -> viewBuilder() -> layout('erakundea');
-        $users = $this->Events->Users->find('all', array('conditions' => array('id' => 2));
+        $users = $this->Events->Users->find('all', array('conditions' => array('id' => 2)));
 
       }
         $event = $this->Events->newEntity();
