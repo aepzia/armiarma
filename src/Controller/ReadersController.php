@@ -85,7 +85,7 @@ class ReadersController extends AppController
                 ]);
                 $email = new Email('default');
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onclick="add_confirm('+$reader+')">'+$reader+'</button>';
+                            <button type="button" onclick="add_confirm('+ $reader +')">Onartua</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
