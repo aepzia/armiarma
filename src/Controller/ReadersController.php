@@ -60,22 +60,7 @@ class ReadersController extends AppController
 
     public function add_confirm(){
       if ($this->Readers->save($reader)) {
-          Email::configTransport('sendgrid',[
-            'host' =>'smtp.sendgrid.net',
-            'port' =>587,
-            'username' => getenv('SENDGRID_USERNAME'),
-            'password' => getenv('SENDGRID_PASSWORD'),
-            'className' => 'Smtp'
-          ]);
-          $email = new Email('default');
-          $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                      <button type="button" onclick="add_confirm($reader)">"$reader"</button>';
-          $email->from(['ababaze@gmail.com' => 'Armiarma'])
-                ->to($reader->email)
-                ->subject('Izena emana')
-                ->transport('sendgrid')
-                ->emailFormat('html')
-                ->send($message);
+
       }
     }
     public function add()
@@ -100,7 +85,7 @@ class ReadersController extends AppController
                 ]);
                 $email = new Email('default');
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onclick="add_confirm($reader)">"$reader"</button>';
+                            <button type="button" onclick="add_confirm('+$reader+')">'+$reader+'</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
