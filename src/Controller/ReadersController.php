@@ -79,7 +79,7 @@ class ReadersController extends AppController
                 ]);
                 $email = new Email('default');
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button">Onartu</button>';
+                            <button type="button" onclick="$this->Readers->save($reader)">Onartu</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
