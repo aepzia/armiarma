@@ -57,6 +57,27 @@ class ReadersController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
+
+    public function add_confirm(){
+      if ($this->Readers->save($reader)) {
+          Email::configTransport('sendgrid',[
+            'host' =>'smtp.sendgrid.net',
+            'port' =>587,
+            'username' => getenv('SENDGRID_USERNAME'),
+            'password' => getenv('SENDGRID_PASSWORD'),
+            'className' => 'Smtp'
+          ]);
+          $email = new Email('default');
+          $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
+                      <button type="button" onclick="add_confirm($reader)">"$reader"</button>';
+          $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                ->to($reader->email)
+                ->subject('Izena emana')
+                ->transport('sendgrid')
+                ->emailFormat('html')
+                ->send($message);
+      }
+    }
     public function add()
     {
         if($this->Auth->user() != 'null'){
@@ -69,7 +90,7 @@ class ReadersController extends AppController
         $reader = $this->Readers->newEntity();
         if ($this->request->is('post')) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
-            if ($this->Readers->save($reader)) {
+          //  if ($this->Readers->save($reader)) {
                 Email::configTransport('sendgrid',[
                   'host' =>'smtp.sendgrid.net',
                   'port' =>587,
@@ -79,7 +100,7 @@ class ReadersController extends AppController
                 ]);
                 $email = new Email('default');
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onclick="$this->Readers->save($reader)">Onartu</button>';
+                            <button type="button" onclick="add_confirm($reader)">"$reader"</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
@@ -91,7 +112,7 @@ class ReadersController extends AppController
                 return $this->redirect(['action' => 'add']);
             }
             $this->Flash->error(__('The reader could not be saved. Please, try again.'));
-        }
+      //  }
         $this->set(compact('reader'));
     }
 
