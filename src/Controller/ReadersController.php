@@ -78,11 +78,14 @@ class ReadersController extends AppController
                   'className' => 'Smtp'
                 ]);
                 $email = new Email('default');
-
+                $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
+                            <button type="button">Onartu</button>'
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
                       ->transport('sendgrid')
+                      ->emailFormat('html')
+                      ->send($message);
                       ->send('Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu.');
 
                 $this->Flash->success(__('The reader has been saved.'));
