@@ -86,7 +86,7 @@ class ReadersController extends AppController
                 $email = new Email('default');
                 //BIDALI ATRIBUTU GUZTIK
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button">Onartua</button>';
+                            <button type="button" onclick="alert("lkjj")">Onartua</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
