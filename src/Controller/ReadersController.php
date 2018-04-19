@@ -84,8 +84,9 @@ class ReadersController extends AppController
                   'className' => 'Smtp'
                 ]);
                 $email = new Email('default');
+                //BIDALI ATRIBUTU GUZTIK
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onclick="add_confirm('+ $reader +')">Onartua</button>';
+                            <button type="button" onclick="'+ $this->Readers->save($reader) +'">Onartua</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
