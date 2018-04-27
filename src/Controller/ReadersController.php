@@ -58,10 +58,8 @@ class ReadersController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
 
-    public function add_confirm($reader){
-      if ($this->Readers->save($reader)) {
+    public function add_confirm($readerId){
 
-      }
     }
     public function add()
     {
@@ -75,7 +73,7 @@ class ReadersController extends AppController
         $reader = $this->Readers->newEntity();
         if ($this->request->is('post')) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
-          //  if ($this->Readers->save($reader)) {
+            if ($this->Readers->save($reader)) {
                 Email::configTransport('sendgrid',[
                   'host' =>'smtp.sendgrid.net',
                   'port' =>587,
@@ -86,7 +84,7 @@ class ReadersController extends AppController
                 $email = new Email('default');
                 //BIDALI ATRIBUTU GUZTIK
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onclick="alert("lkjj")">Onartua</button>';
+                            <button type="button" onClick="javascipt:window.location.href="<?php echo $this->Html->url(array("controller"=>"Readers","action"=>"add_confirm")) ?>">Onartua</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
@@ -98,7 +96,7 @@ class ReadersController extends AppController
                 return $this->redirect(['action' => 'add']);
             }
             $this->Flash->error(__('The reader could not be saved. Please, try again.'));
-      //  }
+        }
         $this->set(compact('reader'));
     }
 
