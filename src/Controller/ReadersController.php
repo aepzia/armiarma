@@ -73,6 +73,7 @@ class ReadersController extends AppController
         $reader = $this->Readers->newEntity();
         if ($this->request->is('post')) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
+            $reader->active= false;
             if ($this->Readers->save($reader)) {
                 Email::configTransport('sendgrid',[
                   'host' =>'smtp.sendgrid.net',
