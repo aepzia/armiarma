@@ -98,9 +98,9 @@ class ReadersController extends AppController
                 //BIDALI ATRIBUTU GUZTIK
                 $onclick = '<?php echo $this->Html->url(array("controller"=>"Readers","action"=>"add_confirm")) ?>';
 
-                $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onclick="location.href="' + $onclick +'">Onartua</button>"';
-                $message = $message . '<button onclick="location.href="http://www.example.com"" type="button">
+              //  $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
+                            //<button type="button" onclick="location.href="' + $onclick +'">Onartua</button>"';
+                $message = '<button onclick="location.href="http://www.example.com"" type="button">
      www.example.com</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
