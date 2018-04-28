@@ -59,7 +59,19 @@ class ReadersController extends AppController
      */
 
     public function add_confirm($readerId){
+      $reader = $this->Readers->get($readerId, [
+          'contain' => []
+      ]);
+      if ($this->request->is(['patch', 'post', 'put'])) {
+          $reader = $this->Readers->patchEntity($reader, $this->request->getData());
+          if ($this->Readers->save($reader)) {
+              $this->Flash->success(__('The reader has been saved.'));
 
+              return $this->redirect(['action' => 'index']);
+          }
+          $this->Flash->error(__('The reader could not be saved. Please, try again.'));
+      }
+      $this->set(compact('reader'));
     }
     public function add()
     {
@@ -84,8 +96,9 @@ class ReadersController extends AppController
                 ]);
                 $email = new Email('default');
                 //BIDALI ATRIBUTU GUZTIK
+                $onclick = '<?php echo $this->Html->url(array("controller"=>"Readers","action"=>"add_confirm")) ?>';
                 $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
-                            <button type="button" onClick="javascipt:window.location.href="<?php echo $this->Html->url(array("controller"=>"Readers","action"=>"add_confirm")) ?>">Onartua</button>';
+                            <button type="button" onClick="javascipt:window.location.href="' + $onclick +'">Onartua</button>"';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
