@@ -62,17 +62,11 @@ class ReadersController extends AppController
       $reader = $this->Readers->get($readerId, [
           'contain' => []
       ]);
-      if ($this->request->is(['patch', 'post', 'put'])) {
-          $reader = $this->Readers->patchEntity($reader, $this->request->getData());
+      $reader ->active = true;
           if ($this->Readers->save($reader)) {
-              $this->Flash->success(__('The reader has been saved.'));
 
-              return $this->redirect(['action' => 'index']);
           }
-          $this->Flash->error(__('The reader could not be saved. Please, try again.'));
       }
-      $this->set(compact('reader'));
-    }
     public function add()
     {
         if($this->Auth->user() != 'null'){
