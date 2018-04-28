@@ -35,6 +35,7 @@ class Reader extends Entity
         'email' => true,
         'herria' => true,
         'ahobizi' => true,
-        'bolondres' => true
+        'bolondres' => true,
+        'active' => true
     ];
 }

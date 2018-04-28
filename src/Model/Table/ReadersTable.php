@@ -92,6 +92,11 @@ class ReadersTable extends Table
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email');
+            
+        $validator
+            ->boolean('active')
+            ->requirePresence('active', 'create')
+            ->notEmpty('active');
 
         return $validator;
     }
