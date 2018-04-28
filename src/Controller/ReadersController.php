@@ -100,7 +100,7 @@ class ReadersController extends AppController
 
               //  $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>
                             //<button type="button" onclick="location.href="' + $onclick +'">Onartua</button>"';
-                $message = '<button onclick="location.href="http://www.example.com"" type="button">
+                $message = '<button onclick="location.href="$onclick"" type="button">
      clickon</button>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
