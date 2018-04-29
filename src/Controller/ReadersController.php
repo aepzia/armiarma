@@ -94,8 +94,7 @@ class ReadersController extends AppController
 
                $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>';
 
-                $message = $message . '<a href="'+$this->Html->url(array("controller"=>"Readers","action"=>"add_confirm"))+'" type="button">
-     Onartu</a>';
+                $message = $message .' <?= $this->Html->link(__('Onartu'), ['action' => 'add_confirm', $reader->id]) ?> 's;
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
