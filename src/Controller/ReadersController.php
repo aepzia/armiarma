@@ -94,8 +94,8 @@ class ReadersController extends AppController
 
                $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>';
 
-                $message = $message . '<button onclick="location.href="$onclick"" type="button">
-     Onartu</button>';
+                $message = $message . '<a href="$onclick" type="button">
+     Onartu</a>';
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
