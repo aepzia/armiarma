@@ -22,7 +22,7 @@ class ReadersController extends AppController
 
    public function beforeFilter(Event $event){
      parent::beforeFilter($event);
-     $this->Auth->allow(['add','email']);
+     $this->Auth->allow(['add','email','add_confirm']);
    }
 
     public function index()
@@ -94,7 +94,7 @@ class ReadersController extends AppController
 
                $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>';
 
-                $message = $message . "<a href='$this->Html->url(array('controller'=>'Readers','action'=>'add_confirm'))>
+                $message = $message . "<a href='$this->Html->url(array('controller'=>'Readers','action'=>'add_confirm'))'>
      Onartu</a>";
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
