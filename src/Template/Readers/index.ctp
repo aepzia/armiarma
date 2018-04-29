@@ -37,7 +37,7 @@
                 <td><?= h($reader->izena) ?></td>
                 <td><?= h($reader->abizena) ?></td>
                 <td><?= h($reader->email) ?></td>
-                <td><?= this->Number->format($reader->active) ?></td>
+                <td><?= $this->Number->format($reader->active) ?></td>
 
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $reader->id]) ?>
