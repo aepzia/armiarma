@@ -47,7 +47,7 @@
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak');
             echo $this->Form->control('web');
-            echo $this->Form->control('fitx', ['type' => 'file', 'fieldName' => 'kjkj']);
+            echo $this->Form->control('fitx', ['type' => 'file' , 'label' => 'Fitxategi bat']);
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('active');
         ?>
