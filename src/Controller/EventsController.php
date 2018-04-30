@@ -144,7 +144,7 @@ class EventsController extends AppController
               $event['fitx']= $filename;
             }*/
             $event= $this->Events->patchEntity($event, $this->request->getData());
-            $event['fitx']= $file_name
+            $event['fitx']= $file_name;
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
