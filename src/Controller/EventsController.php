@@ -130,7 +130,7 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['post'])) {
+          if ($this->request->is('post')) {
             if (empty($this->request->data['fitx']['name'])) {
                 $new_event = $this->Events->patchEntity($event, $this->request->getData());
                 $new_event['fitx'] = $event['fitx'];
