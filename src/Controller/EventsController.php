@@ -131,8 +131,8 @@ class EventsController extends AppController
             'contain' => []
         ]);
         $file_name = $event['fitx'];
-          //if ($this->request->is(['patch', 'post', 'put'])) {
-            /*if (empty($this->request->data['fitx']['name'])) {
+          if ($this->request->is(['patch', 'post', 'put'])) {
+            if (empty($this->request->data['fitx']['name'])) {
                 $file = $event['fitx'];
                 $event= $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx'] = $file;
@@ -142,15 +142,15 @@ class EventsController extends AppController
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
               $event = $this->Events->patchEntity($event, $this->request->getData());
               $event['fitx']= $filename;
-            }*/
+            }
             $new_event = $this->Events->newEntity();
-            if ($this->request->is(['patch', 'post', 'put'])) {
+            /*if ($this->request->is(['patch', 'post', 'put'])) {
               $file = $this->request->data['fitx'];
 
                 $filename = $this->request->data['fitx']['name'];
     			      $tmp_name = $this->request->data['fitx']['tmp_name'];
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
-                $new_event = $this->Events->patchEntity($new_event, $this->request->getData());
+                $new_event = $this->Events->patchEntity($new_event, $this->request->getData());*/
                 if ($this->Events->save($new_event)) {
                     $this->Flash->success(__('The event has been saved.'));
 
