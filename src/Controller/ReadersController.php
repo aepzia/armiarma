@@ -22,7 +22,7 @@ class ReadersController extends AppController
 
    public function beforeFilter(Event $event){
      parent::beforeFilter($event);
-     $this->Auth->allow(['add','email','add_confirm']);
+     $this->Auth->allow(['add','email','addConfirm']);
    }
 
     public function index()
