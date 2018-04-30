@@ -155,7 +155,7 @@ class EventsController extends AppController
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The event could not be saved. Please, try again.'));
+                $this->Flash->error(__("The event could not be saved. Please, try again. $this->request->data['fitx']"));
 
         }
         $users = $this->Events->Users->find('list', ['limit' => 200]);
