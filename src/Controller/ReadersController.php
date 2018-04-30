@@ -58,7 +58,7 @@ class ReadersController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
 
-    public function addConfirm($readerId){
+    public function addConfirm($readerId = null){
       $reader = $this->Readers->get($readerId, [
           'contain' => []
       ]);
