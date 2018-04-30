@@ -154,6 +154,7 @@
         </figure>
       </article>
     </tr>
+    <tr></tr>
     <?php
     endif;
     endforeach; ?>
