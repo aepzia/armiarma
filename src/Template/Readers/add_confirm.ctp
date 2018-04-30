@@ -11,5 +11,5 @@
     </ul>
 </nav>
 <div class="readers form large-9 medium-8 columns content">
-  <legend><?= __('Zure erabiltzailea ondo gorde da, hemendik aurrera euskararen inguruan egiten diren ekintzei buruzkoinformazioa jasoko duzu') ?></legend>
+  <legend><?= __('Zure erabiltzailea ondo gorde da, hemendik aurrera euskararen inguruan egiten diren ekintzei buruzko informazioa jasoko duzu') ?></legend>
 </div>
