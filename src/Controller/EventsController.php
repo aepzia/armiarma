@@ -143,7 +143,7 @@ class EventsController extends AppController
               $event['fitx']= $filename;
             }
 
-            if ($this->Events->save($new_event)) {
+            if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
