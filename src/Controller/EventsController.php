@@ -130,14 +130,16 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => []
         ]);
+        $new_event = $this->Events->newEntity();
+
           if ($this->request->is('post')) {
             if (empty($this->request->data['fitx']['name'])) {
-                $new_event = $this->Events->patchEntity($event, $this->request->getData());
+                $new_event = $this->Events->patchEntity($new_event, $this->request->getData());
                 $new_event['fitx'] = $event['fitx'];
             } else {
               $resume = $this->request->data['fitx'];
               move_uploaded_file($resume['tmp_name'], 'armiarma.herokuapp.com/webroot/files/Event/file_name/' . $resume['name']);
-              $new_event = $this->Events->patchEntity($event, $this->request->getData());
+              $new_event = $this->Events->patchEntity($new_event, $this->request->getData());
               $new_event['fitx'] =  $resume['name'];
             }
 
