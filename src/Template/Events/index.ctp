@@ -110,7 +110,8 @@
       $today = date("Y-m-d H:i:s");
       if($today< $event->data):
     ?>
-    <td>
+    <tr>
+      <td>
       <article class="list--item">
         <figure>
           <img src="<?= $this->request->webroot .'files/Event/file_name/' . $event ->fitx ?>" alt="">
@@ -153,7 +154,8 @@
           </figcaption>
         </figure>
       </article>
-    </td>
+      <td>
+    </tr>
     <?php
     endif;
     endforeach; ?>
