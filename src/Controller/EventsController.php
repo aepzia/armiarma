@@ -143,9 +143,10 @@ class EventsController extends AppController
               $event = $this->Events->patchEntity($event, $this->request->getData());
               $event['fitx']= $filename;
             }*/
-            $file = $this->request->data['fitx'];
             $new_event = $this->Events->newEntity();
             if ($this->request->is(['patch', 'post', 'put'])) {
+              $file = $this->request->data['fitx'];
+
                 $filename = $this->request->data['fitx']['name'];
     			      $tmp_name = $this->request->data['fitx']['tmp_name'];
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
