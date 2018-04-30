@@ -81,6 +81,9 @@
     width: 100%;
   }
 }
+.espacio{
+					height:10px;
+				}
 
 </style></head><body>
 
@@ -154,7 +157,7 @@
         </figure>
       </article>
     </tr>
-    <tr></tr>
+    <tr class="espacio"></tr>
     <?php
     endif;
     endforeach; ?>
