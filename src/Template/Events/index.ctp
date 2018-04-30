@@ -154,7 +154,7 @@
           </figcaption>
         </figure>
       </article>
-      <td>
+    </td>
     </tr>
     <?php
     endif;
