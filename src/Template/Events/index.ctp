@@ -1,72 +1,3 @@
-<!--<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Event[]|\Cake\Collection\CollectionInterface $events
- */
- echo $this->Html->css('calendar.css');
-?>
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Eragiketak') ?></li>
-        <li><?= $this->Html->link(__('Ekintza berria'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Erabiltzaile lista'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Erabiltzaile berria'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="agenda events index large-9 medium-8 columns content">
-    <h3><?= __('Ekintzak') ?></h3>
-    <table class="table table-condensed table-bordered">
-        <thead>
-          <tr>
-              <th>Data</th>
-              <th>Lekua</th>
-              <th>Ekitaldia</th>
-              <th scope="col" class="actions"><?= __('Eragiketak') ?></th>
-
-          </tr>
-            <!--<tr>
-                <th scope="col"><?= $this->Paginator->sort('data') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('izenburua') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('laburpena') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('tokia') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('prezioa') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('sarrerak') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('web') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>-->
-        <!--</thead>
-        <tbody>
-            <?php foreach ($events as $event): ?>
-            <tr>
-                <td><?= h($event->data->year) . '/'. h($event->data->month) . '/'. h($event->data->day)?></td>
-                <td><?= h($event->tokia) ?></td>
-                <td><?= h($event->izenburua) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $event->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $event->id], ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
-</div>-->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html><html lang='en' class=''>
 <head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/rohan10/pen/kEqno?depth=everything&order=popularity&page=8&q=product&show_forks=false" />
 
@@ -198,7 +129,7 @@
           </br>
             <?= 'Sarrerak erosteko tokia: '.h($event->sarrerak).' Prezioa: '. h($event->prezioa)?>
           </br>
-            <?= 'Informazio gehiago: '.h($event->web)?>
+            <?= 'Informazio gehiago: '.$this->Html->link($event->web)?>
             </br>
             </br>
 
