@@ -131,7 +131,7 @@ class EventsController extends AppController
             'contain' => []
         ]);
         $file_name = $event['fitx'];
-          if ($this->request->is(['patch', 'post', 'put'])) {
+          //if ($this->request->is(['patch', 'post', 'put'])) {
             /*if (empty($this->request->data['fitx']['name'])) {
                 $file = $event['fitx'];
                 $event= $this->Events->patchEntity($event, $this->request->getData());
@@ -144,23 +144,19 @@ class EventsController extends AppController
               $event['fitx']= $filename;
             }*/
             $event = $this->Events->newEntity();
-            if ($this->request->is('post')) {
+            if ($this->request->is('patch', 'post', 'put'])) {
                 $filename = $this->request->data['fitx']['name'];
     			      $tmp_name = $this->request->data['fitx']['tmp_name'];
                   $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
                 $event = $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx']= $filename;
-                if($current_user['role'] == 'user'){
-                  $event['user_id'] =$current_user['id'];
-                  $event['active'] =false;
-                }
-
                 if ($this->Events->save($event)) {
                     $this->Flash->success(__('The event has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
                 $this->Flash->error(__('The event could not be saved. Please, try again.'));
+
         }
         $users = $this->Events->Users->find('list', ['limit' => 200]);
         $this->set(compact('event', 'users'));
