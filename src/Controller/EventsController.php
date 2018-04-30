@@ -134,9 +134,9 @@ class EventsController extends AppController
             if (empty($this->request->data['fitx']['name'])) {
                 unset($this->request->data['fitx']);
             } else {
-              $resume = $this->request->data['Student']['fitx'];
+              $resume = $this->request->data['fitx'];
               move_uploaded_file($resume['tmp_name'], 'armiarma.herokuapp.com/webroot/files/Event/file_name/' . $resume['name']);
-              $this->request->data['Student']['resume'] = $resume['name'];
+              $this->request->data['fitx']['name'] = $resume['name'];
               $event = $this->Events->patchEntity($event, $this->request->getData());
             }
 
