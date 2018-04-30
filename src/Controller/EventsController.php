@@ -132,7 +132,7 @@ class EventsController extends AppController
         ]);
         $file = $event['fitx'];
           if ($this->request->is(['patch', 'post', 'put'])) {
-            if (empty($this->request->data['fitx'])) {
+            if ($this->request->data['fitx']['name'] ==  null) {
                 $event= $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx'] = $file;
             } else {
