@@ -134,7 +134,7 @@ class EventsController extends AppController
             if (empty($this->request->data['fitx']['name'])) {
                 $file = $event['fitx'];
                 $event= $this->Events->patchEntity($event, $this->request->getData());
-                $event['fitx'] = $file;
+              //  $event['fitx'] = $file;
             } else {
               $filename = $this->request->data['fitx']['name'];
   			      $tmp_name = $this->request->data['fitx']['tmp_name'];
