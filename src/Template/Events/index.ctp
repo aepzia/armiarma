@@ -123,8 +123,7 @@
           </br>
             <?= $hilabeteak[h($event->data->month)]?>
           </div>
-            <h1> <?php echo $event->izenburua; ?> </h1>
-          <?= h($event->tokia) ?>
+<?= h($event->izenburua) ?>          <?= h($event->tokia) ?>
           </header>
           <figcaption>
             <p style="font-style: italic"> <?php echo $event->laburpena; ?> </p>
