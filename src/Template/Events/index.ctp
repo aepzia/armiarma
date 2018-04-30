@@ -111,7 +111,6 @@
       if($today< $event->data):
     ?>
     <tr>
-      <td>
       <article class="list--item">
         <figure>
           <img src="<?= $this->request->webroot .'files/Event/file_name/' . $event ->fitx ?>" alt="">
@@ -121,7 +120,7 @@
           </br>
             <?= $hilabeteak[h($event->data->month)]?>
           </div>
-            <h1 style="font-weight:bold"> <?php echo $event->izenburua; ?> </h1>
+            <h1> <?php echo $event->izenburua; ?> </h1>
           <?= h($event->tokia) ?>
           </header>
           <figcaption>
@@ -154,7 +153,6 @@
           </figcaption>
         </figure>
       </article>
-    </td>
     </tr>
     <?php
     endif;
