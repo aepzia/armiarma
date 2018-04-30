@@ -132,16 +132,16 @@ class EventsController extends AppController
         ]);
         $file = $event['fitx'];
           if ($this->request->is('post')) {
-            if (empty($this->request->data['fitx']['name'])) {
+            /*if (empty($this->request->data['fitx']['name'])) {
                 $event= $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx'] = $file;
-            } else {
+            } else {*/
               $filename = $this->request->data['fitx']['name'];
   			      $tmp_name = $this->request->data['fitx']['tmp_name'];
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
               $event = $this->Events->patchEntity($event, $this->request->getData());
               $event['fitx']= $filename;
-            }
+          //  }
 
             if ($this->Events->save($new_event)) {
                 $this->Flash->success(__('The event has been saved.'));
