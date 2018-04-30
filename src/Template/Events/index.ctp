@@ -119,15 +119,17 @@
             <?= h($event->data->day)?>
           </br>
             <?= $hilabeteak[h($event->data->month)]?>
-          </div>
+          </div style="font-weight:bold">
           <?= h($event->izenburua) ?>
           </br>
           <?= h($event->tokia) ?>
           </header>
           <figcaption>
-            <?= h($event->laburpena) ?>
+            <p style="font-style: italic"> <?php echo $event->laburpena; ?> </p>
           </br>
-            <?= 'Sarrerak erosteko tokia: '.h($event->sarrerak).' Prezioa: '. h($event->prezioa)?>
+            <span style="font-weight:bold"> Sarrerak erosteko tokia:  </span> . <?= h($event->sarrerak)?>
+          </br>
+            <span style="font-weight:bold"> Prezioa:  </span><?= h($event->prezioa)?>
           </br>
             <?= 'Informazio gehiago: '.$this->Html->link($event->web)?>
             </br>
