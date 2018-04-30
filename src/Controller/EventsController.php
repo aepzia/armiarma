@@ -143,6 +143,7 @@ class EventsController extends AppController
               $event = $this->Events->patchEntity($event, $this->request->getData());
               $event['fitx']= $filename;
             }*/
+            $file = $this->request->data['fitx'];
             $new_event = $this->Events->newEntity();
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $filename = $this->request->data['fitx']['name'];
@@ -155,7 +156,7 @@ class EventsController extends AppController
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__("The event could not be saved. Please, try again. $this->request->data['fitx']"));
+                $this->Flash->error(__("The event could not be saved. Please, try again. $file"));
 
         }
         $users = $this->Events->Users->find('list', ['limit' => 200]);
