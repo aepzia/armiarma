@@ -82,7 +82,7 @@
   }
 }
 .espacio{
-					height:20px;
+					height:50px;
 				}
 
 </style></head><body>
