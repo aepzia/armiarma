@@ -27,7 +27,7 @@
     </ul>
 </nav>
 <div class="events form large-9 medium-8 columns content">
-    <?= $this->Form->create($event) ?>
+  <?= $this->Form->create($event,array('enctype'=>'multipart/form-data')); ?>
     <fieldset>
         <legend><?= __('Edit Event') ?></legend>
         <?php
