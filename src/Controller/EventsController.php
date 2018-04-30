@@ -130,6 +130,7 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => []
         ]);
+        $file_name = $event['fitx'];
           if ($this->request->is(['patch', 'post', 'put'])) {
             /*if (empty($this->request->data['fitx']['name'])) {
                 $file = $event['fitx'];
@@ -143,7 +144,7 @@ class EventsController extends AppController
               $event['fitx']= $filename;
             }*/
             $event= $this->Events->patchEntity($event, $this->request->getData());
-
+            $event['fitx']= $file_name
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
