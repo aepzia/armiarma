@@ -133,7 +133,7 @@ class EventsController extends AppController
 
           if ($this->request->is(['patch', 'post', 'put'])) {
 
-            if (empty($this->request->data['fitx']['name'])) {
+            /*if (empty($this->request->data['fitx']['name'])) {
                 $file = $event['fitx'];
                 $event= $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx'] = $file;
@@ -143,7 +143,7 @@ class EventsController extends AppController
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
               $event = $this->Events->patchEntity($event, $this->request->getData());
               $event['fitx']= $filename;
-            }
+            }*/
             /*if ($this->request->is(['patch', 'post', 'put'])) {
               $file = $this->request->data['fitx'];
 
@@ -151,6 +151,7 @@ class EventsController extends AppController
     			      $tmp_name = $this->request->data['fitx']['tmp_name'];
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
                 $new_event = $this->Events->patchEntity($new_event, $this->request->getData());*/
+                $filename = $this->request->data['fitx']['name'];
                 /*$tmp_name = $this->request->data['fitx']['tmp_name'];
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
                 if($isMove){
@@ -158,7 +159,11 @@ class EventsController extends AppController
                 }else{
                   $this->Flash->error(__("The event could not be saved. Please, try again. false $filename $tmp_name"));
                 }*/
-
+                $filename = $this->request->data['fitx']['name'];
+    			      $tmp_name = $this->request->data['fitx']['tmp_name'];
+                  $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
+                $event = $this->Events->patchEntity($event, $this->request->getData());
+                $event['fitx']= $filename;
                 if ($this->Events->save($event)) {
                     $this->Flash->success(__('The event has been saved.'));
 
