@@ -33,7 +33,7 @@
       <?php
           echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
           echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-          echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector' , 'value' => $event->data +""));?>
+          echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector' , 'value' => $event->data . ""));?>
           <script>
           $( ".selector" ).datepicker({
             dateFormat: "yy-mm-dd",
