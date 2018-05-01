@@ -171,9 +171,10 @@ class ReadersController extends AppController
         $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
         $readers = $this->paginate($this->Readers);
+        $email->cc('ababaze@gmail.com');
         foreach ($readers as $reader):
           if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-            $email->addTo($reader->email);
+            $email->addCc($reader->email);
           }
         endforeach;
 
@@ -196,10 +197,11 @@ class ReadersController extends AppController
           $message = file_get_contents('http://armiarma.herokuapp.com/events/indexDay');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
+          $email->cc('ababaze@gmail.com');
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->addTo($reader->email);
+              $email->addCc($reader->email);
             }
           endforeach;
 
