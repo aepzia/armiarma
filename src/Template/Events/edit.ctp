@@ -31,7 +31,6 @@
     <fieldset>
         <legend><?= __('Edit Event') ?></legend>
         <?php
-            echo $this->Form->input('id');
             echo $this->Form->control('izenburua');
             echo $this->Form->control('laburpena');
             echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector' , 'value' => $event->data));?>
