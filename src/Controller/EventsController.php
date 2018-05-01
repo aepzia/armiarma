@@ -160,7 +160,7 @@ class EventsController extends AppController
                   $this->Flash->error(__("The event could not be saved. Please, try again. false $filename $tmp_name"));
                 }*/
                 $event = $this->Events->patchEntity($event, $this->request->getData());
-              //  $event['fitx']= $filename;
+                $event['fitx']= 'hjghjg';
                 if ($this->Events->save($event)) {
                     $this->Flash->success(__('The event has been saved.'));
 
