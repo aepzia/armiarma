@@ -130,10 +130,12 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => []
         ]);
+        $date = $event->data.getFullYear() + "/" + ($event->data.getMonth()+1)  +"/" $event->data.getDate();
+
 
           if ($this->request->is(['patch', 'post', 'put'])) {
 
-            /*if (empty($this->request->data['fitx']['name'])) {
+            if (empty($this->request->data['fitx']['name'])) {
                 $file = $event['fitx'];
                 $event= $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx'] = $file;
@@ -143,27 +145,8 @@ class EventsController extends AppController
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
               $event = $this->Events->patchEntity($event, $this->request->getData());
               $event['fitx']= $filename;
-            }*/
-            /*if ($this->request->is(['patch', 'post', 'put'])) {
-              $file = $this->request->data['fitx'];
+            }
 
-                $filename = $this->request->data['fitx']['name'];
-    			      $tmp_name = $this->request->data['fitx']['tmp_name'];
-                $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
-                $new_event = $this->Events->patchEntity($new_event, $this->request->getData());*/
-                $filename = $this->request->data['fitx']['name'];
-                /*$tmp_name = $this->request->data['fitx']['tmp_name'];
-                $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
-                if($isMove){
-                  $this->Flash->error(__("The event could not be saved. Please, try again. true"));
-                }else{
-                  $this->Flash->error(__("The event could not be saved. Please, try again. false $filename $tmp_name"));
-                }*/
-                $filename = $this->request->data['fitx']['name'];
-    			      $tmp_name = $this->request->data['fitx']['tmp_name'];
-                  $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
-                $event = $this->Events->patchEntity($event, $this->request->getData());
-                $event['fitx']= 'descarga.jpg';
                 if ($this->Events->save($event)) {
                     $this->Flash->success(__('The event has been saved.'));
 
