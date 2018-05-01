@@ -154,6 +154,12 @@ class EventsController extends AppController
                 $filename = $this->request->data['fitx']['name'];
                 $tmp_name = $this->request->data['fitx']['tmp_name'];
                 $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
+                if($isMove){
+                  $this->Flash->error(__("The event could not be saved. Please, try again. true"));
+                }else{
+                  $this->Flash->error(__("The event could not be saved. Please, try again. false"));
+
+                }
                 $event = $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx']= $filename;
                 if ($this->Events->save($event)) {
@@ -161,7 +167,7 @@ class EventsController extends AppController
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__("The event could not be saved. Please, try again. $isMove"));
+                $this->Flash->error(__("The event could not be saved. Please, try again."));
 
         }
         $users = $this->Events->Users->find('list', ['limit' => 200]);
