@@ -130,7 +130,7 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => []
         ]);
-        $date = $event->data.getFullYear() + "/" + ($event->data.getMonth()+1)  +"/" $event->data.getDate();
+        $date = $event->data.getFullYear() + "/" + ($event->data.getMonth()+1)  +"/" +$event->data.getDate();
 
 
           if ($this->request->is(['patch', 'post', 'put'])) {
