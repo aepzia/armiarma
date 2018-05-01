@@ -133,7 +133,7 @@
           </br>
             <span style="font-weight:bold"> Prezioa:  </span><?= h($event->prezioa)?>
           </br>
-            <?= <a href="$event->web">Informazio gehiago</a>?>
+             <a href=<?php echo $event->web; ?> >Informazio gehiago</a>
             </br>
             </br>
 
