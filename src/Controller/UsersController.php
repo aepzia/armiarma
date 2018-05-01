@@ -125,9 +125,25 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
+        $previousEmail = $user->email;
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
+              Email::configTransport('sendgrid',[
+                'host' =>'smtp.sendgrid.net',
+                'port' =>587,
+                'username' => getenv('SENDGRID_USERNAME'),
+                'password' => getenv('SENDGRID_PASSWORD'),
+                'className' => 'Smtp'
+              ]);
+              $email = new Email('default');
+
+              $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                    ->to($previousEmail)
+                    ->subject('Izena emana')
+                    ->transport('sendgrid')
+                    ->send('Zure erabiltzaileko datu berriak gorde dira. Ez bazara zu izan mesedez jarri administratzailearekin harremanetan');
+
                 $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
