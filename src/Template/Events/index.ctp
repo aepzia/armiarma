@@ -133,7 +133,7 @@
           </br>
             <span style="font-weight:bold"> Prezioa:  </span><?= h($event->prezioa)?>
           </br>
-            <?= 'Informazio gehiago: '.$this->Html->link($event->web)?>
+            <?= <a href="$event->web">Informazio gehiago</a>?>
             </br>
             </br>
 
