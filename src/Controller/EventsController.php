@@ -157,8 +157,7 @@ class EventsController extends AppController
                 if($isMove){
                   $this->Flash->error(__("The event could not be saved. Please, try again. true"));
                 }else{
-                  $this->Flash->error(__("The event could not be saved. Please, try again. false"));
-
+                  $this->Flash->error(__("The event could not be saved. Please, try again. false $filename $tmp_name"));
                 }
                 $event = $this->Events->patchEntity($event, $this->request->getData());
                 $event['fitx']= $filename;
