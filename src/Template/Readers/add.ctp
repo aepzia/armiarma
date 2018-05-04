@@ -61,7 +61,12 @@
             echo $this->Form->control('izena');
             echo $this->Form->control('abizena');
             echo $this->Form->control('email');
-            echo $this->Form->control('herria');
+            echo $this->Form->select('herria', array(
+              'Hendaia' => 'Hendaia',
+              'Hendaia ingurua' => 'Hendaia ingurua',
+              'Bestelakoa' => 'Bestelakoa'
+              )
+            );
         ?>
     </fieldset>
     <?= $this->Form->button(__('Bidali')) ?>
