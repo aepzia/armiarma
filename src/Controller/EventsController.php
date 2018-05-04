@@ -21,7 +21,7 @@ class EventsController extends AppController
      */
      public function beforeFilter(Event $event){
        parent::beforeFilter($event);
-       $this->Auth->allow(['indexEmail']);
+       $this->Auth->allow(['indexWeek','indexDay']);
      }
     public function index()
     {
