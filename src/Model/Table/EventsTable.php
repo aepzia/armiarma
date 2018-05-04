@@ -100,6 +100,11 @@ class EventsTable extends Table
             ->maxLength('fitx', 255)
             ->requirePresence('fitx', 'create')
             ->allowEmpty('fitx');
+            ->add('fitx', [
+                'validExtension' => [
+                    'rule' => ['extension',['png']], // default  ['gif', 'jpeg', 'png', 'jpg']
+                    'message' => __('These files extension are allowed: .png')
+                ]
 
 
         $validator
