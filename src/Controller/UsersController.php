@@ -185,12 +185,10 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
 
           if($user){
-            if($user->active){
               $this->Auth->setUser($user);
-
-              return $this->redirect($this->Auth->redirectUrl());
-            }
-
+              if($user->active){
+                return $this->redirect($this->Auth->redirectUrl());
+              }
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
         }
