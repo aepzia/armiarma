@@ -33,6 +33,7 @@ class ReadersTable extends Table
         $this->setTable('readers');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
     }
 
     /**
@@ -92,7 +93,7 @@ class ReadersTable extends Table
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email');
-            
+
         $validator
             ->boolean('active')
             ->requirePresence('active', 'create')

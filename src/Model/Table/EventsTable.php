@@ -35,6 +35,8 @@ class EventsTable extends Table
         $this->setTable('events');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        $this->addBehavior('Timestamp');
+
 
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
