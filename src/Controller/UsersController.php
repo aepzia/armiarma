@@ -101,7 +101,11 @@ class UsersController extends AppController
 
                 $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                if($current_user['role'] == 'admin'){
+                  return $this->redirect(['action' => 'index']);
+                }else {
+                  return $this->redirect(['action' => 'login']);
+                }
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
@@ -180,10 +184,13 @@ class UsersController extends AppController
         if($this->request->is('post')){
           $user = $this->Auth->identify();
 
-          if($user && $user->active == true){
-            $this->Auth->setUser($user);
+          if($user){
+            if($user->active){
+              $this->Auth->setUser($user);
 
-            return $this->redirect($this->Auth->redirectUrl());
+              return $this->redirect($this->Auth->redirectUrl());
+            }
+
           }
           $this->Flash->error('Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.');
         }
