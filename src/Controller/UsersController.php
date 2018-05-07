@@ -29,12 +29,15 @@ class UsersController extends AppController
     {
       if($this->Auth->user() != 'null'){
         $current_user = $this->Auth->user();
+        $users = $this->paginate($current_user);
+
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
+        $users = $this->paginate($this->Users);
+
       }
 
-        $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
     }
