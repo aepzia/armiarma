@@ -99,7 +99,7 @@ class UsersController extends AppController
 
                 $this->Flash->success(__('The user has been saved.'));
 
-                if($current_user['role'] == 'admin'){
+                if(isset($current_user) && $current_user['role'] == 'admin'){
                   return $this->redirect(['action' => 'index']);
                 }else {
                   return $this->redirect(['action' => 'login']);
