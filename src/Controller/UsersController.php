@@ -179,23 +179,9 @@ class UsersController extends AppController
       if(!$this->Auth->user()){
         if($this->request->is('post')){
           $user = $this->Auth->identify();
-          if($user){
+
+          if($user && $user->active == true){
             $this->Auth->setUser($user);
-
-          /*  Email::configTransport('sendgrid', [
-                'host' => 'smtp.sendgrid.net',
-                'port' => 587 ,
-                'username' => getenv('SENDGRID_USERNAME'),
-                'password' => getenv('SENDGRID_PASSWORD'),
-                'className' => 'Smtp'
-            ]);
-            $email = new Email('default');
-
-            $email->from(['ababaze@gmail.com' => 'My Site'])
-                ->to('ababaze@gmail.com')
-                ->subject('About')
-                ->transport('sendgrid')
-                ->send();*/
 
             return $this->redirect($this->Auth->redirectUrl());
           }
