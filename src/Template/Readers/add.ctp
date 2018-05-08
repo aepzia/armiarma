@@ -16,7 +16,7 @@
         <legend><?= __('Hendaian antolatzen diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa hobeki komunikatzeko, hausnarketa prozesu bat hasi du "Elhuyarren Ekimenaren" ondorioz sorturiko euskara taldeak. Horren harira, informazio hori jasotzeaz interesa izan dezaketen jendeari begirako galdeketa hau prestatu da.') ?></legend>
         <?php
             echo $this->Form->label('Hendaian egiten diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa jaso nahiko zenuke epostaz/emailez?');
-             __('Hendaian egiten diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa jaso nahiko zenuke epostaz/emailez?');
+            echo __('Hendaian egiten diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa jaso nahiko zenuke epostaz/emailez?');
             echo $this->Form->radio(
                 'ekitaldiinfo',
                 [
