@@ -53,29 +53,29 @@ class UsersTable extends Table
             ->scalar('name')
             ->maxLength('name', 255)
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->notEmpty('email','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('password')
             ->maxLength('password', 255)
             ->requirePresence('password', 'create')
-            ->allowEmpty('password');
+            ->allowEmpty('password','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->boolean('active')
             ->requirePresence('active', 'create')
-            ->notEmpty('active');
+            ->notEmpty('active','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('role')
             ->maxLength('role', 255)
             ->requirePresence('role', 'create')
-            ->notEmpty('role');
+            ->notEmpty('role','Datu hau betetzea beharrezkoa da');
 
         return $validator;
     }
@@ -89,7 +89,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['email'], 'Helbide hau aurretik erabili da.'));
 
         return $rules;
     }

@@ -60,42 +60,42 @@ class EventsTable extends Table
             ->scalar('izenburua')
             ->maxLength('izenburua', 255)
             ->requirePresence('izenburua', 'create')
-            ->notEmpty('izenburua');
+            ->notEmpty('izenburua','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('laburpena')
             ->maxLength('laburpena', 255)
             ->requirePresence('laburpena', 'create')
-            ->notEmpty('laburpena');
+            ->notEmpty('laburpena','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->date('data')
             ->requirePresence('data', 'create')
-            ->notEmpty('data');
+            ->notEmpty('data','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('tokia')
             ->maxLength('tokia', 255)
             ->requirePresence('tokia', 'create')
-            ->notEmpty('tokia');
+            ->notEmpty('tokia','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('prezioa')
             ->maxLength('prezioa', 255)
             ->requirePresence('prezioa', 'create')
-            ->notEmpty('prezioa');
+            ->notEmpty('prezioa','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('sarrerak')
             ->maxLength('sarrerak', 255)
             ->requirePresence('sarrerak', 'create')
-            ->notEmpty('sarrerak');
+            ->notEmpty('sarrerak','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('web')
             ->maxLength('web', 255)
             ->requirePresence('web', 'create')
-            ->notEmpty('web');
+            ->notEmpty('web','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('fitx')

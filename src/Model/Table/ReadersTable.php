@@ -51,53 +51,53 @@ class ReadersTable extends Table
         $validator
             ->boolean('ekitaldiinfo')
             ->requirePresence('ekitaldiinfo', 'create')
-            ->notEmpty('ekitaldiinfo');
+            ->notEmpty('ekitaldiinfo','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->integer('maiztasuna')
             ->requirePresence('maiztasuna', 'create')
-            ->notEmpty('maiztasuna');
+            ->notEmpty('maiztasuna','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->boolean('hizkuntzapolitikainfo')
             ->requirePresence('hizkuntzapolitikainfo', 'create')
-            ->notEmpty('hizkuntzapolitikainfo');
+            ->notEmpty('hizkuntzapolitikainfo','Datu hau betetzea beharrezkoa da');
         $validator
             ->boolean('ahobizi')
             ->requirePresence('ahobizi', 'create')
-            ->notEmpty('ahobizi');
+            ->notEmpty('ahobizi','Datu hau betetzea beharrezkoa da');
         $validator
             ->boolean('bolondres')
             ->requirePresence('bolondres', 'create')
-            ->notEmpty('bolondres');
+            ->notEmpty('bolondres','Datu hau betetzea beharrezkoa da');
 
 
         $validator
             ->scalar('izena')
             ->maxLength('izena', 255)
             ->requirePresence('izena', 'create')
-            ->notEmpty('izena');
+            ->notEmpty('izena','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->scalar('abizena')
             ->maxLength('abizena', 255)
             ->requirePresence('abizena', 'create')
-            ->notEmpty('abizena');
+            ->notEmpty('abizena','Datu hau betetzea beharrezkoa da');
         $validator
             ->scalar('herria')
             ->maxLength('herria', 255)
             ->requirePresence('herria', 'create')
-            ->notEmpty('herria');
+            ->notEmpty('herria','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->notEmpty('email','Datu hau betetzea beharrezkoa da');
 
         $validator
             ->boolean('active')
             ->requirePresence('active', 'create')
-            ->notEmpty('active');
+            ->notEmpty('active','Datu hau betetzea beharrezkoa da');
 
         return $validator;
     }
@@ -111,7 +111,7 @@ class ReadersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['email'], 'Helbide hau aurretik erabili da.'));
 
         return $rules;
     }
