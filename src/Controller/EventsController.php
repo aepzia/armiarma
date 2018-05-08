@@ -106,11 +106,11 @@ class EventsController extends AppController
             }
 
             if ($this->Events->save($event)) {
-                $this->Flash->success(__('The event has been saved.'));
+                $this->Flash->success(__('Ekitaldia ondo gorde da.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The event could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez.'));
         }
         $users = $this->Events->Users->find('list', ['limit' => 200]);
         $this->set(compact('event', 'users'));
@@ -147,11 +147,11 @@ class EventsController extends AppController
             }
 
                 if ($this->Events->save($event)) {
-                    $this->Flash->success(__('The event has been saved.'));
+                    $this->Flash->success(__('Ekitaldia ondo gorde da.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__("The event could not be saved. Please, try again."));
+                $this->Flash->error(__("Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez."));
 
         }
         $users = $this->Events->Users->find('list', ['limit' => 200]);
@@ -170,9 +170,9 @@ class EventsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $event = $this->Events->get($id);
         if ($this->Events->delete($event)) {
-            $this->Flash->success(__('The event has been deleted.'));
+            $this->Flash->success(__('Ekitaldia ondo gorde da.'));
         } else {
-            $this->Flash->error(__('The event could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez.'));
         }
 
         return $this->redirect(['action' => 'index']);
