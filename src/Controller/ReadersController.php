@@ -149,9 +149,9 @@ class ReadersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $reader = $this->Readers->get($id);
         if ($this->Readers->delete($reader)) {
-            $this->Flash->success(__('The reader has been deleted.'));
+            $this->Flash->success(__('Erabiltzailea ondo gorde da.'));
         } else {
-            $this->Flash->error(__('The reader could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
         }
 
         return $this->redirect(['action' => 'index']);
