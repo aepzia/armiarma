@@ -50,7 +50,7 @@ class ReadersTable extends Table
 
         $validator
             ->boolean('ekitaldiinfo')
-            ->requirePresence('ekitaldiinfo', 'create','Ekitaldiari buruzko informazioa.')
+            ->requirePresence('ekitaldiinfo', 'create')
             ->notEmpty('ekitaldiinfo','Datu hau betetzea beharrezkoa da');
 
         $validator
@@ -75,7 +75,7 @@ class ReadersTable extends Table
         $validator
             ->scalar('izena')
             ->maxLength('izena', 255)
-            ->requirePresence('izena', 'create')
+            ->requirePresence('izena', 'create','Izena')
             ->notEmpty('izena','Datu hau betetzea beharrezkoa da');
 
         $validator
