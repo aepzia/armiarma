@@ -13,9 +13,12 @@
 <div class="readers form large-9 medium-8 columns content">
     <?= $this->Form->create($reader) ?>
     <fieldset>
-        <legend><?= __('Hendaian antolatzen diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa hobeki komunikatzeko, hausnarketa prozesu bat hasi du "Elhuyarren Ekimenaren" ondorioz sorturiko euskara taldeak. Horren harira, informazio hori jasotzeaz interesa izan dezaketen jendeari begirako galdeketa hau prestatu da.') ?></legend>
+        <legend>
+          <h1>Armiarma tresna, euskal komunitatearen saretzeko</h1>
+          <?= __("Armiarma tresna sortu da Hendaian. Euskal hiztun komunitatea saretzen laguntzea du xede nagusi. Bereziki Hendaiako euskarazko ikusgarri eta ekitaldi guziei buruzko informazioa jasotzea ahalbideratuko du. Behean ikus dezakezun bezala, beste aukera batzuk ere ematen ditu. \nZuk ere, eman izena!") ?>
+
+        </legend>
         <?php
-            echo $this->Form->label('Hendaian egiten diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa jaso nahiko zenuke epostaz/emailez?');
             echo __('Hendaian egiten diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa jaso nahiko zenuke epostaz/emailez?');
             echo $this->Form->radio(
                 'ekitaldiinfo',
@@ -25,15 +28,17 @@
                 ]
             );
 
-            echo $this->Form->label('Zein maiztasunekin?');
+            echo __('Zein maiztasunekin');
+
             echo $this->Form->radio(
                 'maiztasuna',
                 [
-                    ['value' => 1, 'text' => '2 astero(ondorengo hilabeteko egitaraua)'],
-                    ['value' => 2, 'text' => '2 astero + ekitaldi/ikusgarria baino 2 egun lehenago'],
+                    ['value' => 1, 'text' => '15 egunean behin (ondorengo hilabeteko egitaraua)'],
+                    ['value' => 2, 'text' => '15 egunean behin + ekitaldi/ikusgarriaren bezperan'],
                 ]
             );
-            echo $this->Form->label('Hendaiako euskal hizkuntza politikari loturiko informazioa ere jaso nahiko zenuke?');
+            echo __('Hendaiako euskal hizkuntza politikari loturiko informazioa ere jaso nahi zenuke?');
+
             echo $this->Form->radio(
                 'hizkuntzapolitikainfo',
                 [
@@ -41,7 +46,8 @@
                     ['value' => false, 'text' => 'Ez'],
                 ]
             );
-            echo $this->Form->label('"Aho Bizi / Belarri prest" ekimenari buruzko informazioa jaso nahi duzu?');
+            echo __('Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa jaso nahi zenuke');
+
             echo $this->Form->radio(
                 'ahobizi',
                 [
@@ -49,7 +55,8 @@
                     ['value' => false, 'text' => 'Ez'],
                 ]
             );
-            echo $this->Form->label('Euskararen aldeko ekimenentan bolondres bezela aritzeko informazioa jaso nahiko zenuke?');
+            echo __('Euskararen aldeko ekimenetan, bolondres modura aritzeko gomita jaso nahi zenuke?');
+
             echo $this->Form->radio(
                 'bolondres',
                 [
@@ -57,7 +64,7 @@
                     ['value' => false, 'text' => 'Ez'],
                 ]
             );
-            echo $this->Form->label('Zure izen, abizen/deiturak, eposta helbidea eta jatorriko herria?');
+            echo __('Zure izen, abizen/deiturak, eposta helbidea eta herria?');
 
             echo $this->Form->control('izena');
             echo $this->Form->control('abizena');
@@ -68,8 +75,11 @@
               'Bestelakoa' => 'Bestelakoa'
               )
             );
+
+            echo __('Eposta bat jasoko duzu, zure izen ematea konfirmatzeko');
+
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Bidali')) ?>
+    <?= $this->Form->button(__('Onartu')) ?>
     <?= $this->Form->end() ?>
 </div>
