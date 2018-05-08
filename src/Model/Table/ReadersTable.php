@@ -92,6 +92,10 @@ class ReadersTable extends Table
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
+            ->add('email', 'validFormat', [
+                'rule' => 'email',
+                'message' => 'E-mail must be valid'
+            ])
             ->notEmpty('email','Datu hau betetzea beharrezkoa da');
 
         $validator
