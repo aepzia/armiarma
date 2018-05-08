@@ -56,6 +56,7 @@ class EventsTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
+
         $validator
             ->scalar('izenburua')
             ->maxLength('izenburua', 255)

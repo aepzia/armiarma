@@ -75,7 +75,12 @@ class ReadersTable extends Table
         $validator
             ->scalar('izena')
             ->maxLength('izena', 255)
-            ->requirePresence('izena', 'create','Izena')
+            ->requirePresence([
+                'izena' => [
+                    'mode' => 'create',
+                    'message' => 'Izena beharrezkoa da',
+                ]
+            ]);
             ->notEmpty('izena','Datu hau betetzea beharrezkoa da');
 
         $validator
