@@ -49,7 +49,7 @@ class AppController extends Controller
             'controller' => 'Users',
             'action' => 'login',
         ],
-        'authError' => '',
+        'authError' => 'Erabiltzaile edo pasahitz okerra, mesedez saia zaitez berriro.',
         'authenticate' => [
             'Form' => [
               'fields' => ['username' => 'email', 'password' => 'password']

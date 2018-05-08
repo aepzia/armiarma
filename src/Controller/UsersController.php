@@ -97,7 +97,7 @@ class UsersController extends AppController
                       ->transport('sendgrid')
                       ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
 
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Erabiltzailea ondo gorde gorde da.'));
 
                 if(isset($current_user) && $current_user['role'] == 'admin'){
                   return $this->redirect(['action' => 'index']);
@@ -105,7 +105,7 @@ class UsersController extends AppController
                   return $this->redirect(['action' => 'login']);
                 }
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
         }
         $this->set(compact('user'));
     }
@@ -149,11 +149,11 @@ class UsersController extends AppController
                     ->transport('sendgrid')
                     ->send('Zure erabiltzaileko datu berriak gorde dira. Ez bazara zu izan mesedez jarri administratzailearekin harremanetan');
 
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Erabiltzailea ondo gorde da.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
         }
         $this->set(compact('user'));
     }
@@ -170,9 +170,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('Erabiltzailea ezabatu da.'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Erabiltzailea ezin izan da ezabatu. Saia zaitez berriro mesedez.'));
         }
 
         return $this->redirect(['action' => 'index']);
