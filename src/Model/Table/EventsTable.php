@@ -105,7 +105,7 @@ class EventsTable extends Table
             ->add('fitx', [
                 'validExtension' => [
                     'rule' => ['extension',['png']], // default  ['gif', 'jpeg', 'png', 'jpg']
-                    'message' => __('These files extension are allowed: .png')
+                    'message' => __('Fitxategiak .png motakoa izan behar du.')
                 ]
               ]);
 
