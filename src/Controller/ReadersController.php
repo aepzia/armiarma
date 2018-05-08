@@ -92,10 +92,10 @@ class ReadersController extends AppController
                 //BIDALI ATRIBUTU GUZTIK
                 $onclick = '<?php echo $this->Html->url(array("controller"=>"Readers","action"=>"add_confirm")) ?>';
 
-               $message = '<p> Zure erabiltzailea gorde da, hemendik aurrera euskararen inguruko ekintzen informazioa jasoko duzu. </p>';
+               $message = '<p> Zure izen ematea konfirmatzen duzu? </p>';
 
                 $message = $message . "<a href='http://armiarma.herokuapp.com/readers/add_confirm/$reader->id'>
-     Onartu</a>";
+     Konfirmatu</a>";
                 $email->from(['ababaze@gmail.com' => 'Armiarma'])
                       ->to($reader->email)
                       ->subject('Izena emana')
@@ -103,10 +103,10 @@ class ReadersController extends AppController
                       ->emailFormat('html')
                       ->send($message);
 
-                $this->Flash->success(__('The reader has been saved.'));
+                $this->Flash->success(__('Erabiltzailea ondo gorde da.'));
                 return $this->redirect(['action' => 'add']);
             }
-            $this->Flash->error(__('The reader could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
         }
         $this->set(compact('reader'));
     }
@@ -128,11 +128,11 @@ class ReadersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $reader = $this->Readers->patchEntity($reader, $this->request->getData());
             if ($this->Readers->save($reader)) {
-                $this->Flash->success(__('The reader has been saved.'));
+                $this->Flash->success(__('Erabiltzailea ondo gorde da.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The reader could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.')));
         }
         $this->set(compact('reader'));
     }
