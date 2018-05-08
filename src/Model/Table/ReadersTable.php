@@ -80,7 +80,7 @@ class ReadersTable extends Table
                     'mode' => 'create',
                     'message' => 'Izena beharrezkoa da',
                 ]
-            ]);
+            ])
             ->notEmpty('izena','Datu hau betetzea beharrezkoa da');
 
         $validator
