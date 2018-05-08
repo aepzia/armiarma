@@ -28,7 +28,7 @@
                 ]
             );
 
-            echo __('Zein maiztasunekin');
+            echo __('Zein maiztasunekin?');
 
             echo $this->Form->radio(
                 'maiztasuna',
@@ -46,7 +46,7 @@
                     ['value' => false, 'text' => 'Ez'],
                 ]
             );
-            echo __('Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa jaso nahi zenuke');
+            echo __('Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa jaso nahi zenuke?');
 
             echo $this->Form->radio(
                 'ahobizi',
