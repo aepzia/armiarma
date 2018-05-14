@@ -35,7 +35,10 @@
             });
             </script>
 
-      <?php echo $this->Form->control('tokia');
+
+
+      <?php echo $this->Form->text('my_date',array('type' => 'date');
+            echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
             echo $this->Form->control('web', ['label' => 'Beste webgune baterako lotura']);
