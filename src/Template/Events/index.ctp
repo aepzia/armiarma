@@ -94,7 +94,6 @@
   </div>
   <div class="list">
     <?php
-    $event->data = date("Y-m-d H:i:s");
     $hilabeteak = array(
       1 => "Urtarrila",
       2 => "Otsaila",

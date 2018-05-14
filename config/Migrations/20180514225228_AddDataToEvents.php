@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class AddDateToEvents extends AbstractMigration
+class AddDataToEvents extends AbstractMigration
 {
     /**
      * Change Method.
@@ -10,10 +10,12 @@ class AddDateToEvents extends AbstractMigration
      * http://docs.phinx.org/en/latest/migrations.html#the-change-method
      * @return void
      */
+  
     public function change()
     {
+
         $table = $this->table('events');
-        $table->addColumn('hasiData', 'date', [
+        $table->addColumn('hasData', 'date', [
             'default' => null,
             'null' => false,
         ]);
@@ -21,7 +23,7 @@ class AddDateToEvents extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('hasiOrdua', 'time', [
+        $table->addColumn('hasOrdua', 'time', [
             'default' => null,
             'null' => false,
         ]);
