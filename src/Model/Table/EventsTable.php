@@ -103,7 +103,7 @@ class EventsTable extends Table
             ->maxLength('fitx', 255)
             ->requirePresence('fitx', 'create')
             ->allowEmpty('fitx')
-            ->addBehavior('fitx', [
+            ->add('fitx', [
                 'validExtension' => [
                     'rule' => ['extension',['png']], // default  ['gif', 'jpeg', 'png', 'jpg']
                     'message' => __('Fitxategiak .png motakoa izan behar du.')
