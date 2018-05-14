@@ -37,7 +37,7 @@
 
 
 
-      <?php echo $this->Form->control('my_date',array('type' => 'time'));
+      <?php echo $this->Form->text('my_date',array('type' => 'time'));
             echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
