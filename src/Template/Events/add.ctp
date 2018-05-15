@@ -7,15 +7,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script>
-  $( ".selector" ){
-    dateFormat: "yy-mm-dd",
-    firstDay: 1,
-    dayNamesMin: [ "Al.", "As.", "Az.", "Og.", "Or.", "Lr.", "Ig." ],
-    monthNames: [ "Urtarrila", "Otsaila", "Martxoa", "Apirila", "Maiatza", "Ekaina", "Uztaila", "Abuztua","Iraila", "Urria", "Azaroa", "Abendua" ]
 
-  });
-  </script>
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 
@@ -42,6 +34,15 @@
             echo $this->Form->control('active');
         }
         ?>
+        <script>
+        $( ".selector" ){
+          dateFormat: "yy-mm-dd",
+          firstDay: 1,
+          dayNamesMin: [ "Al.", "As.", "Az.", "Og.", "Or.", "Lr.", "Ig." ],
+          monthNames: [ "Urtarrila", "Otsaila", "Martxoa", "Apirila", "Maiatza", "Ekaina", "Uztaila", "Abuztua","Iraila", "Urria", "Azaroa", "Abendua" ]
+
+        });
+        </script>
     </fieldset>
     <?= $this->Form->button(__('Gorde')) ?>
     <?= $this->Form->end() ?>
