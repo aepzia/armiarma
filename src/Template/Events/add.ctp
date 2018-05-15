@@ -18,10 +18,10 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->input('hasData',array('name'=>'hasData','class' =>'selector'));
+            echo $this->Form->text('hasData',array('name'=>'hasData','class' =>'selector'));
             ?>
             <script>
-            $( ".selector" ){
+            $( ".selector" ).datepicker({
               dateFormat: "yy-mm-dd",
               firstDay: 1,
               dayNamesMin: [ "Al.", "As.", "Az.", "Og.", "Or.", "Lr.", "Ig." ],
