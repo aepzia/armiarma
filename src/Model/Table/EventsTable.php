@@ -67,7 +67,7 @@ class EventsTable extends Table
             ->scalar('laburpena')
             ->maxLength('laburpena', 255)
             ->requirePresence('laburpena', 'create')
-            ->notEmpty('laburpena','Datu hau betetzea beharrezkoa da');
+            ->allowEmpty('laburpena');
 
         $validator
             ->date('data')
@@ -84,19 +84,19 @@ class EventsTable extends Table
             ->scalar('prezioa')
             ->maxLength('prezioa', 255)
             ->requirePresence('prezioa', 'create')
-            ->notEmpty('prezioa','Datu hau betetzea beharrezkoa da');
+            ->allowEmpty('prezioa');
 
         $validator
             ->scalar('sarrerak')
             ->maxLength('sarrerak', 255)
             ->requirePresence('sarrerak', 'create')
-            ->notEmpty('sarrerak','Datu hau betetzea beharrezkoa da');
+            ->allowEmpty('sarrerak');
 
         $validator
             ->scalar('web')
             ->maxLength('web', 255)
             ->requirePresence('web', 'create')
-            ->notEmpty('web','Datu hau betetzea beharrezkoa da');
+            ->allowEmpty('web');
 
         $validator
             ->scalar('fitx')
