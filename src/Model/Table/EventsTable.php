@@ -78,11 +78,11 @@ class EventsTable extends Table
             ->requirePresence('bukData', 'create')
             ->notEmpty('bukData','Datu hau betetzea beharrezkoa da');
         $validator
-            ->date('hasOrdua')
+            ->time('hasOrdua')
             ->requirePresence('hasOrdua', 'create')
             ->notEmpty('hasOrdua','Datu hau betetzea beharrezkoa da');
         $validator
-            ->date('bukOrdua')
+            ->time('bukOrdua')
             ->requirePresence('bukOrdua', 'create')
             ->notEmpty('bukOrdua','Datu hau betetzea beharrezkoa da');
         $validator
