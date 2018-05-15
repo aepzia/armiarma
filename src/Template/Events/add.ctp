@@ -31,8 +31,8 @@
             });
             </script>
             <?php
-            echo $this->Form->text('hasOrdua',array('type' => 'time'));
-            echo $this->Form->text('bukOrdua',array('type' => 'time'));
+            echo $this->Form->input('hasOrdua',array('type' => 'time'));
+            echo $this->Form->input('bukOrdua',array('type' => 'time'));
             echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
