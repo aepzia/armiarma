@@ -23,7 +23,7 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->control('hasData',array('name'=>'hasData','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
+            echo $this->Form->control('hasData');
             echo $this->Form->control('bukData',array('name'=>'bukData','class' =>'selector','dateFormat'=> 'yy-mm-dd'));?>
             <script>
             $( ".selector" ).datepicker({
@@ -37,7 +37,7 @@
 
 
 
-      <?php echo $this->Form->control('hasOrdua',array('type' => 'time'));
+      <?php echo $this->Form->control('hasOrdua');
             echo $this->Form->control('bukOrdua',array('type' => 'time'));
             echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
