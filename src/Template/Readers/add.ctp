@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reader $reader
@@ -19,12 +19,13 @@
 
         </legend>
         <?php
+
             echo __('Hendaian egiten diren euskarazko ikusgarri eta ekitaldiei buruzko informazioa jaso nahiko zenuke epostaz/emailez?');
             echo $this->Form->radio(
                 'ekitaldiinfo',
                 [
-                    ['value' => true, 'text' => 'Bai'],
-                    ['value' => false, 'text' => 'Ez'],
+                    ['value' => 1, 'text' => 'Bai'],
+                    ['value' => 0, 'text' => 'Ez'],
                 ]
             );
 
@@ -42,8 +43,8 @@
             echo $this->Form->radio(
                 'hizkuntzapolitikainfo',
                 [
-                    ['value' => true, 'text' => 'Bai'],
-                    ['value' => false, 'text' => 'Ez'],
+                    ['value' => 1, 'text' => 'Bai'],
+                    ['value' => 0, 'text' => 'Ez'],
                 ]
             );
             echo __('Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa jaso nahi zenuke?');
@@ -51,8 +52,8 @@
             echo $this->Form->radio(
                 'ahobizi',
                 [
-                    ['value' => true, 'text' => 'Bai'],
-                    ['value' => false, 'text' => 'Ez'],
+                    ['value' => 1, 'text' => 'Bai'],
+                    ['value' => 0, 'text' => 'Ez'],
                 ]
             );
             echo __('Euskararen aldeko ekimenetan, bolondres modura aritzeko gomita jaso nahi zenuke?');
@@ -60,8 +61,8 @@
             echo $this->Form->radio(
                 'bolondres',
                 [
-                    ['value' => true, 'text' => 'Bai'],
-                    ['value' => false, 'text' => 'Ez'],
+                    ['value' => 1, 'text' => 'Bai'],
+                    ['value' => 0, 'text' => 'Ez'],
                 ]
             );
             echo __('Zure izen, abizen/deiturak, eposta helbidea eta herria?');
