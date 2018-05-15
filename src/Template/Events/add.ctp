@@ -18,8 +18,8 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->text('hasdata',array('id'=>'hasdata','class' =>'selector'));
-            echo $this->Form->text('bukdata',array('id'=>'bukdata','class' =>'selector'));
+            echo $this->Form->input('hasdata',array('id'=>'hasdata','class' =>'selector'));
+            echo $this->Form->input('bukdata',array('id'=>'bukdata','class' =>'selector'));
             ?>
             <script>
             $( ".selector" ).datepicker({
@@ -31,8 +31,8 @@
             });
             </script>
             <?php
-            echo $this->Form->text('hasOrdua',array('type' => 'time'));
-            echo $this->Form->text('bukOrdua',array('type' => 'time'));
+            echo $this->Form->text('hasordua',array('type' => 'time'));
+            echo $this->Form->text('bukordua',array('type' => 'time'));
             echo $this->Form->control('tokia');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
