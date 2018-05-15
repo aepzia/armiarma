@@ -66,7 +66,6 @@ class EventsTable extends Table
         $validator
             ->scalar('laburpena')
             ->maxLength('laburpena', 255)
-            ->requirePresence('laburpena', 'create')
             ->allowEmpty('laburpena');
 
         $validator
