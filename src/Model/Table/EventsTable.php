@@ -85,6 +85,7 @@ class EventsTable extends Table
             ->time('bukOrdua')
             ->requirePresence('bukOrdua', 'create')
             ->notEmpty('bukOrdua','Datu hau betetzea beharrezkoa da');
+            
         $validator
             ->scalar('tokia')
             ->maxLength('tokia', 255)
