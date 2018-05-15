@@ -33,7 +33,11 @@
       <?php
           echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
           echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-          echo $this->Form->input('Data',array('name'=>'data','id'=>'datepicker','class' =>'selector' , 'value' => $event->data->year.'-'.$event->data->month.'-'.$event->data->day));?>
+          echo $this->Form->input('Data',array('label' => 'Hasiera data', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
+          echo $this->Form->input('Data',array('label' => 'Bukaera data', 'name'=>'bukdata','class' =>'selector' , 'value' => $event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day));
+
+          ?>
+
           <script>
           $( ".selector" ).datepicker({
             dateFormat: "yy-mm-dd",
@@ -44,7 +48,10 @@
           });
           </script>
 
-    <?php echo $this->Form->control('tokia');
+    <?php
+          echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua'));
+          echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua'));
+          echo $this->Form->control('tokia');
           echo $this->Form->control('prezioa');
           echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
           echo $this->Form->control('web', ['label' => 'Beste webgune baterako lotura']);

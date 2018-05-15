@@ -110,7 +110,7 @@
     );
     foreach ($events as $event):
       $today = date("Y-m-d H:i:s");
-      if($today< $event->data):
+      if($today< $event->hasdata):
     ?>
     <tr>
       <article class="list--item">
@@ -118,9 +118,9 @@
           <img src="<?= $this->request->webroot .'files/Event/file_name/' . $event ->fitx ?>" alt="">
           <header>
           <div class="floater">
-            <?= h($event->data->day)?>
+            <?= h($event->hasdata->day)?>
           </br>
-            <?= $hilabeteak[h($event->data->month)]?>
+            <?= $hilabeteak[h($event->hasdata->month)]?>
           </div>
           <p style="font-weight:bold"> <?= h($event->izenburua) ?></p>
 
