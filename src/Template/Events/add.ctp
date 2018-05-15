@@ -18,8 +18,8 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->text('hasData',array('id'=>'hasData','class' =>'selector'));
-            echo $this->Form->text('bukData',array('id'=>'bukData','class' =>'selector'));
+            echo $this->Form->text('hasdata',array('id'=>'hasdata','class' =>'selector'));
+            echo $this->Form->text('bukdata',array('id'=>'bukdata','class' =>'selector'));
             ?>
             <script>
             $( ".selector" ).datepicker({

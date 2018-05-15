@@ -70,22 +70,22 @@ class EventsTable extends Table
             ->allowEmpty('laburpena');
 
         $validator
-            ->date('hasData')
-            ->requirePresence('hasData', 'create')
-            ->notEmpty('hasData','Datu hau betetzea beharrezkoa da');
+            ->date('hasdata')
+            ->requirePresence('hasdata', 'create')
+            ->notEmpty('hasdata','Datu hau betetzea beharrezkoa da');
         $validator
-            ->date('bukData')
-            ->requirePresence('bukData', 'create')
-            ->notEmpty('bukData','Datu hau betetzea beharrezkoa da');
+            ->date('bukdata')
+            ->requirePresence('bukdata', 'create')
+            ->notEmpty('bukdata','Datu hau betetzea beharrezkoa da');
         $validator
-            ->time('hasOrdua')
-            ->requirePresence('hasOrdua', 'create')
-            ->notEmpty('hasOrdua','Datu hau betetzea beharrezkoa da');
+            ->time('hasordua')
+            ->requirePresence('hasordua', 'create')
+            ->notEmpty('hasordua','Datu hau betetzea beharrezkoa da');
         $validator
-            ->time('bukOrdua')
-            ->requirePresence('bukOrdua', 'create')
-            ->notEmpty('bukOrdua','Datu hau betetzea beharrezkoa da');
-            
+            ->time('bukordua')
+            ->requirePresence('bukordua', 'create')
+            ->notEmpty('bukordua','Datu hau betetzea beharrezkoa da');
+
         $validator
             ->scalar('tokia')
             ->maxLength('tokia', 255)
