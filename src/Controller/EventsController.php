@@ -95,11 +95,11 @@ class EventsController extends AppController
       }
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
-            $filename = $this->request->data['fitx']['name'];
+            /*$filename = $this->request->data['fitx']['name'];
 			      $tmp_name = $this->request->data['fitx']['tmp_name'];
               $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
             $event = $this->Events->patchEntity($event, $this->request->getData());
-            $event['fitx']= $filename;
+            $event['fitx']= $filename;*/
             if($current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
               $event['active'] =false;
