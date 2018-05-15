@@ -35,7 +35,10 @@ class Event extends Entity
     protected $_accessible = [
         'izenburua' => true,
         'laburpena' => true,
-        'data' => true,
+        'hasData' => true,
+        'bukData' => true,
+        'hasOrdua' => true,
+        'bukOrdua' => true,
         'tokia' => true,
         'prezioa' => true,
         'sarrerak' => true,
