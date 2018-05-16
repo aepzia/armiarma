@@ -114,13 +114,7 @@ class EventsTable extends Table
             ->scalar('fitx')
             ->maxLength('fitx', 255)
             ->requirePresence('fitx', 'create')
-            ->allowEmpty('fitx')
-            ->add('fitx', [
-                'validExtension' => [
-                    'rule' => ['extension',['png']], // default  ['gif', 'jpeg', 'png', 'jpg']
-                    'message' => __('Fitxategiak .png motakoa izan behar du.')
-                ]
-              ]);
+            ->allowEmpty('fitx');
 
 
         $validator
