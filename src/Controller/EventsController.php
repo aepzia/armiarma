@@ -98,7 +98,7 @@ class EventsController extends AppController
           header( "Content-type: image/png" );
             $filename = $this->request->data['fitx']['name'];
             $event = $this->Events->patchEntity($event, $this->request->getData());
-            $newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name' );
+            $newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name/'.$filename);
             $event['fitx']= $filename;
             if($current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
