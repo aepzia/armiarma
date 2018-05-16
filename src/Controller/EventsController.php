@@ -97,7 +97,7 @@ class EventsController extends AppController
         if ($this->request->is('post')) {
             $filename = $this->request->data['fitx']['name'];
             $event = $this->Events->patchEntity($event, $this->request->getData());
-            $newImage = imagepng($this->request->data['fitx'], WWW_ROOT . 'files/Event/file_name' );
+            $newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name' );
             $event['fitx']= $filename;
             if($current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
