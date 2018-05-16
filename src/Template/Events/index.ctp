@@ -115,7 +115,7 @@
     <tr>
       <article class="list--item">
         <figure>
-          <img src="<?= $this->request->webroot .'files/Event/file_name/' . $event ->fitx ?>" alt="">
+          <img src="<?= WWW_ROOT .'files/Event/file_name/' . $event ->fitx ?>" alt="">
           <header>
           <div class="floater">
             <?= h($event->hasdata->day)?>

@@ -95,17 +95,17 @@ class EventsController extends AppController
       }
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
-          header( "Content-type: image/png" );
             $filename = $this->request->data['fitx']['name'];
             $event = $this->Events->patchEntity($event, $this->request->getData());
-            $newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name/'.$filename);
+            move_uploaded_file($this->request->data['fitx']['tmp_name'], WWW_ROOT .'files/Event/file_name/'.$filename);
+            //$newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name/'.$filename);
             $event['fitx']= $filename;
             if($current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
               $event['active'] =false;
             }
 
-            if ($newImage && $this->Events->save($event)) {
+            if ($this->Events->save($event)) {
                 $this->Flash->success(__('Ekitaldia ondo gorde da.'));
 
                 return $this->redirect(['action' => 'index']);
