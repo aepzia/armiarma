@@ -95,6 +95,7 @@ class EventsController extends AppController
       }
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
+          header( "Content-type: image/png" );
             $filename = $this->request->data['fitx']['name'];
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name' );
