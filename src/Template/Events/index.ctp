@@ -115,7 +115,7 @@
     <tr>
       <article class="list--item">
         <figure>
-          <img src="<?= 'https://armiarma.herokuapp.com/files/Event/file_name/' . $event ->fitx ?>" alt="">
+          <img src="<?= WWW_ROOT. DS . 'files/Event/file_name/' . $event ->fitx ?>" alt="">
           <header>
           <div class="floater">
             <?= h($event->hasdata->day)?>
