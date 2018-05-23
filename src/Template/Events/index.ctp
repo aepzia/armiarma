@@ -110,7 +110,6 @@
     );
     foreach ($events as $event):
       $today = date("Y-m-d H:i:s");
-      echo $today;
       if($today< $event->hasdata):
     ?>
     <tr>
@@ -136,7 +135,7 @@
                     'escape' => false, 'class' => 'btn btn-primary', 'role' => 'button',
                 )
             );
-            if ($current_user['id'] == $event->user_id):
+            if ($current_user['role'] =='admin' || $current_user['id'] == $event->user_id):
             echo $this->Html->link(
                 '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
                 array('action' => 'edit', $event->id),
