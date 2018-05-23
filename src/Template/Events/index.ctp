@@ -110,6 +110,7 @@
     );
     foreach ($events as $event):
       $today = date("Y-m-d H:i:s");
+      echo $today;
       if($today< $event->hasdata):
     ?>
     <tr>
@@ -134,22 +135,24 @@
                 array(
                     'escape' => false, 'class' => 'btn btn-primary', 'role' => 'button',
                 )
-            ); ?>
-            <?php echo $this->Html->link(
+            );
+            if ($current_user['id'] == $event->user_id):
+            echo $this->Html->link(
                 '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
                 array('action' => 'edit', $event->id),
                 array(
                     'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
                 )
-            ); ?>
-            <?php echo $this->Form->postLink(
+            );
+             echo $this->Form->postLink(
                 '<span class="glyphicon glyphicon-trash left" aria-hidden="true"></span>',
                 array('action' => 'delete', $event->id),
                 array(
                     'escape' => false, 'class' => 'btn btn-danger', 'role' => 'button',
                     'confirm' => __('Ziur zaude # {0} erabiltzailea ezabatu nahi duzula?', $event->name)
                 )
-            ); ?>
+            );
+          endif;?>
           </div>
           </figcaption>
         </figure>
