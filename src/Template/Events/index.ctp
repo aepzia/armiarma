@@ -127,7 +127,7 @@
             <?= h($event->tokia) ?>
           </header>
           <figcaption>
-            <div>
+            <div style="float:right">
             <?php echo $this->Html->link(
                 '<span class="glyphicon glyphicon-info-sign left" aria-hidden="true"></span>',
                 array('action' => 'view', $event->id),
