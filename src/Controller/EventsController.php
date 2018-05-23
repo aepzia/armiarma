@@ -36,7 +36,18 @@ class EventsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
-        $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC'))));
+
+        if ($current_user['role'] == 'admin'){
+          $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC'))));
+        }if($current_user['role'] == 'user'){
+          $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
+              'or' => array(
+                'user_id' => $current_user['id'],
+                'active' => 1
+              )
+            ) )));
+        }
+
         $this->set(compact('events'));
     }
     public function indexWeek()
