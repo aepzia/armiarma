@@ -98,10 +98,10 @@ class EventsController extends AppController
             $filename = $this->request->data['fitx']['name'];
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $image = imagecreatefromstring(file_get_contents($this->request->data['fitx']['tmp_name']));
-            \Cloudinary\Uploader::upload($this->request->data['fitx']['tmp_name'], array("use_filename" => TRUE));
+            $result = \Cloudinary\Uploader::upload($this->request->data['fitx']['tmp_name'], array("use_filename" => TRUE));
             //move_uploaded_file($image, WWW_ROOT .'files/Event/file_name/'.$filename);
             //$newImage = imagepng($this->request->data['fitx']['tmp_name'], WWW_ROOT . 'files/Event/file_name/'.$filename);
-            $event['fitx']= $filename;
+            $event['fitx']= $result['url'];
             if($current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
               $event['active'] =false;
