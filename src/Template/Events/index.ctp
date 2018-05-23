@@ -127,11 +127,7 @@
             <?= h($event->tokia) ?>
           </header>
           <figcaption>
-             <a href=<?php echo 'http://'.$event->web; ?> >Informazio gehiago</a>
-            </br>
-            </br>
-
-            <div style="padding-left: 50%">
+            <div>
             <?php echo $this->Html->link(
                 '<span class="glyphicon glyphicon-info-sign left" aria-hidden="true"></span>',
                 array('action' => 'view', $event->id),
