@@ -127,18 +127,20 @@
             <?= h($event->tokia) ?>
           </header>
           <figcaption>
-            <p style="font-style: italic"> <?php echo $event->laburpena; ?> </p>
-            <span style="font-weight:bold"> Sarrerak erosteko tokia:  </span><?= h($event->sarrerak)?>
-          </br>
-            <span style="font-weight:bold"> Prezioa:  </span><?= h($event->prezioa)?>
-          </br>
              <a href=<?php echo 'http://'.$event->web; ?> >Informazio gehiago</a>
             </br>
             </br>
 
             <div style="padding-left: 50%">
             <?php echo $this->Html->link(
-                '<span class="glyphicon glyphicon-pencil left" aria-hidden="true"></span>',
+                '<span class="glyphicon glyphicon-info-sign left" aria-hidden="true"></span>',
+                array('action' => 'view', $event->id),
+                array(
+                    'escape' => false, 'class' => 'btn btn-primary', 'role' => 'button',
+                )
+            ); ?>
+            <?php echo $this->Html->link(
+                '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
                 array('action' => 'edit', $event->id),
                 array(
                     'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
