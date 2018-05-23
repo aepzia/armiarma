@@ -43,7 +43,7 @@ class EventsController extends AppController
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
               'or' => array(
                 'user_id' => $current_user['id'],
-                'active' => '1'
+                'active' => true
               )
             ) )));
         }
