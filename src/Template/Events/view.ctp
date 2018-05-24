@@ -22,7 +22,6 @@ color: #999;
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
@@ -56,7 +55,6 @@ color: #999;
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
