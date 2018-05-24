@@ -21,7 +21,7 @@ color: #999;
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                        <img src="<?=$event ->fitx ?>" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-8 col-md-16">
                         <h4>
