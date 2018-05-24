@@ -6,8 +6,6 @@
 ?>
 <head>
 <style>
-body{padding-top:30px;}
-
 .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
 small {
@@ -17,7 +15,6 @@ color: #999;
 }
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<!------ Include the above in your HEAD tag ---------->
 </head>
 <div class="container">
     <div class="row">
