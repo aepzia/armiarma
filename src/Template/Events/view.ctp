@@ -16,9 +16,9 @@ color: #999;
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<div class="container">
+<div class="container center-block">
 </br>
-    <div class="row center-block">
+    <div class="row ">
             <div class="well well-sm">
                 <div class="row">
                     <div class="well-sm">
