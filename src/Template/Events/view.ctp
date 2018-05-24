@@ -17,13 +17,13 @@ color: #999;
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <div class="container">
+</br>
     <div class="row">
             <div class="well well-sm">
                 <div class="row">
-                    <div class="col-sm-8 col-md-4">
-                        <img src="<?=$event ->fitx ?>" alt="" class="img-rounded img-responsive" />
-                    </div>
                     <div class="col-sm-8 col-md-16">
+                      <img src="<?=$event ->fitx ?>" alt="" class="img-rounded img-responsive" />
+
                         <h4>
                             Bhaumik Patel</h4>
                         <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
