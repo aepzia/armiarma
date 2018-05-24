@@ -27,7 +27,7 @@ color: #999;
                     <div class="col-sm-6 col-md-4">
                         <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
                     </div>
-                    <div class="col-sm-8 col-md-8">
+                    <div class="col-sm-8 col-md-16">
                         <h4>
                             Bhaumik Patel</h4>
                         <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
@@ -55,6 +55,7 @@ color: #999;
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
