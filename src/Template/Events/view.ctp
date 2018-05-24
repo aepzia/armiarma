@@ -18,7 +18,7 @@ color: #999;
 </head>
 <div class="container">
 </br>
-    <div class="row">
+    <div class="row center-block">
             <div class="well well-sm">
                 <div class="row">
                     <div class="well-sm">
