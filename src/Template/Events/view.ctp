@@ -21,12 +21,13 @@ color: #999;
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
-        <div class="well well-sm well-sm">
+</br>
+        <div class="well well-sm well-dm">
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
                 </div>
-                <div class="col-sm-8 col-md-16">
+                <div class="well well-sm well-dm">
                     <h4>
                         Bhaumik Patel</h4>
                     <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
