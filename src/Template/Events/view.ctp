@@ -4,20 +4,24 @@
  * @var \App\Model\Entity\Event $event
  */
 ?>
-<style>
-body{padding-top:30px;}
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style>
+  body{padding-top:30px;}
 
-.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+  .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
-small {
-display: block;
-line-height: 1.428571429;
-color: #999;
-}
-</style>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999;
+  }
+  </style>
+</head>
+<body>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
@@ -57,3 +61,4 @@ color: #999;
             </div>
         </div>
 </div>
+</body>
