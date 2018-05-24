@@ -21,7 +21,7 @@ color: #999;
     <div class="row">
             <div class="well well-sm">
                 <div class="row">
-                    <div class="col-sm-8 col-md-16">
+                    <div class="well-sm">
                       <img src="<?=$event ->fitx ?>" alt="" class="img-rounded img-responsive" />
 
                         <h4>
