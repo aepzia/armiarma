@@ -16,7 +16,7 @@ color: #999;
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<div class="container" >
+<div>
 </br>
           <div style="margin:auto">
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
