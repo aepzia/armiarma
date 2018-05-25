@@ -18,7 +18,7 @@ color: #999;
 </head>
 <div class="container" >
 </br>
-          <div class="well-sm" style="margin:auto">
+          <div style="margin:auto">
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
               <h4><?=$event ->izenburua ?></h4>
