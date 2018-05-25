@@ -24,9 +24,9 @@ color: #999;
               <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
               </i></small>
               <p>
-                  <i class="glyphicon glyphicon-envelope"></i>email@example.com
+                  <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
                   <br />
-                  <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                  <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
                   <br />
-                  <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
+                  <i class="glyphicon glyphicon-gift"></i><?=$event->hasdata?></p>
 </div>
