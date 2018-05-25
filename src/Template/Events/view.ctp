@@ -16,9 +16,8 @@ color: #999;
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<div>
+<div style="margin:auto">
 </br>
-          <div style="margin:auto">
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
               <h4><?=$event ->izenburua ?></h4>
@@ -30,5 +29,4 @@ color: #999;
                   <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
                   <br />
                   <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-        </div>
 </div>
