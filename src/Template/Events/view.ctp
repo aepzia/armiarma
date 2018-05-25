@@ -19,7 +19,7 @@ color: #999;
 <div class="container center-block">
 </br>
           <div class="well-sm">
-            <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" />
+            <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
               <h4><?=$event ->izenburua ?></h4>
               <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
