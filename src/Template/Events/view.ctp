@@ -18,7 +18,6 @@ color: #999;
 </head>
 <div class="container center-block">
 </br>
-    <div class="row ">
           <div class="well-sm">
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" />
 
@@ -31,7 +30,5 @@ color: #999;
                   <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
                   <br />
                   <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-          </div>
-      </div>
-    </div>
+        </div>
 </div>
