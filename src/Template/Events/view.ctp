@@ -18,7 +18,7 @@ color: #999;
 </head>
 <div>
 </br>
-            <img src="<?=$event ->fitx ?>" class="img-rounded" style="width:50%" />
+            <img src="<?=$event ->fitx ?>" class="img-rounded" style="width:50% margin:auto" />
 
               <h4><?=$event ->izenburua ?></h4>
               <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
