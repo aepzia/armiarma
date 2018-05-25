@@ -19,15 +19,13 @@ color: #999;
 <div class="container center-block">
 </br>
     <div class="row ">
-            <div class="well well-sm">
                 <div class="row">
                     <div class="well-sm">
-                      <img src="<?=$event ->fitx ?>" alt="" class="img-rounded img-responsive" />
+                      <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" />
 
-                        <h4>
-                            Bhaumik Patel</h4>
-                        <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
+                        <h4><?=$event ->izenburua ?></h4>
+                        <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
+                        </i></small>
                         <p>
                             <i class="glyphicon glyphicon-envelope"></i>email@example.com
                             <br />
@@ -36,7 +34,6 @@ color: #999;
                             <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
