@@ -18,7 +18,7 @@ p {
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<div class="col-sm-16">
+<div class="col-sm-10">
 </br>
   <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
