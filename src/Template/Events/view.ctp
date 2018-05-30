@@ -8,15 +8,11 @@
 <style>
 .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
-small {
-display: block;
-font-size: 17px;
-color: #999;
-}
 h1 {
     font-size: 60px;
 }
 p {
+    display: block;
     font-size: 20px;
 }
 </style>
@@ -27,22 +23,16 @@ p {
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
               <h1><?=$event ->izenburua ?></h1>
-              <small><?=$event ->tokia?> <i class="glyphicon glyphicon-map-marker">
-              </i></small>
+              <p style='color: #999'><?=$event ->tokia?> <i class="glyphicon glyphicon-map-marker">
+              </i></p>
               <br />
               <p>
                 <i class="glyphicon glyphicon-info-sign"></i><?=$event->laburpena?>
-                <br/>
                 <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
-                <br />
                 <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
-                <br />
                 <i class="glyphicon glyphicon-euro"></i><?=$event->prezioa?>
-                <br />
                 <i class="glyphicon glyphicon-shopping-cart"></i><?=$event->sarrerak?>
-                <br />
                 <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
-                <br/>
                 <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
 
               </p>
