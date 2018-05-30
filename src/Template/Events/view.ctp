@@ -27,8 +27,10 @@ p {
               </i></p>
               <br />
               <p>
+                <?= if ($event->laburpena !='') : ?>
                 <i class="glyphicon glyphicon-info-sign"></i><?=$event->laburpena?>
                 </br>
+                <?= endif; ?>
                 <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 </br>
                 <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
