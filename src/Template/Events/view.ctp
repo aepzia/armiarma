@@ -31,16 +31,27 @@ p {
                 <i class="glyphicon glyphicon-info-sign"></i><?=$event->laburpena?>
                 </br>
                 <?php endif; ?>
+
                 <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 </br>
                 <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
                 </br>
+
+                <?php if($event->prezioa !=''): ?>
                 <i class="glyphicon glyphicon-euro"></i><?=$event->prezioa?>
                 </br>
+                <?php endif; ?>
+
+                <?php if($event->sarrerak !=''): ?>
                 <i class="glyphicon glyphicon-shopping-cart"></i><?=$event->sarrerak?>
                 </br>
+                <?php endif; ?>
+
+                <?php if($event->web !=''): ?>
                 <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
                 </br>
+                <?php endif; ?>
+
                 <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
 
               </p>
