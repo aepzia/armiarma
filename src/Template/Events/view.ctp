@@ -13,6 +13,12 @@ display: block;
 line-height: 1.428571429;
 color: #999;
 }
+h1 {
+    font-size: 40px;
+}
+p {
+    font-size: 14px;
+}
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -25,9 +31,9 @@ color: #999;
               </i></small>
               <br />
               <p>
-                <font size="6"><i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?></font>
+                <i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?>
                 <br/>
-                <font size="6"><i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?></font>
+                <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 <br />
                 <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
                 <br />
