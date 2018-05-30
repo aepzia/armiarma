@@ -14,7 +14,7 @@ line-height: 1.428571429;
 color: #999;
 }
 h1 {
-    font-size: 40px;
+    font-size: 60px;
 }
 p {
     font-size: 20px;
