@@ -32,9 +32,9 @@ p {
                 </br>
                 <?php endif; ?>
 
-                <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
+                <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 </br>
-                <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
+                <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
                 </br>
 
                 <?php if($event->prezioa !=''): ?>
