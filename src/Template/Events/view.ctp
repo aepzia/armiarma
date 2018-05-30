@@ -57,7 +57,7 @@ p {
 
     </p>
 </div>
-<div class="col-sm-2">
+<div class="col-sm-1">
   <?php  if (isset($current_user) && $current_user['role'] =='admin' || $current_user['id'] == $event->user_id):
   echo $this->Html->link(
       '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
@@ -65,8 +65,10 @@ p {
       array(
           'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
       )
-  );
-   echo $this->Form->postLink(
+  );?>
+</div>
+<div class="col-sm-1">
+   <?php echo $this->Form->postLink(
       '<span class="glyphicon glyphicon-trash left" aria-hidden="true"></span>',
       array('action' => 'delete', $event->id),
       array(
