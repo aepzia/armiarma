@@ -31,7 +31,7 @@ p {
               </i></small>
               <br />
               <p>
-                <i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?>
+                <i class="glyphicon glyphicon-info-sign"></i><?=$event->laburpena?>
                 <br/>
                 <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 <br />
