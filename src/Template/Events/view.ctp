@@ -26,7 +26,7 @@ p {
 </br>
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
-              <h4><?=$event ->izenburua ?></h4>
+              <h1><?=$event ->izenburua ?></h1>
               <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
               </i></small>
               <br />
