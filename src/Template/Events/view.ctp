@@ -19,7 +19,7 @@ p {
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <div class="row">
-<div class="col-sm-8">
+<div class="col-sm-10">
 </br>
   <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive"/>
 
@@ -57,7 +57,7 @@ p {
 
     </p>
 </div>
-<div class="col-sm-4">
+<div class="col-sm-2">
   <?php  if (isset($current_user) && $current_user['role'] =='admin' || $current_user['id'] == $event->user_id):
   echo $this->Html->link(
       '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
