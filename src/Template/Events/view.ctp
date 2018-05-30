@@ -34,7 +34,7 @@ p {
 
                 <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 </br>
-                <i class="glyphicon glyphicon-time"></i><?=$event->hasordua->time()?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->time()?>
+                <i class="glyphicon glyphicon-time"></i><?=$event->hasordua->hour()?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->hour()?>
                 </br>
 
                 <?php if($event->prezioa !=''): ?>
