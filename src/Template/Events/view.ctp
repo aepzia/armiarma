@@ -27,7 +27,7 @@ color: #999;
               <p>
                 <font size="6"><i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?></font>
                 <br/>
-                <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
+                <font size="6"><i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?></font>
                 <br />
                 <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
                 <br />
