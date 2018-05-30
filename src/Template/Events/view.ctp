@@ -17,7 +17,7 @@ h1 {
     font-size: 40px;
 }
 p {
-    font-size: 14px;
+    font-size: 20px;
 }
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
