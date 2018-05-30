@@ -18,7 +18,7 @@ p {
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<div>
+<div class="col-sm-4">
 </br>
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
@@ -55,4 +55,6 @@ p {
                 <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
 
               </p>
+</div>
+<div class="col-sm-4">
 </div>
