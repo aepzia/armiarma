@@ -19,9 +19,9 @@ p {
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <div class="row">
-<div class="col-sm-10">
+<div class="col-sm-8">
 </br>
-  <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
+  <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive"/>
 
     <h1><?=$event ->izenburua ?></h1>
     <p style='color: #999'><?=$event ->tokia?> <i class="glyphicon glyphicon-map-marker">
