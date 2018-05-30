@@ -23,10 +23,20 @@ color: #999;
               <h4><?=$event ->izenburua ?></h4>
               <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
               </i></small>
+              <br />
+              <i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?>
               <p>
-                  <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
-                  <br />
-                  <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
-                  <br />
-                  <i class="glyphicon glyphicon-gift"></i><?=$event->hasdata?></p>
+                <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
+                <br />
+                <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
+                <br />
+                <i class="glyphicon glyphicon-euro"></i><?=$event->prezioa?>
+                <br />
+                <i class="glyphicon glyphicon-shopping-cart"></i><?=$event->sarrerak?>
+                <br />
+                <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
+                <br/>
+                <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
+
+              </p>
 </div>
