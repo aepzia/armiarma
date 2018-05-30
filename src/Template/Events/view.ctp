@@ -18,6 +18,7 @@ p {
 </style>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<div class="row">
 <div class="col-sm-16">
 </br>
   <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
@@ -34,7 +35,7 @@ p {
 
       <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
       </br>
-      <i class="glyphicon glyphicon-time"></i><?= $event->hasordua->format('h') .':'. $event->hasordua->format('i')?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->format('H') .':'. $event->bukordua->format('i') ?>
+      <i class="glyphicon glyphicon-time"></i><?= $event->hasordua->format('g') .':'. $event->hasordua->format('i')?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->format('H') .':'. $event->bukordua->format('i') ?>
       </br>
 
       <?php if($event->prezioa !=''): ?>
@@ -74,4 +75,5 @@ p {
       )
   );
 endif;?>
+</div>
 </div>
