@@ -11,6 +11,7 @@
 small {
 display: block;
 line-height: 1.428571429;
+font-size: 15px;
 color: #999;
 }
 h1 {
@@ -27,7 +28,7 @@ p {
             <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
               <h1><?=$event ->izenburua ?></h1>
-              <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
+              <small><?=$event ->tokia?> <i class="glyphicon glyphicon-map-marker">
               </i></small>
               <br />
               <p>
