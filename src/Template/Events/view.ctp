@@ -57,19 +57,20 @@ p {
 
     </p>
 </div>
-<div class="col-sm-1">
+<div class="col-sm-2">
+<div class="row">
   <?php  if (isset($current_user) && $current_user['role'] =='admin' || $current_user['id'] == $event->user_id):
   echo $this->Html->link(
-      '<span class="glyphicon glyphicon-edit left" aria-hidden="true">Editatu</span>',
+      '<span class="glyphicon glyphicon-edit left" aria-hidden="true"> Editatu</span>',
       array('action' => 'edit', $event->id),
       array(
           'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
       )
   );?>
 </div>
-<div class="col-sm-1">
+<div class="row">
    <?php echo $this->Form->postLink(
-      '<span class="glyphicon glyphicon-trash left" aria-hidden="true">Ezabatu</span>',
+      '<span class="glyphicon glyphicon-trash left" aria-hidden="true"> Ezabatu</span>',
       array('action' => 'delete', $event->id),
       array(
           'escape' => false, 'class' => 'btn btn-danger', 'role' => 'button',
@@ -78,4 +79,5 @@ p {
   );
 endif;?>
 </div>
+
 </div>
