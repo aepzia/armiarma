@@ -24,8 +24,9 @@ color: #999;
               <small><?=$event ->tokia?><i class="glyphicon glyphicon-map-marker">
               </i></small>
               <br />
-              <font size="6"><i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?></font>
               <p>
+                <font size="6"><i class="glyphicon glyphicon-shopping-info-sign"></i><?=$event->laburpena?></font>
+                <br/>
                 <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?> <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
                 <br />
                 <i class="glyphicon glyphicon-time"></i><?=$event->hasordua?> <i class="glyphicon glyphicon-time"></i><?=$event->bukordua?>
