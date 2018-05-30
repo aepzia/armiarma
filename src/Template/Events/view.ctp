@@ -20,41 +20,58 @@ p {
 </head>
 <div class="col-sm-16">
 </br>
-            <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
+  <img src="<?=$event ->fitx ?>" class="img-rounded img-responsive" style="width:50%" />
 
-              <h1><?=$event ->izenburua ?></h1>
-              <p style='color: #999'><?=$event ->tokia?> <i class="glyphicon glyphicon-map-marker">
-              </i></p>
-              <br />
-              <p>
-                <?php if($event->laburpena !=''): ?>
-                <i class="glyphicon glyphicon-info-sign"></i><?=$event->laburpena?>
-                </br>
-                <?php endif; ?>
+    <h1><?=$event ->izenburua ?></h1>
+    <p style='color: #999'><?=$event ->tokia?> <i class="glyphicon glyphicon-map-marker">
+    </i></p>
+    <br />
+    <p>
+      <?php if($event->laburpena !=''): ?>
+      <i class="glyphicon glyphicon-info-sign"></i><?=$event->laburpena?>
+      </br>
+      <?php endif; ?>
 
-                <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
-                </br>
-                <i class="glyphicon glyphicon-time"></i><?= $event->hasordua->format('h') .':'. $event->hasordua->format('i')?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->format('H') .':'. $event->bukordua->format('i') ?>
-                </br>
+      <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
+      </br>
+      <i class="glyphicon glyphicon-time"></i><?= $event->hasordua->format('h') .':'. $event->hasordua->format('i')?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->format('H') .':'. $event->bukordua->format('i') ?>
+      </br>
 
-                <?php if($event->prezioa !=''): ?>
-                <i class="glyphicon glyphicon-euro"></i><?=$event->prezioa?>
-                </br>
-                <?php endif; ?>
+      <?php if($event->prezioa !=''): ?>
+      <i class="glyphicon glyphicon-euro"></i><?=$event->prezioa?>
+      </br>
+      <?php endif; ?>
 
-                <?php if($event->sarrerak !=''): ?>
-                <i class="glyphicon glyphicon-shopping-cart"></i><?=$event->sarrerak?>
-                </br>
-                <?php endif; ?>
+      <?php if($event->sarrerak !=''): ?>
+      <i class="glyphicon glyphicon-shopping-cart"></i><?=$event->sarrerak?>
+      </br>
+      <?php endif; ?>
 
-                <?php if($event->web !=''): ?>
-                <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
-                </br>
-                <?php endif; ?>
+      <?php if($event->web !=''): ?>
+      <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
+      </br>
+      <?php endif; ?>
 
-                <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
+      <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
 
-              </p>
+    </p>
 </div>
 <div class="col-sm-4">
+  <?php  if (isset($current_user) && $current_user['role'] =='admin' || $current_user['id'] == $event->user_id):
+  echo $this->Html->link(
+      '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
+      array('action' => 'edit', $event->id),
+      array(
+          'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
+      )
+  );
+   echo $this->Form->postLink(
+      '<span class="glyphicon glyphicon-trash left" aria-hidden="true"></span>',
+      array('action' => 'delete', $event->id),
+      array(
+          'escape' => false, 'class' => 'btn btn-danger', 'role' => 'button',
+          'confirm' => __('Ziur zaude # {0} erabiltzailea ezabatu nahi duzula?', $event->name)
+      )
+  );
+endif;?>
 </div>

@@ -72,8 +72,14 @@ class EventsController extends AppController
      */
     public function view($id = null)
     {
-        $this -> viewBuilder() -> layout('admin');
-
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
+        }
+        if(isset($current_user) && $current_user['role'] == 'admin'){
+          $this -> viewBuilder() -> layout('admin');
+        } else if(isset($current_user) && $current_user['role'] == 'user'){
+          $this -> viewBuilder() -> layout('erakundea');
+        }
         $event = $this->Events->get($id, [
             'contain' => ['Users']
         ]);
