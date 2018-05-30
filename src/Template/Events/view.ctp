@@ -10,8 +10,7 @@
 
 small {
 display: block;
-line-height: 1.428571429;
-font-size: 15px;
+font-size: 17px;
 color: #999;
 }
 h1 {
