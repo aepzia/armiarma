@@ -16,11 +16,22 @@ div {
 
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input id="email" type="text" class="form-control" name="name" placeholder="Email">
+        <input id="email" type="text" class="form-control" name="name" placeholder="Izena">
       </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+      </div>
+      <br>
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+        <input id="password" type="password" class="form-control" name="password" placeholder="Pasahitza">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input id="password" type="password" class="form-control" name="password2" placeholder="Errepikatu pasahitza">
       </div>
       <br>
       <button class="btn-u pull-right" type="submit">Eman izena</button>
