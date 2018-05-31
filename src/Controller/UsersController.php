@@ -77,38 +77,42 @@ class UsersController extends AppController
       }
       if(isset($current_user) && $current_user['role'] == 'admin'){
         $this -> viewBuilder() -> layout('admin');
-      } 
+      }
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            $user->role='user';
-            $user->active=false;
-            if ($this->Users->save($user)) {
-                Email::configTransport('sendgrid',[
-                  'host' =>'smtp.sendgrid.net',
-                  'port' =>587,
-                  'username' => getenv('SENDGRID_USERNAME'),
-                  'password' => getenv('SENDGRID_PASSWORD'),
-                  'className' => 'Smtp'
-                ]);
-                $email = new Email('default');
+            if($this->request->data['password'] == $this->request->data['password2']){
+              $user = $this->Users->patchEntity($user, $this->request->getData());
+              $user->role='user';
+              $user->active=false;
+              if ($this->Users->save($user)) {
+                  Email::configTransport('sendgrid',[
+                    'host' =>'smtp.sendgrid.net',
+                    'port' =>587,
+                    'username' => getenv('SENDGRID_USERNAME'),
+                    'password' => getenv('SENDGRID_PASSWORD'),
+                    'className' => 'Smtp'
+                  ]);
+                  $email = new Email('default');
 
-                $email->from(['ababaze@gmail.com' => 'Armiarma'])
-                      ->to($user->email)
-                      ->subject('Izena emana')
-                      ->transport('sendgrid')
-                      ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
+                  $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                        ->to($user->email)
+                        ->subject('Izena emana')
+                        ->transport('sendgrid')
+                        ->send('Zure erabiltzailea gorde da. Administratzaileak erabiltzailea onartzerakoan jasoko duzu abisua.');
 
-                $this->Flash->success(__('Erabiltzailea ondo gorde gorde da.'));
+                  $this->Flash->success(__('Erabiltzailea ondo gorde gorde da.'));
 
-                if(isset($current_user) && $current_user['role'] == 'admin'){
-                  return $this->redirect(['action' => 'index']);
-                }else {
-                  return $this->redirect(['action' => 'login']);
-                }
+                  if(isset($current_user) && $current_user['role'] == 'admin'){
+                    return $this->redirect(['action' => 'index']);
+                  }else {
+                    return $this->redirect(['action' => 'login']);
+                  }
+              }
+              $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
+            }else{
+              $this->Flash->error(__('Pasahitzek ez dute koinziditzen. Saia zaitez berriro mesedez.'));
             }
-            $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
         }
         $this->set(compact('user'));
     }
