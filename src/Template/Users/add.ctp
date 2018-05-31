@@ -1,8 +1,3 @@
-<style>
-div{
-  display: block;
-}
-</style>
 <br />
 <div class="container">
     <div class="col-md-3"></div>
