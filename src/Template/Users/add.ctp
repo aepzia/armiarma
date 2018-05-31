@@ -15,12 +15,12 @@ div {
         <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Eman izena</h4>
 
       <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
         <input id="email" type="text" class="form-control" name="name" placeholder="Izena">
       </div>
       <br>
       <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
         <input id="email" type="text" class="form-control" name="email" placeholder="Email">
       </div>
       <br>
