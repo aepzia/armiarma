@@ -11,7 +11,7 @@ div {
 <div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <form>
+      <form method="post">
         <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Eman izena</h4>
 
       <div class="input-group">
