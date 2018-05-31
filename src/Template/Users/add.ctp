@@ -19,14 +19,17 @@ div {
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
                 <input size="60" maxlength="255" class="form-control" placeholder="Izena" name="name" type="text">                                                        </div>
+            </div>
             </br>
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
                 <input size="60" maxlength="255" class="form-control" placeholder="email" name="email" type="text">                                    </div>
+            </div>
             </br>
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
                 <input size="60" maxlength="255" class="form-control" placeholder="Pasahitza" name="password" type="password">                                    </div>
+            </div>
             </br>
             <div class="row">
                 <div class="col-md-12">
