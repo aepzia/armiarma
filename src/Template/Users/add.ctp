@@ -1,31 +1,8 @@
-<!--<?php
-/**
- * @var \App\View\AppView $this
- * @var \Cake\Datasource\EntityInterface $user
- */
-?>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Add User') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('email');
-            echo $this->Form->control('password');
-            if($current_user['role']=== 'admin'){
-              echo $this->Form->control('active');
-              echo $this->Form->control('role');
-            }
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>-->
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
+<style>
+div{
+  display: block;
+}
+</style>
 <br />
 <div class="container">
     <div class="col-md-3"></div>
