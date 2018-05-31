@@ -11,6 +11,7 @@ div {
 <div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6">
+      <legend><?= __('Izena eman') ?></legend>
       <form>
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -25,6 +26,7 @@ div {
         <span class="input-group-addon">Text</span>
         <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
       </div>
+      <?= $this->Form->button(__('Gorde')) ?>
     </form>
     </div>
 </div>
