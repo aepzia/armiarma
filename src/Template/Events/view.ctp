@@ -76,7 +76,7 @@ p {
       array('action' => 'delete', $event->id),
       array(
           'escape' => false, 'class' => 'btn btn-danger', 'role' => 'button',
-          'confirm' => __('Ziur zaude # {0} erabiltzailea ezabatu nahi duzula?', $event->izenburua)
+          'confirm' => __('Ziur zaude # {0} erabiltzailea ekintza nahi duzula?', $event->izenburua)
       )
   );
 endif;?>
