@@ -2,7 +2,11 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+<style>
+div {
+    display: block;
+}
+</style>
 <br />
 <div class="container">
     <div class="col-md-3"></div>
