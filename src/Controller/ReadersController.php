@@ -196,6 +196,9 @@ class ReadersController extends AppController
                 ->transport('sendgrid')
                 ->emailFormat('html')
                 ->send($message);
+        }else{
+          $this->set('send',false);
+
         }
       }
       public function dayEmail(){
