@@ -169,12 +169,6 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ]);
-        $events = $events->find('all' , 'conditions' => [
-              'hasdata >=' => $now,
-              'hasdata <=' => $oneMoth,
-              'active' => 1
-          ]);
-
         if(!is_null($events)){
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
