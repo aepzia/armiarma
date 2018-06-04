@@ -3,5 +3,5 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reader $reader
  */
- echo 'Events '. $eventsEmail->size();
+ echo 'Events '. sizeof($eventsEmail);
 ?>
