@@ -3,5 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reader $reader
  */
- echo 'Events '. empty($eventsEmail);
+ if( empty($eventsEmail)){
+   echo 'empty';
+ }else{
+   echo 'not empty';
+ }
 ?>
