@@ -89,9 +89,6 @@
 
 <div class="container">
   </br>
-  <div class="dropdown">
-    <a class="btn-top" style="margin-right: 15px;" href="<?php echo $this->Url->build(array('action'=>'add')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-plus"></span> &nbsp Ekintza berria</a>
-  </div>
   <div class="list">
     <?php
     $hilabeteak = array(
