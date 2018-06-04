@@ -6,6 +6,6 @@
  if($send){
    echo 'send';
  }else{
-   echo 'not'
+   echo 'not';
  }
 ?>
