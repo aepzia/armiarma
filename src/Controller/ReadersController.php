@@ -164,11 +164,11 @@ class ReadersController extends AppController
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
-        $events = $events->find('all' , 'conditions' => array(
+        $events = $events->find('all' , 'conditions' => [
               'hasdata >=' => $now,
               'hasdata <=' => $oneMoth,
               'active' => 1
-          ));
+          ]);
 
         if(!is_null($events)){
           Email::configTransport('sendgrid',[
