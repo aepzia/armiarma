@@ -3,5 +3,5 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reader $reader
  */
- echo 'Events '.$eventsCount;
+ echo 'Events '. $events->size();
 ?>
