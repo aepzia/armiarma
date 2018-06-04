@@ -22,7 +22,7 @@ class EventsController extends AppController
      */
      public function beforeFilter(Event $event){
        parent::beforeFilter($event);
-       $this->Auth->allow(['indexWeek','indexDay']);
+       $this->Auth->allow(['indexWeek','indexDay','view']);
      }
     public function index()
     {
