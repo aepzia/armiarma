@@ -171,6 +171,7 @@ class ReadersController extends AppController
         ]));
 
         if(!empty($eventsEmail)){
+          $this->set('send',true);
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
             'port' =>587,
