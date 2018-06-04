@@ -110,7 +110,7 @@
       12 => "Abendua",
     );
     foreach ($events as $event):
-      if($event->hasData->isWithinNext('2 weeks')):
+      if($event->hasdata->isWithinNext('2 weeks')):
       ?>
     <tr>
       <article class="list--item">
@@ -118,9 +118,9 @@
           <img src="<?= 'http://armiarma.herokuapp.com/webroot/files/Event/file_name/' . $event ->fitx ?>" alt="">
           <header>
           <div class="floater">
-            <?= h($event->hasData->day)?>
+            <?= h($event->hasdata->day)?>
           </br>
-            <?= $hilabeteak[h($event->hasData->month)]?>
+            <?= $hilabeteak[h($event->hasdata->month)]?>
           </div>
           <?= h($event->izenburua) ?>
           </br>
