@@ -165,8 +165,6 @@ class ReadersController extends AppController
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
         $this->set('eventsEmail', $events->find()->where([
-          'hasdata >=' => $now,
-          'hasdata <=' => $oneMoth,
           'active' => 1
         ]));
 
@@ -198,7 +196,6 @@ class ReadersController extends AppController
                 ->send($message);
         }else{
           $this->set('send',false);
-
         }
       }
       public function dayEmail(){
