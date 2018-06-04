@@ -167,7 +167,7 @@ class ReadersController extends AppController
         $events = $events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
             'and' => array(
               'events.hasdata >=' => $now,
-              'events.hasdata <=' => $now,
+              'events.hasdata <=' => $oneMoth,
               'events.active' => 1
             )
           ) ));
