@@ -164,14 +164,14 @@ class ReadersController extends AppController
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
-        $this->set('eventsEmail', $events->find('all', 'conditions' => array(
-                'active' => 1
-            )));
         /*$this->set('eventsEmail', $events->find()->where([
           'hasdata >=' => $now,
           'hasdata <=' => $oneMoth,
           'active' => 1
         ]));*/
+        $this->set('eventsEmail', $events->find()->where([
+          'active' => 1
+        ]));
 
         if(!empty($eventsEmail)){
           $this->set('send',true);
