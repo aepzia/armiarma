@@ -161,9 +161,13 @@ class ReadersController extends AppController
     public function weekEmail(){
 
         $events = TableRegistry::get('Events');
+        $now = Time::now();
+        $oneMoth = Time::now();
+        $oneMoth->addMonth(1);
         $events = $events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
             'and' => array(
-              'events.hasdata' => isWithinNext('2 weeks'),
+              'events.hasdata >=' => $now,
+              'events.hasdata <=' => $now,
               'events.active' => 1
             )
           ) ));
