@@ -5,6 +5,8 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
 use Cake\ORM\TableRegistry;
+use Cake\I18n\Time;
+
 /**
  * Readers Controller
  *
@@ -161,7 +163,7 @@ class ReadersController extends AppController
         $events = TableRegistry::get('Events');
         $events = $events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
             'and' => array(
-              'events.time' => isWithinNext('2 weeks'),
+              'events.hasdata' => isWithinNext('2 weeks'),
               'events.active' => 1
             )
           ) ));
