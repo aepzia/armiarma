@@ -169,7 +169,6 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ])->count();
-        $this->Flash->success(__($eventsCount));
 
         if($eventsCount > 0){
           Email::configTransport('sendgrid',[
