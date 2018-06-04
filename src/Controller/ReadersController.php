@@ -157,12 +157,15 @@ class ReadersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     public function weekEmail(){
-      $events = $this->paginate($this->Readers->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
-          'and' => array(
-            'events.time' => isWithinNext('2 weeks'),
-            'events.active' => 1
-          )
-        ) )));
+
+        $events = TableRegistry::get('Events');
+        $events = $events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
+            'and' => array(
+              'events.time' => isWithinNext('2 weeks'),
+              'events.active' => 1
+            )
+          ) ));
+
 
         Email::configTransport('sendgrid',[
           'host' =>'smtp.sendgrid.net',
