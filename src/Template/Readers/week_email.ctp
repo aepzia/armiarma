@@ -8,4 +8,7 @@
  }else{
    echo 'not empty';
  }
+ if(!empty($eventsEmail)){
+   echo 'send';
+ }
 ?>
