@@ -109,8 +109,7 @@
       12 => "Abendua",
     );
     foreach ($events as $event):
-      $today = date("Y-m-d H:i:s");
-      if($today< $event->hasdata):
+      if($event->hasdata->isWithinNext('2 weeks')):
     ?>
     <tr>
       <article class="list--item">
@@ -135,7 +134,7 @@
                     'escape' => false, 'class' => 'btn btn-primary', 'role' => 'button',
                 )
             );
-          endif;?>
+        ?>
           </div>
           </figcaption>
         </figure>
