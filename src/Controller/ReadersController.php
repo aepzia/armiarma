@@ -172,7 +172,7 @@ class ReadersController extends AppController
             )
           ) ));
 
-        if(!empty($events)){
+        if(!is_null($events)){
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
             'port' =>587,
