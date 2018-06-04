@@ -157,6 +157,12 @@ class ReadersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     public function weekEmail(){
+      $events = $this->paginate($this->Readers->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
+          'and' => array(
+            'events.time' => isWithinNext('2 weeks'),
+            'events.active' => 1
+          )
+        ) )));
 
         Email::configTransport('sendgrid',[
           'host' =>'smtp.sendgrid.net',
@@ -174,7 +180,7 @@ class ReadersController extends AppController
         $email->cc('ababaze@gmail.com');
         foreach ($readers as $reader):
           if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-            $email->addCc($reader->email);
+          //  $email->addCc($reader->email);
           }
         endforeach;
 

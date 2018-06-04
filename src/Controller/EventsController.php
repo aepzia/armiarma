@@ -50,9 +50,9 @@ class EventsController extends AppController
 
         $this->set(compact('events'));
     }
+
     public function indexWeek()
     {
-
         $events = $this->paginate($this->Events);
         $this->set(compact('events'));
     }
