@@ -169,9 +169,7 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ]));*/
-        $this->set('eventsEmail', $events->find()->where([
-          'active' => 1
-        ]));
+        $this->set('eventsEmail', $events);
 
         if(!empty($eventsEmail)){
           $this->set('send',true);
