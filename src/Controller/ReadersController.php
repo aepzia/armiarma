@@ -172,31 +172,32 @@ class ReadersController extends AppController
             )
           ) ));
 
+        if(!empty($events)){
+          Email::configTransport('sendgrid',[
+            'host' =>'smtp.sendgrid.net',
+            'port' =>587,
+            'username' => getenv('SENDGRID_USERNAME'),
+            'password' => getenv('SENDGRID_PASSWORD'),
+            'className' => 'Smtp'
+          ]);
+          $email = new Email('default');
 
-        Email::configTransport('sendgrid',[
-          'host' =>'smtp.sendgrid.net',
-          'port' =>587,
-          'username' => getenv('SENDGRID_USERNAME'),
-          'password' => getenv('SENDGRID_PASSWORD'),
-          'className' => 'Smtp'
-        ]);
-        $email = new Email('default');
+          $message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
+          $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-        $message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
-        $email->from(['ababaze@gmail.com' => 'Armiarma']);
+          $readers = $this->paginate($this->Readers);
+          $email->cc('ababaze@gmail.com');
+          foreach ($readers as $reader):
+            if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
+            //  $email->addCc($reader->email);
+            }
+          endforeach;
 
-        $readers = $this->paginate($this->Readers);
-        $email->cc('ababaze@gmail.com');
-        foreach ($readers as $reader):
-          if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-          //  $email->addCc($reader->email);
-          }
-        endforeach;
-
-        $email->subject('boletina')
-              ->transport('sendgrid')
-              ->emailFormat('html')
-              ->send($message);
+          $email->subject('boletina')
+                ->transport('sendgrid')
+                ->emailFormat('html')
+                ->send($message);
+        }
       }
       public function dayEmail(){
 
