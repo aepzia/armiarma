@@ -165,9 +165,9 @@ class ReadersController extends AppController
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
         $events = $events->find('all' , 'conditions' => array(
-              'events.hasdata >=' => $now,
-              'events.hasdata <=' => $oneMoth,
-              'events.active' => 1
+              'hasdata >=' => $now,
+              'hasdata <=' => $oneMoth,
+              'active' => 1
           ));
 
         if(!is_null($events)){
