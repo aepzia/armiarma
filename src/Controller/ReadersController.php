@@ -164,6 +164,7 @@ class ReadersController extends AppController
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
+        $events = $events->find('all');
         $events = $events->find('all' , 'conditions' => [
               'hasdata >=' => $now,
               'hasdata <=' => $oneMoth,
