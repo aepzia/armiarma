@@ -110,9 +110,7 @@
       12 => "Abendua",
     );
     foreach ($events as $event):
-      $today = date("Y-m-d H:i:s");
-      $nextWeek = $today + (7 * 24 * 60 * 60);
-      if($today< $event->data < $nextWeek ):
+      if($event->data->isWithinNext('2 weeks')):
       ?>
     <tr>
       <article class="list--item">
