@@ -169,7 +169,7 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ]);
-        if(!is_null($events)){
+        if(count($events) > 0){
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
             'port' =>587,
