@@ -164,13 +164,13 @@ class ReadersController extends AppController
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
-        $eventsCount = $events->find()->where([
+        $events = $this->paginate($events->find()->where([
           'hasdata >=' => $now,
           'hasdata <=' => $oneMoth,
           'active' => 1
-        ])->count();
+        ]));
 
-        if($eventsCount > 0){
+        if(!empty($events)){
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
             'port' =>587,
