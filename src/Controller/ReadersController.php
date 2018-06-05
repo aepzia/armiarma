@@ -170,7 +170,7 @@ class ReadersController extends AppController
           'active' => 1
         ]));*/
         $events = TableRegistry::get('Events')->find();
-        $total = $events->find()->where([
+        $total = $events->where([
           'hasdata >=' => $now,
           'hasdata <=' => $oneMoth,
           'active' => 1
