@@ -169,13 +169,16 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ]));*/
-        $events = TableRegistry::get('Events')->find()->where([
+        $events = TableRegistry::get('Events')->find();
+        $total = $articles->find()->where([
           'hasdata >=' => $now,
           'hasdata <=' => $oneMoth,
           'active' => 1
-        ])->all();
+        ])->count();
 
         if(!empty($events)){
+          $this->set('total',$total);
+
           $this->set('send',true);
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',

@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Reader $reader
  */
  if($send){
-   echo 'send';
+   echo 'send '. $total;
  }else{
    echo 'not';
  }
