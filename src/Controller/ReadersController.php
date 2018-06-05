@@ -164,7 +164,7 @@ class ReadersController extends AppController
           'hasdata >=' => $now,
           'hasdata <=' => $oneMoth,
           'active' => 1
-        ]));
+        ]);
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
