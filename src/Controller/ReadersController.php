@@ -169,9 +169,9 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ]));*/
-        $this->set('eventsEmail', $events);
 
-        if(!empty($eventsEmail)){
+
+        if(!empty($events)){
           $this->set('send',true);
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
