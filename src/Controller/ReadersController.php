@@ -176,9 +176,7 @@ class ReadersController extends AppController
           'active' => 1
         ])->count();
 
-        if(!empty($events)){
-          $this->set('total',$total);
-
+        if(if($total>0)){
           $this->set('send',true);
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
