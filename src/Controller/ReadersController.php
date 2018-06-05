@@ -173,8 +173,7 @@ class ReadersController extends AppController
           'hasdata >=' => $now,
           'hasdata <=' => $oneMoth,
           'active' => 1
-        ]);
-
+        ])->all();
 
         if(!empty($events)){
           $this->set('send',true);
