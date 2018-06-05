@@ -49,8 +49,8 @@
           </script>
 
     <?php
-          echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua'));
-          echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua'));
+          echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua', 'value' => $event->hasordua->format('G') .':'. $event->hasordua->format('i')));
+          echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua', 'value' => $event->bukordua->format('G') .':'. $event->bukordua->format('i')));
           echo $this->Form->control('tokia');
           echo $this->Form->control('prezioa');
           echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
