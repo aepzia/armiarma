@@ -160,7 +160,11 @@ class ReadersController extends AppController
     }
     public function weekEmail(){
 
-        $events = TableRegistry::get('Events');
+        $events = TableRegistry::get('Events')->where([
+          'hasdata >=' => $now,
+          'hasdata <=' => $oneMoth,
+          'active' => 1
+        ]));
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
