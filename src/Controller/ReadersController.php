@@ -194,7 +194,7 @@ class ReadersController extends AppController
           $email->cc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-            //  $email->addCc($reader->email);
+              $email->addCc($reader->email);
             }
           endforeach;
 
