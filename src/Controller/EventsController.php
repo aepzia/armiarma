@@ -144,7 +144,16 @@ class EventsController extends AppController
      */
     public function edit($id = null)
     {
-        $this -> viewBuilder() -> layout('admin');
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
+        }
+        if(isset($current_user) && $current_user['role'] == 'admin'){
+          $this -> viewBuilder() -> layout('admin');
+
+        } else if(isset($current_user) && $current_user['role'] == 'user'){
+          $this -> viewBuilder() -> layout('erakundea');
+
+        }
 
         $event = $this->Events->get($id, [
             'contain' => []
@@ -159,10 +168,9 @@ class EventsController extends AppController
                 $event['fitx'] = $file;
             } else {
               $filename = $this->request->data['fitx']['name'];
-  			      $tmp_name = $this->request->data['fitx']['tmp_name'];
-                $isMove=move_uploaded_file($tmp_name,'../webroot/files/Event/file_name/' . $filename );
               $event = $this->Events->patchEntity($event, $this->request->getData());
-              $event['fitx']= $filename;
+              $result = \Cloudinary\Uploader::upload($this->request->data['fitx']['tmp_name'], array("use_filename" => TRUE));
+              $event['fitx']= $result['url'];
             }
 
                 if ($this->Events->save($event)) {
