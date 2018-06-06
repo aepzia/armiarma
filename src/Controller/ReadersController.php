@@ -195,7 +195,7 @@ class ReadersController extends AppController
 
           $email->subject('boletina')
                 ->transport('sendgrid')
-                ->template('eventIndex')
+                ->template('eventsIndex')
                 ->emailFormat('html')
                 ->send();
         }else{
@@ -236,7 +236,7 @@ class ReadersController extends AppController
 
           $email->subject('boletina')
                 ->transport('sendgrid')
-                ->template('eventIndex')
+                ->template('eventsIndex')
                 ->emailFormat('html')
                 ->send();
         }
