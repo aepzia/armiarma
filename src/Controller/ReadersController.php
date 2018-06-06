@@ -170,6 +170,7 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ])->count();
+        $this->set('events', $events);
 
         if($total>0){
           $this->set('send',true);
