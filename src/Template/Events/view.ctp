@@ -52,9 +52,6 @@ p {
       <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
       </br>
       <?php endif; ?>
-
-      <i class="glyphicon glyphicon-envelope"></i><?=$event->user->email?>
-
     </p>
 </div>
 <div class="col-sm-2">
