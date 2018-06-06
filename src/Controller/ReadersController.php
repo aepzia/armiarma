@@ -197,7 +197,7 @@ class ReadersController extends AppController
                 ->transport('sendgrid')
                 ->template('eventIndex')
                 ->emailFormat('html')
-                ->send($message);
+                ->send();
         }else{
           $this->set('send',false);
         }
@@ -238,7 +238,7 @@ class ReadersController extends AppController
                 ->transport('sendgrid')
                 ->template('eventIndex')
                 ->emailFormat('html')
-                ->send($message);
+                ->send();
         }
       }
 }
