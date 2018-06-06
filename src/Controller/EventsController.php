@@ -63,7 +63,11 @@ class EventsController extends AppController
     }
     public function indexDay()
     {
-        $events = $this->paginate($this->Events);
+      $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
+
+            'events.active' => 1
+          )
+        )));
         $this->set(compact('events'));
     }
 
