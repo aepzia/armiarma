@@ -24,7 +24,7 @@ class ReadersController extends AppController
 
    public function beforeFilter(Event $event){
      parent::beforeFilter($event);
-     $this->Auth->allow(['add','dayEmail','addConfirm','weekEmail']);
+     $this->Auth->allow(['add','dayEmail','addConfirm','weekEmail','edit']);
    }
 
     public function index()
