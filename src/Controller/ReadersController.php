@@ -170,7 +170,6 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ])->count();
-        $Email->viewVars($events);
         if($total>0){
           $this->set('send',true);
           Email::configTransport('sendgrid',[
@@ -184,7 +183,7 @@ class ReadersController extends AppController
 
           //$message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
-
+          $email->viewVars($events);
           $readers = $this->paginate($this->Readers);
           $email->cc('ababaze@gmail.com');
           foreach ($readers as $reader):
