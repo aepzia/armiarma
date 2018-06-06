@@ -31,10 +31,10 @@
   <fieldset>
       <legend><?= __('Ekintza gehitu') ?></legend>
       <?php
-          echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
+          echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
           echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-          echo $this->Form->input('Data',array('label' => 'Hasiera data', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
-          echo $this->Form->input('Data',array('label' => 'Bukaera data', 'name'=>'bukdata','class' =>'selector' , 'value' => $event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day));
+          echo $this->Form->input('Data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
+          echo $this->Form->input('Data',array('label' => 'Bukaera data *', 'name'=>'bukdata','class' =>'selector' , 'value' => $event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day));
 
           ?>
 
@@ -49,9 +49,9 @@
           </script>
 
     <?php
-          echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua', 'value' => $event->hasordua->format('G') .':'. $event->hasordua->format('i')));
-          echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua', 'value' => $event->bukordua->format('G') .':'. $event->bukordua->format('i')));
-          echo $this->Form->control('tokia');
+          echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua *', 'value' => $event->hasordua->format('G') .':'. $event->hasordua->format('i')));
+          echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua *', 'value' => $event->bukordua->format('G') .':'. $event->bukordua->format('i')));
+          echo $this->Form->control('tokia *');
           echo $this->Form->control('prezioa');
           echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
           echo $this->Form->control('web', ['label' => 'Beste webgune baterako lotura']);

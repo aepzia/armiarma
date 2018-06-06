@@ -16,10 +16,10 @@
     <fieldset>
         <legend><?= __('Ekintza gehitu') ?></legend>
         <?php
-            echo $this->Form->control('izenburua', ['label' => 'Izenburua']);
+            echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->input('Hasiera data',array('label' => 'Hasiera data', 'name'=>'hasdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
-            echo $this->Form->input('Bukaera data',array('label' => 'Bukaera data','name'=>'bukdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
+            echo $this->Form->input('Hasiera data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
+            echo $this->Form->input('Bukaera data',array('label' => 'Bukaera data *','name'=>'bukdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             ?>
             <script>
             $( ".selector" ).datepicker({
@@ -31,9 +31,9 @@
             });
             </script>
             <?php
-            echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua'));
-            echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua'));
-            echo $this->Form->control('tokia');
+            echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua *'));
+            echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua *'));
+            echo $this->Form->control('tokia *');
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
             echo $this->Form->control('web', ['label' => 'Beste webgune baterako lotura']);
