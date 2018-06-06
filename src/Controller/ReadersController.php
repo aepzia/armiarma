@@ -181,14 +181,13 @@ class ReadersController extends AppController
           ]);
           $email = new Email('default');
 
-          //$message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
           $email->viewVars(['events' => $events]);
           $readers = $this->paginate($this->Readers);
           $email->cc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              //$email->addCc($reader->email);
+              $email->addCc($reader->email);
             }
           endforeach;
 
@@ -221,15 +220,15 @@ class ReadersController extends AppController
             'className' => 'Smtp'
           ]);
           $email = new Email('default');
+          $email->viewVars(['events' => $events]);
 
-          //$message = file_get_contents('http://armiarma.herokuapp.com/events/indexDay');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $email->cc('ababaze@gmail.com');
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              //$email->addCc($reader->email);
+              $email->addCc($reader->email);
             }
           endforeach;
 
