@@ -182,20 +182,18 @@ class ReadersController extends AppController
           $email = new Email('default');
 
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
-          $email->viewVars(['events' => $events]);
           $readers = $this->paginate($this->Readers);
-          $email->bcc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              $email->addBcc($reader->email);
+              $email->cc($reader->email)
+                    ->subject('boletina')
+                    ->transport('sendgrid')
+                    ->viewVars(['events' => $events, 'readerid'=> $reader->id])
+                    ->template('eventsIndex')
+                    ->emailFormat('html')
+                    ->send();
             }
           endforeach;
-
-          $email->subject('boletina')
-                ->transport('sendgrid')
-                ->template('eventsIndex')
-                ->emailFormat('html')
-                ->send();
         }else{
           $this->set('send',false);
         }
