@@ -8,3 +8,4 @@ foreach ($events as $event):
        <img src="<?=$event ->fitx ?>" alt="">
 <?php
 endforeach; ?>
+Emailak jasotzeko aukerak aldatu nahi badituzu egin klik <a href="<?='http://armiarma.herokuapp.com/readers/edit/'.$event->id?>">hemen</a>
