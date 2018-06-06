@@ -164,11 +164,6 @@ class ReadersController extends AppController
         $now = Time::now();
         $oneMoth = Time::now();
         $oneMoth->addMonth(1);
-        /*$this->set('eventsEmail', $events->find()->where([
-          'hasdata >=' => $now,
-          'hasdata <=' => $oneMoth,
-          'active' => 1
-        ]));*/
         $events = TableRegistry::get('Events')->find();
         $total = $events->where([
           'hasdata >=' => $now,
@@ -207,6 +202,16 @@ class ReadersController extends AppController
         }
       }
       public function dayEmail(){
+        $now = Time::now();
+        $twoDays = Time::now();
+        $twoDays->addDays(2);
+        $events = TableRegistry::get('Events')->find();
+        $total = $events->where([
+          'hasdata >=' => $now,
+          'hasdata <=' => $twoDays,
+          'active' => 1
+        ])->count();
+        if($total>0){
 
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
@@ -224,7 +229,7 @@ class ReadersController extends AppController
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->addCc($reader->email);
+              //$email->addCc($reader->email);
             }
           endforeach;
 
@@ -233,4 +238,5 @@ class ReadersController extends AppController
                 ->emailFormat('html')
                 ->send($message);
         }
+      }
 }
