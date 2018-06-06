@@ -31,7 +31,9 @@
             });
             </script>
             <?php
+            echo __('Hasiera ordua *');
             echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua *'));
+            echo __('Bukaera ordua *');
             echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua *'));
             echo $this->Form->control('tokia *');
             echo $this->Form->control('prezioa');

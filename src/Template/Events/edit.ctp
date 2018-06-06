@@ -49,7 +49,9 @@
           </script>
 
     <?php
+          echo __('Hasiera ordua *');
           echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua *', 'value' => $event->hasordua->format('G') .':'. $event->hasordua->format('i')));
+          echo __('Bukaera ordua *');
           echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua *', 'value' => $event->bukordua->format('G') .':'. $event->bukordua->format('i')));
           echo $this->Form->control('tokia *');
           echo $this->Form->control('prezioa');
