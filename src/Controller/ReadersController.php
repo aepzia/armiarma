@@ -182,19 +182,20 @@ class ReadersController extends AppController
           ]);
           $email = new Email('default');
 
-          $message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
+          //$message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $readers = $this->paginate($this->Readers);
           $email->cc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              $email->addCc($reader->email);
+              //$email->addCc($reader->email);
             }
           endforeach;
 
           $email->subject('boletina')
                 ->transport('sendgrid')
+                ->template('eventIndex')
                 ->emailFormat('html')
                 ->send($message);
         }else{
@@ -222,19 +223,20 @@ class ReadersController extends AppController
           ]);
           $email = new Email('default');
 
-          $message = file_get_contents('http://armiarma.herokuapp.com/events/indexDay');
+          //$message = file_get_contents('http://armiarma.herokuapp.com/events/indexDay');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $email->cc('ababaze@gmail.com');
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->addCc($reader->email);
+              //$email->addCc($reader->email);
             }
           endforeach;
 
           $email->subject('boletina')
                 ->transport('sendgrid')
+                ->template('eventIndex')
                 ->emailFormat('html')
                 ->send($message);
         }
