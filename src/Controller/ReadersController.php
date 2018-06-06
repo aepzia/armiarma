@@ -184,10 +184,10 @@ class ReadersController extends AppController
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
           $email->viewVars(['events' => $events]);
           $readers = $this->paginate($this->Readers);
-          $email->cc('ababaze@gmail.com');
+          $email->bcc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              $email->addCc($reader->email);
+              $email->addBcc($reader->email);
             }
           endforeach;
 
@@ -224,11 +224,11 @@ class ReadersController extends AppController
 
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-          $email->cc('ababaze@gmail.com');
+          $email->bcc('ababaze@gmail.com');
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->addCc($reader->email);
+              $email->addBcc($reader->email);
             }
           endforeach;
 
