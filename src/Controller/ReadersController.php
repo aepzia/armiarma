@@ -229,7 +229,7 @@ class ReadersController extends AppController
           $readers = $this->paginate($this->Readers);
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              //$email->addCc($reader->email);
+              $email->addCc($reader->email);
             }
           endforeach;
 
