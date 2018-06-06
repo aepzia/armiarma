@@ -35,7 +35,7 @@
             echo $this->Form->text('hasordua',array('type' => 'time','label' => 'Hasiera ordua *'));
             echo __('Bukaera ordua *');
             echo $this->Form->text('bukordua',array('type' => 'time','label' => 'Bukaera ordua *'));
-            echo $this->Form->control('tokia *');
+            echo $this->Form->control('tokia',  ['label' => 'Tokia *']);
             echo $this->Form->control('prezioa');
             echo $this->Form->control('sarrerak', ['label' => 'Nun erosi sarrerak']);
             echo $this->Form->control('web', ['label' => 'Beste webgune baterako lotura']);
