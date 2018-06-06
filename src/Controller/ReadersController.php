@@ -170,8 +170,7 @@ class ReadersController extends AppController
           'hasdata <=' => $oneMoth,
           'active' => 1
         ])->count();
-        $this->set('events', $events);
-
+        $Email->viewVars($events);
         if($total>0){
           $this->set('send',true);
           Email::configTransport('sendgrid',[
