@@ -183,7 +183,7 @@ class ReadersController extends AppController
 
           //$message = file_get_contents('http://armiarma.herokuapp.com/events/indexWeek');
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
-          $email->viewVars($events);
+          $email->viewVars(['events' => $events]);
           $readers = $this->paginate($this->Readers);
           $email->cc('ababaze@gmail.com');
           foreach ($readers as $reader):
