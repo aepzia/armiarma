@@ -33,7 +33,7 @@ p {
       </br>
       <?php endif; ?>
 
-      <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata?>
+      <i class="glyphicon glyphicon-calendar"></i><?=$event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day?>   <i class="glyphicon glyphicon-calendar"></i><?=$event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day?>
       </br>
       <i class="glyphicon glyphicon-time"></i><?= $event->hasordua->format('G') .':'. $event->hasordua->format('i')?>   <i class="glyphicon glyphicon-time"></i><?=$event->bukordua->format('G') .':'. $event->bukordua->format('i') ?>
       </br>
