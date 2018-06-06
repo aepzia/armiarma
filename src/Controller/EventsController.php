@@ -22,7 +22,7 @@ class EventsController extends AppController
      */
      public function beforeFilter(Event $event){
        parent::beforeFilter($event);
-       $this->Auth->allow(['indexWeek','indexDay','view']);
+       $this->Auth->allow(['view']);
      }
     public function index()
     {
@@ -51,26 +51,6 @@ class EventsController extends AppController
 
         $this->set(compact('events'));
     }
-
-    public function indexWeek()
-    {
-      $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
-
-            'events.active' => 1
-          )
-        )));
-        $this->set(compact('events'));
-    }
-    public function indexDay()
-    {
-      $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
-
-            'events.active' => 1
-          )
-        )));
-        $this->set(compact('events'));
-    }
-
     /**
      * View method
      *
