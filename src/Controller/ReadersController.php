@@ -159,15 +159,13 @@ class ReadersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     public function weekEmail(){
-
-
         $now = Time::now();
-        $oneMoth = Time::now();
-        $oneMoth->addMonth(1);
+        $twoMoth = Time::now();
+        $twoMoth->addMonth(2);
         $events = TableRegistry::get('Events')->find();
         $total = $events->where([
           'hasdata >=' => $now,
-          'hasdata <=' => $oneMoth,
+          'hasdata <=' => $twoMoth,
           'active' => 1
         ])->count();
         if($total>0){
