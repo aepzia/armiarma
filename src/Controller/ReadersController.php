@@ -202,8 +202,8 @@ class ReadersController extends AppController
         $twoDays->addDays(2);
         $events = TableRegistry::get('Events')->find();
         $total = $events->where([
-          'hasdata >=' => $now,
-          'hasdata <=' => $twoDays,
+          'hasdata >' => $now,
+          'hasdata <' => $twoDays,
           'active' => 1
         ])->count();
         if($total>0){
