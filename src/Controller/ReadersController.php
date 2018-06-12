@@ -162,7 +162,9 @@ class ReadersController extends AppController
         $now = Time::now();
         $twoMoth = Time::now();
         $twoMoth->addMonth(2);
-        $events = TableRegistry::get('Events')->find();
+        $events = TableRegistry::get('Events')->find('all', [
+            'order' => ['hasdata' => 'ASC']
+        ]);
         $total = $events->where([
           'hasdata >=' => $now,
           'hasdata <=' => $twoMoth,
@@ -200,7 +202,9 @@ class ReadersController extends AppController
         $now = Time::now();
         $twoDays = Time::now();
         $twoDays->addDays(2);
-        $events = TableRegistry::get('Events')->find();
+        $events = TableRegistry::get('Events')->find('all', [
+            'order' => ['hasdata' => 'ASC']
+        ]);
         $total = $events->where([
           'hasdata >' => $now,
           'hasdata <' => $twoDays,
