@@ -5,6 +5,8 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
 use SendGrid;
+use Cake\ORM\TableRegistry;
+use Cake\I18n\Time;
 
 
 /**
