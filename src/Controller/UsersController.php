@@ -23,7 +23,7 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event){
       parent::beforeFilter($event);
-      $this->Auth->allow(['add']);
+      $this->Auth->allow(['add','adminEmail']);
     }
     public function index()
     {
@@ -215,7 +215,7 @@ class UsersController extends AppController
         'modified' => $yesterday
       ])->count();
       $total = $totalEvents + $totalUsers;
-      
+
       if($total>0){
 
         Email::configTransport('sendgrid',[
