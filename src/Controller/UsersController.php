@@ -203,4 +203,43 @@ class UsersController extends AppController
     public function logout(){
       return $this->redirect($this->Auth->logout());
     }
+    public function adminEmail(){
+      $yesterday = Time::now();
+      $yesterday->subDays(1);
+      $events = TableRegistry::get('Events')->find();
+      $totalEvents = $events->where([
+        'modified' => $yesterday
+      ])->count();
+      $users = TableRegistry::get('Users')->find();
+      $totalUsers = $users->where([
+        'modified' => $yesterday
+      ])->count();
+      $total = $totalEvents + $totalUsers;
+      
+      if($total>0){
+
+        Email::configTransport('sendgrid',[
+          'host' =>'smtp.sendgrid.net',
+          'port' =>587,
+          'username' => getenv('SENDGRID_USERNAME'),
+          'password' => getenv('SENDGRID_PASSWORD'),
+          'className' => 'Smtp'
+        ]);
+        $email = new Email('default');
+
+        $email->from(['ababaze@gmail.com' => 'Armiarma']);
+
+        $users= $this->paginate($this->Users);
+        foreach ($users as $user):
+          if($user->role == 'admin'){
+            $email->cc($user->email)
+                  ->subject('Eguneraketak')
+                  ->transport('sendgrid')
+                  ->template('news')
+                  ->emailFormat('html')
+                  ->send();
+          }
+        endforeach;
+      }
+    }
 }
