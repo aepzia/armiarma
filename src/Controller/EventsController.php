@@ -97,7 +97,7 @@ class EventsController extends AppController
             $filename = $this->request->data['fitx']['name'];
             $event = $this->Events->patchEntity($event, $this->request->getData());
             if($filename == ''){
-              $event['fitx']= 'https://res-console.cloudinary.com/hemnovybo/thumbnails/v1/image/upload/v1527109103/ZGVzY2FyZ2FfMQ==/grid';
+              $event['fitx']= 'https://res.cloudinary.com/hemnovybo/image/upload/v1527109103/descarga_1.png';
             }else{
               $result = \Cloudinary\Uploader::upload($this->request->data['fitx']['tmp_name'], array("use_filename" => TRUE));
               $event['fitx']= $result['url'];
