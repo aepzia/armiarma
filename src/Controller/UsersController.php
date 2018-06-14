@@ -208,7 +208,7 @@ class UsersController extends AppController
     public function adminEmail(){
       $today = Time::now();
       $yesterday = Time::now();
-      $yesterday->subDays(1);
+      $yesterday->subDays(2);
       $events = TableRegistry::get('Events')->find();
       $totalEvents = $events->where([
         'modified >' => $yesterday,
