@@ -206,15 +206,18 @@ class UsersController extends AppController
       return $this->redirect($this->Auth->logout());
     }
     public function adminEmail(){
+      $today = Time::now();
       $yesterday = Time::now();
       $yesterday->subDays(1);
       $events = TableRegistry::get('Events')->find();
       $totalEvents = $events->where([
-        'modified' => $yesterday
+        'modified >' => $yesterday,
+        'modified <' => $today
       ])->count();
       $users = TableRegistry::get('Users')->find();
       $totalUsers = $users->where([
-        'modified' => $yesterday
+        'modified >' => $yesterday,
+        'modified <' => $today
       ])->count();
       $total = $totalEvents + $totalUsers;
 
