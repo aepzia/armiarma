@@ -186,7 +186,7 @@ class ReadersController extends AppController
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
               $email->cc($reader->email)
-                    ->subject('boletina')
+                    ->subject('Datozten 2 hilabetetako egitaraua')
                     ->transport('sendgrid')
                     ->viewVars(['events' => $events, 'readerid'=> $reader->id])
                     ->template('eventsIndex')
@@ -228,7 +228,7 @@ class ReadersController extends AppController
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
               $email->cc($reader->email)
-                    ->subject('boletina: biharko ekitaldiak')
+                    ->subject('Biharko egitaraua')
                     ->transport('sendgrid')
                     ->viewVars(['events' => $events, 'readerid'=> $reader->id])
                     ->template('eventsIndex')
