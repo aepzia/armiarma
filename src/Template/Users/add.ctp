@@ -34,6 +34,7 @@ div {
         <input id="password" type="password" class="form-control" name="password2" placeholder="Errepikatu pasahitza">
       </div>
       <br>
+      <span>Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea</span>
       <button class="btn-u pull-right" type="submit">Eman izena</button>
     </form>
     </div>

@@ -77,7 +77,7 @@
               )
             );
 
-            echo __('Eposta bat jasoko duzu, zure izen ematea konfirmatzeko');
+            echo __('Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea');
 
         ?>
     </fieldset>
