@@ -288,8 +288,14 @@ class UsersController extends AppController
 
         $email->from($current_user->email);
 
-
-        foreach ($readers as $reader):
+        $email->cc('ababaze@gmail.com')
+              ->subject($subject)
+              ->transport('sendgrid')
+              ->viewVars(['message' => $this->request->data['message'], 'readerid'=> 1])
+              ->template('topic')
+              ->emailFormat('html')
+              ->send();
+        /*foreach ($readers as $reader):
             $email->cc($reader->email)
                   ->subject($subject)
                   ->transport('sendgrid')
@@ -297,7 +303,7 @@ class UsersController extends AppController
                   ->template('topic')
                   ->emailFormat('html')
                   ->send();
-        endforeach;
+        endforeach;*/
       }
     }
 }
