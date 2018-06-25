@@ -287,13 +287,21 @@ class UsersController extends AppController
           ]);
           $email = new Email('default');
 
-          $email->cc('ababaze@gmail.com')
+          $check = $email->cc('ababaze@gmail.com')
                 ->subject($subject)
                 ->transport('sendgrid')
+                ->replyTo($current_user['email'])
                 ->viewVars(['message' => $this->request->data['message'], 'readerid'=> 1, 'email' => $current_user['email']])
                 ->template('topic')
                 ->emailFormat('html')
                 ->send();
+          if($check){
+            $this->Flash->success(__('Mezua ondo bidali da.'));
+          }else{
+            $this->Flash->error(__('Errorerenbat gertatu da mezua bidaltzerakoan.'));
+          }
+
+
           /*foreach ($readers as $reader):
               $email->cc($reader->email)
                     ->subject($subject)

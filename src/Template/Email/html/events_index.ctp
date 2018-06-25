@@ -8,5 +8,5 @@ foreach ($events as $event):
        <img src="<?=$event->fitx ?>" width="150" height="150" alt="Ekintzaren kartela"></img>
 <?php
 endforeach; ?>
-</br>
+<br>
 Emailak jasotzeko aukerak aldatu nahi badituzu egin klik <a href="<?='http://armiarma.herokuapp.com/readers/edit/'.$readerid?>">hemen</a>
