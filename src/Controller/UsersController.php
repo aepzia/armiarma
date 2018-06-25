@@ -259,17 +259,17 @@ class UsersController extends AppController
       $readers = TableRegistry::get('Readers')->find();
 
       if($this->request->data['subject'] == 1){
-        $subject = 'Hendaiako euskal hizkuntza politikari loturiko informazioa'
+        $subject = 'Hendaiako euskal hizkuntza politikari loturiko informazioa';
         $total = $readers->where([
           'hizkuntzapolitikainfo' => 1,
         ])->count();
       }else if($this->request->data['subject'] == 2){
-        $subject = 'Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa'
+        $subject = 'Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa';
         $total = $readers->where([
           'ahobizi' => 1,
         ])->count();
       }else if($this->request->data['subject'] == 3){
-        $subject = 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa'
+        $subject = 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa';
         $total = $readers->where([
           'bolondres' => 1,
         ])->count();
