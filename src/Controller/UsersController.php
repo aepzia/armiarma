@@ -287,8 +287,6 @@ class UsersController extends AppController
           ]);
           $email = new Email('default');
 
-          $email->from($current_user['email']);
-
           $email->cc('ababaze@gmail.com')
                 ->subject($subject)
                 ->transport('sendgrid')
