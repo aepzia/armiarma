@@ -286,8 +286,9 @@ class UsersController extends AppController
             'className' => 'Smtp'
           ]);
           $email = new Email('default');
+          $check = true;
 
-          $check = $email->cc('ababaze@gmail.com')
+          $check = $check && $email->cc('ababaze@gmail.com')
                 ->subject($subject)
                 ->transport('sendgrid')
                 ->replyTo($current_user['email'])
