@@ -24,6 +24,8 @@
             	<li><?= $this -> Html -> link('Erakundeak', ['controller' => 'Users', 'action' => 'index']) ?></li>
 							<li><?= $this -> Html -> link('Erabiltzaileak', ['controller' => 'Readers', 'action' => 'index']) ?></li>
 							<li><?= $this -> Html -> link('Ekintzak', ['controller' => 'Events', 'action' => 'index']) ?></li>
+							<li><?= $this -> Html -> link('Informazioa Zabaldu', ['controller' => 'Users', 'action' => 'sendEmail']) ?></li>
+
             </ul>
             <ul class="right">
 							<li><?= $this->Html->link('Profila ikusi', ['controller' => 'Users', 'action' => 'view', $current_user['id']]) ?></li>
