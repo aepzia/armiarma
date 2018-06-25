@@ -12,7 +12,7 @@
 
 </nav>
 <div class="events form large-9 medium-8 columns content">
-    <?= $this->Form->create(array('enctype'=>'multipart/form-data')); ?>
+    <?= $this->Form->create(); ?>
     <fieldset>
         <legend><?= __('Bidali e-posta gaiaren arabera') ?></legend>
         <?php
