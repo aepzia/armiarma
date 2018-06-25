@@ -257,53 +257,55 @@ class UsersController extends AppController
         $this -> viewBuilder() -> layout('erakundea');
       }
       $readers = TableRegistry::get('Readers')->find();
+      if ($this->request->is(['patch', 'post', 'put'])) {
 
-      if($this->request->data['subject'] == 1){
-        $subject = 'Hendaiako euskal hizkuntza politikari loturiko informazioa';
-        $total = $readers->where([
-          'hizkuntzapolitikainfo' => 1,
-        ])->count();
-      }else if($this->request->data['subject'] == 2){
-        $subject = 'Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa';
-        $total = $readers->where([
-          'ahobizi' => 1,
-        ])->count();
-      }else if($this->request->data['subject'] == 3){
-        $subject = 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa';
-        $total = $readers->where([
-          'bolondres' => 1,
-        ])->count();
-      }
+        if($this->request->data['subject'] == 1){
+          $subject = 'Hendaiako euskal hizkuntza politikari loturiko informazioa';
+          $total = $readers->where([
+            'hizkuntzapolitikainfo' => 1,
+          ])->count();
+        }else if($this->request->data['subject'] == 2){
+          $subject = 'Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa';
+          $total = $readers->where([
+            'ahobizi' => 1,
+          ])->count();
+        }else if($this->request->data['subject'] == 3){
+          $subject = 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa';
+          $total = $readers->where([
+            'bolondres' => 1,
+          ])->count();
+        }
 
-      if($total>0){
+        if($total>0){
 
-        Email::configTransport('sendgrid',[
-          'host' =>'smtp.sendgrid.net',
-          'port' =>587,
-          'username' => getenv('SENDGRID_USERNAME'),
-          'password' => getenv('SENDGRID_PASSWORD'),
-          'className' => 'Smtp'
-        ]);
-        $email = new Email('default');
+          Email::configTransport('sendgrid',[
+            'host' =>'smtp.sendgrid.net',
+            'port' =>587,
+            'username' => getenv('SENDGRID_USERNAME'),
+            'password' => getenv('SENDGRID_PASSWORD'),
+            'className' => 'Smtp'
+          ]);
+          $email = new Email('default');
 
-        $email->from($current_user->email);
+          $email->from($current_user->email);
 
-        $email->cc('ababaze@gmail.com')
-              ->subject($subject)
-              ->transport('sendgrid')
-              ->viewVars(['message' => $this->request->data['message'], 'readerid'=> 1])
-              ->template('topic')
-              ->emailFormat('html')
-              ->send();
-        /*foreach ($readers as $reader):
-            $email->cc($reader->email)
-                  ->subject($subject)
-                  ->transport('sendgrid')
-                  ->viewVars(['message' => $this->request->data['message'], 'readerid'=> $reader->id])
-                  ->template('topic')
-                  ->emailFormat('html')
-                  ->send();
-        endforeach;*/
+          $email->cc('ababaze@gmail.com')
+                ->subject($subject)
+                ->transport('sendgrid')
+                ->viewVars(['message' => $this->request->data['message'], 'readerid'=> 1])
+                ->template('topic')
+                ->emailFormat('html')
+                ->send();
+          /*foreach ($readers as $reader):
+              $email->cc($reader->email)
+                    ->subject($subject)
+                    ->transport('sendgrid')
+                    ->viewVars(['message' => $this->request->data['message'], 'readerid'=> $reader->id])
+                    ->template('topic')
+                    ->emailFormat('html')
+                    ->send();
+          endforeach;*/
+        }
       }
     }
 }
