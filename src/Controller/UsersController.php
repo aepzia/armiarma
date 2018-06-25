@@ -290,7 +290,7 @@ class UsersController extends AppController
           $email->cc('ababaze@gmail.com')
                 ->subject($subject)
                 ->transport('sendgrid')
-                ->viewVars(['message' => $this->request->data['message'], 'readerid'=> 1])
+                ->viewVars(['message' => $this->request->data['message'], 'readerid'=> 1, 'email' => $current_user['email']])
                 ->template('topic')
                 ->emailFormat('html')
                 ->send();
