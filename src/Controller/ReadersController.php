@@ -64,7 +64,7 @@ class ReadersController extends AppController
       $reader = $this->Readers->get($readerId, [
           'contain' => []
       ]);
-      $reader ->active = true;
+      $reader->active = true;
           if ($this->Readers->save($reader)) {
 
           }

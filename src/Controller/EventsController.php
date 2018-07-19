@@ -43,13 +43,15 @@ class EventsController extends AppController
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
               'or' => array(
                 'hasdata >=' => $now,
+                'Accepted' => true
               )
             ) )));        }if($current_user['role'] == 'user'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
               'or' => array(
                 'hasdata >=' => $now,
                 'user_id' => $current_user['id'],
-                'events.active' => 1
+                'events.active' => 1,
+                'Accepted' => true
               )
             ) )));
         }
@@ -84,6 +86,15 @@ class EventsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
+     public function addConfirm($eventId = null){
+       $event = $this->Events->get($eventId, [
+           'contain' => []
+       ]);
+       $event->Accepted = true;
+           if ($this->Events->save($event)) {
+
+           }
+       }
     public function add()
     {
       if($this->Auth->user() != 'null'){
@@ -113,6 +124,30 @@ class EventsController extends AppController
             }
 
             if ($this->Events->save($event)) {
+
+              Email::configTransport('sendgrid',[
+                'host' =>'smtp.sendgrid.net',
+                'port' =>587,
+                'username' => getenv('SENDGRID_USERNAME'),
+                'password' => getenv('SENDGRID_PASSWORD'),
+                'className' => 'Smtp'
+              ]);
+              $email = new Email('default');
+              //BIDALI ATRIBUTU GUZTIK
+              $onclick = '<?php echo $this->Html->url(array("controller"=>"Events","action"=>"add_confirm")) ?>';
+
+             $message = '<p> Ekitaldi berri bat gehitu duzu? </p>';
+
+              $message = $message . "<a href='http://armiarma.herokuapp.com/events/add_confirm/$event->id'>
+   Konfirmatu</a>";
+              $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                    ->to($current_user->email)
+                    ->subject('Ekitaldi berria')
+                    ->transport('sendgrid')
+                    ->emailFormat('html')
+                    ->send($message);
+
+
                 $this->Flash->success(__('Ekitaldia ondo gorde da.'));
 
                 return $this->redirect(['action' => 'index']);
