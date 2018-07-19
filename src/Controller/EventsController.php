@@ -51,7 +51,7 @@ class EventsController extends AppController
               'or' => array(
                 'hasdata >=' => $now,
                 'user_id' => $current_user['id'],
-                'events.active' =>
+                'events.active' =>1
               )
             ) )));
         }
