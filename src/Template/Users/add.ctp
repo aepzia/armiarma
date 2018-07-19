@@ -35,6 +35,7 @@ div {
       </div>
       <br>
       <span>Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea</span>
+      <br>
       <span>Zure datuak soilik Armiarma tresnak erabiliko ditu. Ez dira zabalduko</span>
       <button class="btn-u pull-right" type="submit">Eman izena</button>
     </form>
