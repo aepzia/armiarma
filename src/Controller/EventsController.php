@@ -37,6 +37,7 @@ class EventsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
+        $now = Time::now();
 
         if ($current_user['role'] == 'admin'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
