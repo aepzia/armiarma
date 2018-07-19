@@ -124,6 +124,7 @@ class EventsController extends AppController
               $event['user_id'] =$current_user['id'];
               $event['active'] =false;
             }
+            $event->accepted=false;
 
             if ($this->Events->save($event)) {
 
