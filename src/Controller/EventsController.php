@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\I18n\Time;
+use Cake\Mailer\Email;
+
 
 /**
  * Events Controller
@@ -43,7 +45,7 @@ class EventsController extends AppController
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
               'or' => array(
                 'hasdata >=' => $now,
-                'Accepted' => true
+                'accepted' => true
               )
             ) )));        }if($current_user['role'] == 'user'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
@@ -51,7 +53,7 @@ class EventsController extends AppController
                 'hasdata >=' => $now,
                 'user_id' => $current_user['id'],
                 'events.active' => 1,
-                'Accepted' => true
+                'accepted' => true
               )
             ) )));
         }
@@ -90,7 +92,7 @@ class EventsController extends AppController
        $event = $this->Events->get($eventId, [
            'contain' => []
        ]);
-       $event->Accepted = true;
+       $event->accepted = true;
            if ($this->Events->save($event)) {
 
            }
