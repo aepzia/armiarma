@@ -81,6 +81,8 @@
 
         ?>
     </fieldset>
+    <span>Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea</span>
+    <span>Zure datuak soilik Armiarma tresnak erabiliko ditu. Ez dira zabalduko</span>
     <?= $this->Form->button(__('Onartu')) ?>
     <?= $this->Form->end() ?>
 </div>
