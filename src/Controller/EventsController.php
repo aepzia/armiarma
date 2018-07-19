@@ -24,7 +24,7 @@ class EventsController extends AppController
      */
      public function beforeFilter(Event $event){
        parent::beforeFilter($event);
-       $this->Auth->allow(['view']);
+       $this->Auth->allow(['view','addConfirm']);
      }
     public function index()
     {
@@ -43,17 +43,15 @@ class EventsController extends AppController
 
         if ($current_user['role'] == 'admin'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
-              'or' => array(
                 'hasdata >=' => $now,
                 'accepted' => 1
-              )
             ) )));        }if($current_user['role'] == 'user'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
+            'accepted' => 1,
               'or' => array(
                 'hasdata >=' => $now,
                 'user_id' => $current_user['id'],
-                'events.active' => 1,
-                'accepted' => 1
+                'events.active' =>
               )
             ) )));
         }
@@ -125,7 +123,7 @@ class EventsController extends AppController
               $event['active'] =false;
             }
             $event['accepted'] =false;
-            
+
             if ($this->Events->save($event)) {
 
               Email::configTransport('sendgrid',[
