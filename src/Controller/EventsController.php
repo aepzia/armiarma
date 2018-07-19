@@ -45,7 +45,7 @@ class EventsController extends AppController
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
               'or' => array(
                 'hasdata >=' => $now,
-                'accepted' => true
+                'accepted' => 1
               )
             ) )));        }if($current_user['role'] == 'user'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
@@ -53,7 +53,7 @@ class EventsController extends AppController
                 'hasdata >=' => $now,
                 'user_id' => $current_user['id'],
                 'events.active' => 1,
-                'accepted' => true
+                'accepted' => 1
               )
             ) )));
         }
@@ -144,7 +144,7 @@ class EventsController extends AppController
               $message = $message . "<a href='http://armiarma.herokuapp.com/events/add_confirm/$event->id'>
    Konfirmatu</a>";
               $email->from(['ababaze@gmail.com' => 'Armiarma'])
-                    ->to($current_user->email)
+                    ->to($current_user['email'])
                     ->subject('Ekitaldi berria')
                     ->transport('sendgrid')
                     ->emailFormat('html')
