@@ -32,8 +32,6 @@
                                             </div>
                                         </div>
 
-
-
                                         <!-- Text input-->
                                         <div class="form-group">
 
@@ -46,16 +44,18 @@
                                             </div>
                                         </div>
 
-
-
-
                                         <div class="form-group">
 
                                             <div class="col-md-12">
                                                 <button type="submit" class="btn btn-md btn-danger pull-right">Hasi saioa </button>
                                             </div>
                                         </div>
+                                        <div class="form-group">
 
+                                            <div class="col-md-12">
+                                                Ez duzu erbailtzailerik? <a href="https://armiarma.herokuapp.com/eragileak/gehitu">Sortu erabiltzailea</a>
+                                            </div>
+                                        </div>
                                     </fieldset>
                                 </form>
                     </div>
