@@ -53,7 +53,7 @@
                                         <div class="form-group">
 
                                             <div class="col-md-12">
-                                                Ez duzu erbailtzailerik? <a href="https://armiarma.herokuapp.com/eragileak/gehitu">Sortu erabiltzailea</a>
+                                                Ez duzu erabiltzailerik? <a href="https://armiarma.herokuapp.com/eragileak/gehitu">Sortu erabiltzailea</a>
                                             </div>
                                         </div>
                                     </fieldset>
