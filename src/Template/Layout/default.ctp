@@ -24,7 +24,6 @@ $cakeDescription = 'Armiarma';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->script(['bootstrap.min'], ['https://code.jquery.com/jquery-2.2.4.js']) ?>
