@@ -3,8 +3,7 @@
 <head>
 	<?= $this->Html->charset() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="/favicon.ico">
-
+    <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('base.css') ?>
     <!--<?= $this->Html->css('cake.css') ?>-->
