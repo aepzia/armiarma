@@ -16,6 +16,7 @@
         <legend>
           <h1>Armiarma tresna, euskal komunitatearen saretzeko</h1>
           <br>
+          <br>
           <?= __("Armiarma tresna sortu da Hendaian. Euskal hiztun komunitatea saretzen laguntzea du xede nagusi. Bereziki Hendaiako euskarazko ikusgarri eta ekitaldi guziei buruzko informazioa jasotzea ahalbideratuko du. Behean ikus dezakezun bezala, beste aukera batzuk ere ematen ditu. \nZuk ere, eman izena!") ?>
 
         </legend>
@@ -71,6 +72,7 @@
             echo $this->Form->control('izena');
             echo $this->Form->control('abizena');
             echo $this->Form->control('email');
+            echo __('Herria');
             echo $this->Form->select('herria', array(
               'Hendaia' => 'Hendaia',
               'Hendaia ingurua' => 'Hendaia ingurua',
