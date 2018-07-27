@@ -27,7 +27,7 @@
                                             <div class="col-md-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                    <input name="email" placeholder="Erabiltzailea" class="form-control" type="text">
+                                                    <input name="email" placeholder="E-mail" class="form-control" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                         <div class="form-group">
 
                                             <div class="col-md-12">
-                                                Ez duzu erabiltzailerik? <a href="https://armiarma.herokuapp.com/eragileak/gehitu">Sortu erabiltzailea</a>
+                                                Ez duzu izena eman? <a href="https://armiarma.herokuapp.com/eragileak/gehitu">Erregistratu zaitez</a>
                                             </div>
                                         </div>
                                     </fieldset>
