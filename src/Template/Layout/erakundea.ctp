@@ -22,7 +22,6 @@
         <div class="top-bar-section">
             <ul class="left">
 							<li><?= $this -> Html -> link('Ekintzak', ['controller' => 'Events', 'action' => 'index']) ?></li>
-							<li><?= $this -> Html -> link('Informazioa Zabaldu', ['controller' => 'Users', 'action' => 'sendEmail']) ?></li>
 						</ul>
             <ul class="right">
 							<li><?= $this->Html->link('Profila ikusi', ['controller' => 'Users', 'action' => 'edit', $current_user['id']]) ?></li>
