@@ -34,7 +34,7 @@
             echo $this->Form->radio(
                 'maiztasuna',
                 [
-                    ['value' => 1, 'text' => '15 egunean behin (ondorengo hilabeteko egitaraua)'],
+                    ['value' => 1, 'text' => '15 egunean behin (hilebateko 1 eta 15ean, ondorengo 2 hilabeteetako egitaraua)'],
                     ['value' => 2, 'text' => '15 egunean behin + ekitaldi/ikusgarriaren bezperan'],
                 ]
             );
@@ -47,7 +47,7 @@
                     ['value' => 0, 'text' => 'Ez'],
                 ]
             );
-            echo __('Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa jaso nahi zenuke?');
+            echo __('Euskaraldia (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa jaso nahi zenuke?');
 
             echo $this->Form->radio(
                 'ahobizi',
@@ -76,8 +76,6 @@
               'Bestelakoa' => 'Bestelakoa'
               )
             );
-
-            echo __('Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea');
 
         ?>
     </fieldset>
