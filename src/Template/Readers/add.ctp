@@ -15,6 +15,7 @@
     <fieldset>
         <legend>
           <h1>Armiarma tresna, euskal komunitatearen saretzeko</h1>
+          <br>
           <?= __("Armiarma tresna sortu da Hendaian. Euskal hiztun komunitatea saretzen laguntzea du xede nagusi. Bereziki Hendaiako euskarazko ikusgarri eta ekitaldi guziei buruzko informazioa jasotzea ahalbideratuko du. Behean ikus dezakezun bezala, beste aukera batzuk ere ematen ditu. \nZuk ere, eman izena!") ?>
 
         </legend>
@@ -79,8 +80,8 @@
 
         ?>
     </fieldset>
-    <p>Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea</p>
-    <p>Zure datuak soilik Armiarma tresnak erabiliko ditu. Ez dira zabalduko</p>
+    <p>Eposta bat jasoko duzu, zure izen ematea konfirmatzeko. Kasu, ez baduzu mezurik jasotzen, zoaz spamen karpetara eta onar ezazu Armiarmaren helbidea.</p>
+    <p>Zure datuak soilik Armiarma tresnak erabiliko ditu. Ez dira zabalduko.</p>
     <?= $this->Form->button(__('Onartu')) ?>
     <?= $this->Form->end() ?>
 </div>
