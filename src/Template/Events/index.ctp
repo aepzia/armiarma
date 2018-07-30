@@ -28,7 +28,7 @@
   position: relative;
 }
 
-.list--item .nonaccepted figure {
+.nonaccepted figure {
   background: #5A4F4B;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -173,8 +173,8 @@
     else:
       ?>
       <tr>
-        <article class="list--item nonaccepted">
-          <figure>
+        <article class="list--item">
+          <figure class="nonaccepted">
             <img src="<?=$event ->fitx ?>" alt="">
             <header>
             <div class="floater">
