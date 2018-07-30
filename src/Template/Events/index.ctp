@@ -28,12 +28,6 @@
   position: relative;
 }
 
-.nonaccepted figure {
-  background: #5A4F4B;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
 .list--item img {
   display: block;
   width: 100%;
@@ -62,6 +56,14 @@
   width: 30%;
   height: 50px;
   background: orange;
+  position: absolute;
+  left: 0;
+}
+.nonfloater {
+  text-align: center;
+  width: 30%;
+  height: 50px;
+  background: red;
   position: absolute;
   left: 0;
 }
@@ -173,11 +175,11 @@
     else:
       ?>
       <tr>
-        <article class="list--item">
-          <figure class="nonaccepted">
+        <article list--item">
+          <figure>
             <img src="<?=$event ->fitx ?>" alt="">
             <header>
-            <div class="floater">
+            <div class="nonfloater">
               <?= h($event->hasdata->day)?>
             </br>
               <?= $hilabeteak[h($event->hasdata->month)]?>
