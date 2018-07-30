@@ -120,7 +120,7 @@
     foreach ($events as $event):
       $today = date("Y-m-d H:i:s");
       if($today< $event->hasdata):
-        if($event->active):
+        if($event->active == 1):
     ?>
     <tr>
       <article class="list--item">
