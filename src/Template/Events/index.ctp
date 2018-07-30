@@ -27,10 +27,19 @@
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+
+.list--item .nonaccepted figure {
+  background: #5A4F4B;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
 .list--item img {
   display: block;
   width: 100%;
 }
+
+
 .list--item figcaption {
   padding: 15px 5px 30px;
   font-size: 12px;
@@ -111,6 +120,7 @@
     foreach ($events as $event):
       $today = date("Y-m-d H:i:s");
       if($today< $event->hasdata):
+        if($event->active):
     ?>
     <tr>
       <article class="list--item">
@@ -152,6 +162,7 @@
                 )
             );
           endif;?>
+
           </div>
           </figcaption>
         </figure>
@@ -159,8 +170,60 @@
     </tr>
     <tr class="espacio"></tr>
     <?php
-    endif;
-    endforeach; ?>
+    else:
+      ?>
+      <tr>
+        <article class="list--item nonaccepted">
+          <figure>
+            <img src="<?=$event ->fitx ?>" alt="">
+            <header>
+            <div class="floater">
+              <?= h($event->hasdata->day)?>
+            </br>
+              <?= $hilabeteak[h($event->hasdata->month)]?>
+            </div>
+            <p style="font-weight:bold"> <?= h($event->izenburua) ?></p>
+
+              <?= h($event->tokia) ?>
+            </header>
+            <figcaption>
+              <div style="float:right">
+              <?php echo $this->Html->link(
+                  '<span class="glyphicon glyphicon-info-sign left" aria-hidden="true"></span>',
+                  array('action' => 'view', $event->id),
+                  array(
+                      'escape' => false, 'class' => 'btn btn-primary', 'role' => 'button',
+                  )
+              );
+              if ($current_user['role'] =='admin' || $current_user['id'] == $event->user_id):
+              echo $this->Html->link(
+                  '<span class="glyphicon glyphicon-edit left" aria-hidden="true"></span>',
+                  array('action' => 'edit', $event->id),
+                  array(
+                      'escape' => false, 'class' => 'btn btn-info', 'role' => 'button',
+                  )
+              );
+               echo $this->Form->postLink(
+                  '<span class="glyphicon glyphicon-trash left" aria-hidden="true"></span>',
+                  array('action' => 'delete', $event->id),
+                  array(
+                      'escape' => false, 'class' => 'btn btn-danger', 'role' => 'button',
+                      'confirm' => __('Ziur zaude # {0} erabiltzailea ezabatu nahi duzula?', $event->name)
+                  )
+              );
+            endif;?>
+
+            </div>
+            </figcaption>
+          </figure>
+        </article>
+      </tr>
+      <tr class="espacio"></tr>
+      <?php
+
+      endif;
+      endif;
+      endforeach; ?>
 
   </div>
 </div>
