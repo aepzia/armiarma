@@ -67,7 +67,6 @@
   position: absolute;
   left: 0;
 }
-
 @media screen and (min-width: 1200px) {
   .container {
     width: 90%;
@@ -175,7 +174,7 @@
     else:
       ?>
       <tr>
-        <article list--item">
+        <article class="list--item">
           <figure>
             <img src="<?=$event ->fitx ?>" alt="">
             <header>
