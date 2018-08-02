@@ -57,6 +57,30 @@ class EventsController extends AppController
         }
         $this->set(compact('events'));
     }
+
+    public function indexNeriak()
+    {
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
+        }
+        if(isset($current_user) && $current_user['role'] == 'admin'){
+          $this -> viewBuilder() -> layout('admin');
+        } else if(isset($current_user) && $current_user['role'] == 'user'){
+          $this -> viewBuilder() -> layout('erakundea');
+        }
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
+        $now = Time::now();
+
+        if (isset($current_user)){
+          $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
+                'user_id' => $current_user['id'],
+                'events.active' =>1
+            ) )));
+        }
+        $this->set(compact('events'));
+    }
     /**
      * View method
      *
