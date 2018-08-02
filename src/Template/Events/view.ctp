@@ -52,6 +52,7 @@ p {
       <i class="glyphicon glyphicon-globe"></i><a href="<?=$event->web?>"><?=$event->web?></a>
       </br>
       <?php endif; ?>
+      Antolatzailea: <?=$user->name?>
     </p>
 </div>
 <div class="col-sm-2">

@@ -101,8 +101,10 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => ['Users']
         ]);
-
+        $user = $this->Events->Users->get($event->user_id);
         $this->set('event', $event);
+        $this->set('user', $user);
+
     }
 
     /**
