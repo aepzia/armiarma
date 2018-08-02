@@ -58,7 +58,7 @@ class EventsController extends AppController
         $this->set(compact('events'));
     }
 
-    public function indexNeriak()
+    public function indexNireak()
     {
         if($this->Auth->user() != 'null'){
           $current_user = $this->Auth->user();
