@@ -159,19 +159,14 @@ class EventsController extends AppController
               ]);
               $email = new Email('default');
               //BIDALI ATRIBUTU GUZTIK
-              $onclick = '<?php echo $this->Html->url(array("controller"=>"Events","action"=>"add_confirm")) ?>';
-
-             $message = '<p> Ekitaldi berri bat gehitu duzu? </p>';
-
-              $message = $message . "<a href='http://armiarma.herokuapp.com/events/add_confirm/$event->id'>
-   Konfirmatu</a>";
               $email->from(['ababaze@gmail.com' => 'Armiarma'])
                     ->to($current_user['email'])
                     ->subject('Ekitaldi berria')
                     ->transport('sendgrid')
+                    ->viewVars(['event' => $event)
+                    ->template('eventsAdd')
                     ->emailFormat('html')
-                    ->send($message);
-
+                    ->send();
 
                 $this->Flash->success(__('Ekitaldia ondo gorde da.'));
 
