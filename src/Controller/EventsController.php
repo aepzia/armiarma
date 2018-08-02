@@ -163,7 +163,7 @@ class EventsController extends AppController
                     ->to($current_user['email'])
                     ->subject('Ekitaldi berria')
                     ->transport('sendgrid')
-                    ->viewVars('event' => $event)
+                    ->viewVars(['event' => $event])
                     ->template('eventsAdd')
                     ->emailFormat('html')
                     ->send();
