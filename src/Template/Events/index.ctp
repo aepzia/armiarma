@@ -103,7 +103,7 @@
     <a class="btn-top" style="margin-right: 15px;" href="<?php echo $this->Url->build(array('action'=>'add')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-plus"></span> &nbsp Ekintza berria</a>
   </div>
   <div class="dropdown">
-    <a class="btn-top" style="margin-left: 15px;" href="<?php echo $this->Url->build(array('action'=>'indexNireak')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-star"></span> &nbsp Nire ekintzak</a>
+    <a align="right" class="btn-top" href="<?php echo $this->Url->build(array('action'=>'indexNireak')) ?>" class="btn btn-primary btn-success pull-right"> <span class="glyphicon glyphicon-star"></span> &nbsp Nire ekintzak</a>
   </div>
   <div class="list">
     <?php
