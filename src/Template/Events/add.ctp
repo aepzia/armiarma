@@ -19,11 +19,11 @@
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
             echo $this->Form->control('repeatable',['label' => 'Ekintza errepikakorra?']);
-            echo $this->Form->select('frecuency', array(
-              'Egunero' => 1,
-              'Astero' => 2,
-              'Hilabetero' => 3
-            ));
+            echo $this->Form->select('frecuency', array('class' => 'maiztasuna', 'label' => 'Zein maiztasunez?' , 'options' => array(
+              1 => 'Egunero',
+              2 => 'Astero',
+              3 => 'Hilabetero'
+            )));
             echo $this->Form->input('Hasiera data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             echo $this->Form->input('Bukaera data',array('label' => 'Bukaera data *','name'=>'bukdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             ?>
