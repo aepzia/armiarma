@@ -122,6 +122,17 @@ class EventsTable extends Table
             ->requirePresence('active', 'create')
             ->notEmpty('active');
 
+        $validator
+            ->boolean('repeatable')
+            ->requirePresence('repeatable', 'create')
+            ->notEmpty('repeatable');
+
+        $validator
+            ->scalar('frecuency')
+            ->maxLength('frecuency', 255)
+            ->requirePresence('frecuency', 'create')
+            ->allowEmpty('frecuency');
+
         return $validator;
     }
 

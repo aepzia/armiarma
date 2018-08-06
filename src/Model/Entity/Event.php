@@ -46,6 +46,8 @@ class Event extends Entity
         'fitx' => true,
         'user_id' => true,
         'active' => true,
-        'user' => true
+        'user' => true,
+        'repeatable' => true,
+        'frecuency' =>true
     ];
 }
