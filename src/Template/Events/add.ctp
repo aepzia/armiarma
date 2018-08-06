@@ -19,7 +19,7 @@
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
             echo $this->Form->control('repeatable',['label' => 'Ekintza errepikakorra?']);
-            echo $this->Form->select('frecuency',array('label' => 'Maiztasuna' array(
+            echo $this->Form->select('frecuency',array('label' => 'Maiztasuna', array(
               'Hendaia' => 'Hendaia',
               'Hendaia ingurua' => 'Hendaia ingurua',
               'Bestelakoa' => 'Bestelakoa'
