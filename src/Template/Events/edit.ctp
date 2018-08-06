@@ -12,20 +12,6 @@
     $( "#datepicker" ).datepicker();
   });
   </script>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $event->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Events'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="events form large-9 medium-8 columns content">
   <?= $this->Form->create($event,array('enctype'=>'multipart/form-data')); ?>
   <fieldset>
@@ -33,6 +19,13 @@
       <?php
           echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
           echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
+          echo $this->Form->control('repeatable',['label' => 'Ekintza errepikakorra?']);
+          echo __('Ekintza errepikakorra bada aukeratu zein maiztasuna nahi duzun');
+          echo $this->Form->select('frecuency', array(
+            1 => 'Egunero',
+            2 => 'Astero',
+            3 => 'Hilabetero'
+          ));
           echo $this->Form->input('Data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
           echo $this->Form->input('Data',array('label' => 'Bukaera data *', 'name'=>'bukdata','class' =>'selector' , 'value' => $event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day));
 
