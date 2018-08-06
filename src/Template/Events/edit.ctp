@@ -12,6 +12,8 @@
     $( "#datepicker" ).datepicker();
   });
   </script>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+</nav>
 <div class="events form large-9 medium-8 columns content">
   <?= $this->Form->create($event,array('enctype'=>'multipart/form-data')); ?>
   <fieldset>
