@@ -23,7 +23,7 @@
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
             ?>
-            <input type ="checkbox" onclick="myFunction()">Ekintza errepikakorra
+            <input type ="checkbox" id="repeatable" onclick="myFunction()">Ekintza errepikakorra
 
             <div id="myDIV">
               <select id="frecuency">
@@ -31,6 +31,7 @@
                 <option value="2">15 egunean behin</option>
                 <option value="3">Hilabetero</option>
               </select>
+              <textarea placeholder="Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
             </div>
             <script>
             function myFunction() {
