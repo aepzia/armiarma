@@ -240,6 +240,7 @@ class UsersController extends AppController
             $email->cc($user->email)
                   ->subject('Eguneraketak')
                   ->transport('sendgrid')
+                  ->viewVars(['events' => $events, 'users'=> $users])
                   ->template('news')
                   ->emailFormat('html')
                   ->send();
