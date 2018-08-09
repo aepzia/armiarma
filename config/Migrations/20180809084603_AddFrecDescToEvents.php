@@ -13,7 +13,7 @@ class AddFrecDescToEvents extends AbstractMigration
     public function change()
     {
         $table = $this->table('events');
-        $table->addColumn('frecDesc', 'string', [
+        $table->addColumn('frecdesc', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => true,
