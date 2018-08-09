@@ -133,6 +133,12 @@ class EventsTable extends Table
             ->requirePresence('frecuency', 'create')
             ->allowEmpty('frecuency');
 
+        $validator
+            ->scalar('frecDesc')
+            ->maxLength('frecDesc', 255)
+            ->requirePresence('frecDesc', 'create')
+            ->allowEmpty('frecDesc');
+
         return $validator;
     }
 
