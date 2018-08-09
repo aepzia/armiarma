@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+  <style>
+  #myDIV {
+  	display: none;
+  }
+  </style>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 
 </nav>
@@ -18,13 +22,28 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->control('repeatable',['label' => 'Ekintza errepikakorra?']);
-            echo __('Ekintza errepikakorra bada aukeratu zein maiztasuna nahi duzun');
-            echo $this->Form->select('frecuency', array(
-              1 => 'Egunero',
-              2 => 'Astero',
-              3 => 'Hilabetero'
-            ));
+            ?>
+            <input type ="checkbox" onclick="myFunction()">Ekintza errepikakorra
+
+            <div id="myDIV">
+              <select id="frecuency">
+                <option value="1">Astero</option>
+                <option value="2">15 egunean behin</option>
+                <option value="3">Hilabetero</option>
+              </select>
+            </div>
+            <script>
+            function myFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            }
+            </script>
+
+            <?php
             echo $this->Form->input('Hasiera data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             echo $this->Form->input('Bukaera data',array('label' => 'Bukaera data *','name'=>'bukdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             ?>
