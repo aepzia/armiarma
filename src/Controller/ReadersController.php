@@ -168,7 +168,17 @@ class ReadersController extends AppController
         $total = $events->where([
           'hasdata >=' => $now,
           'hasdata <=' => $twoMoth,
-          'active' => 1
+          'active' => 1,
+          'repeatable' => 0
+        ])->count();
+        $eventsRepetable = TableRegistry::get('Events')->find('all', [
+            'order' => ['hasdata' => 'ASC']
+        ]);
+        $totalRepetable = $eventsRepetable->where([
+          'hasdata <=' => $now,
+          'bukdata >=' => $now,
+          'active' => 1,
+          'repeatable' => 1
         ])->count();
         if($total>0){
           $this->set('send',true);
@@ -188,8 +198,8 @@ class ReadersController extends AppController
               $email->cc($reader->email)
                     ->subject('Datozten 2 hilabetetako egitaraua')
                     ->transport('sendgrid')
-                    ->viewVars(['events' => $events, 'readerid'=> $reader->id])
-                    ->template('eventsIndex')
+                    ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable, readerid'=> $reader->id])
+                    ->template('eventsIndexWeek')
                     ->emailFormat('html')
                     ->send();
             }
