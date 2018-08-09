@@ -198,7 +198,7 @@ class ReadersController extends AppController
               $email->cc($reader->email)
                     ->subject('Datozten 2 hilabetetako egitaraua')
                     ->transport('sendgrid')
-                    ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable, readerid'=> $reader->id])
+                    ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable, 'readerid'=> $reader->id])
                     ->template('eventsIndexWeek')
                     ->emailFormat('html')
                     ->send();
