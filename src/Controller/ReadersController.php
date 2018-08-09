@@ -208,7 +208,8 @@ class ReadersController extends AppController
         $total = $events->where([
           'hasdata >' => $now,
           'hasdata <' => $twoDays,
-          'active' => 1
+          'active' => 1,
+          'repeatable' => 0
         ])->count();
         if($total>0){
 
