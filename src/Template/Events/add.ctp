@@ -31,7 +31,7 @@
                 <option value="2">15 egunean behin</option>
                 <option value="3">Hilabetero</option>
               </select>
-              <textarea id="frecdesc" placeholder="Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
+              <textarea id="frecdesc" placeholder="Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
             </div>
             <script>
             function myFunction() {
