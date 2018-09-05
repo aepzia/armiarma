@@ -23,7 +23,10 @@
           echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
           echo __('Ekintza errepikakorra da?');
           echo $this->Form->checkbox('repeatable');
-          echo __('Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean...');
+          ?>
+          </br>
+          <?php>
+          echo __('Ekintza errepikakorra bada idatzi deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean...');
           echo $this->Form->textarea('frecdesc')
           echo $this->Form->input('Data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
           echo $this->Form->input('Data',array('label' => 'Bukaera data *', 'name'=>'bukdata','class' =>'selector' , 'value' => $event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day));
