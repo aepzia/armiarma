@@ -23,7 +23,7 @@
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
             ?>
-           <input type ="checkbox" name="repeatable" id="repeatable" onclick="myFunction()">Ekintza errepikakorra
+           <input type ="checkbox" value="0" name="repeatable" id="repeatable" onclick="myFunction()">Ekintza errepikakorra
 
             <div id="myDIV">
               <select name="frecuency" id="frecuency">
