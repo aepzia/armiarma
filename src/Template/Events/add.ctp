@@ -22,7 +22,7 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->checkbox('repeatable', ['label' => 'Ekintza errepikakorra da?']) . 'Ekintza errepikakorra da?';
+            echo $this->Form->checkbox('repeatable');
             echo __('Ekintza errepikakorra bda, bete hurrengo aukera');
             ?>
             <textarea name="frecdesc" id="frecdesc" placeholder="Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
