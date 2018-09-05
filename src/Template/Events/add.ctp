@@ -22,8 +22,8 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
+            echo $this->Form->checkbox('repeatable', ['label' => 'Ekintza errepikakorra da?']);
             ?>
-           <input type ="checkbox" value="0" name="repeatable" id="repeatable" onclick="myFunction()">Ekintza errepikakorra
 
             <div id="myDIV">
               <select name="frecuency" id="frecuency">
