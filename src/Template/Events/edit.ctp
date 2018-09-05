@@ -21,27 +21,10 @@
       <?php
           echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
           echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
+          echo $this->Form->checkbox('repeatable', ['label' => 'Ekintza errepikakorra da?']);
           ?>
-          <input type ="checkbox" id="repeatable" onclick="myFunction()">Ekintza errepikakorra
-
-          <div id="myDIV" style="<?php if($event->repetable == 1){ echo 'display:block';} else { echo 'display:none';} ?>">
-            <select id="frecuency">
-              <option value="1">Astero</option>
-              <option value="2">15 egunean behin</option>
-              <option value="3">Hilabetero</option>
-            </select>
-            <textarea id="frecdesc" placeholder="Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
-          </div>
-          <script>
-          function myFunction() {
-              var x = document.getElementById("myDIV");
-              if (x.style.display === "block") {
-                  x.style.display = "none";
-              } else {
-                  x.style.display = "block";
-              }
-          }
-          </script>
+          <textarea name="frecdesc" id="frecdesc" placeholder="Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
+          <?php
 
           <?php
           echo $this->Form->input('Data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
