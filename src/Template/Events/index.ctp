@@ -136,7 +136,7 @@
           </br>
             <?= $hilabeteak[h($event->hasdata->month)]?>
           </div>
-          <p style="font-weight:bold"> <?= h($event->repeatable) ?></p>
+          <p style="font-weight:bold"> <?= h($event->izenburua) ?></p>
 
             <?= h($event->tokia) ?>
 
