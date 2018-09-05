@@ -22,11 +22,11 @@
         <?php
             echo $this->Form->control('izenburua', ['label' => 'Izenburua *']);
             echo $this->Form->control('laburpena', ['label' => 'Laburpen bat']);
-            echo $this->Form->checkbox('repeatable', ['label' => 'Ekintza errepikakorra da?']);
+            __echo('Ekintza errepikakorra da?');
+            echo $this->Form->checkbox('repeatable');
+            __echo('Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean...');
             echo $this->Form->textarea('frecdesc');
-            ?>
-            <textarea placeholder="Deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean..."></textarea>
-            <?php
+
             echo $this->Form->input('Hasiera data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             echo $this->Form->input('Bukaera data',array('label' => 'Bukaera data *','name'=>'bukdata','class' =>'selector','dateFormat'=> 'yy-mm-dd'));
             ?>
