@@ -139,6 +139,8 @@
           <p style="font-weight:bold"> <?= h($event->izenburua) ?></p>
 
             <?= h($event->tokia) ?>
+            <?= h($event->repeatable)?>
+
           </header>
           <figcaption>
             <div style="float:right">
