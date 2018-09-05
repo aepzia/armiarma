@@ -26,7 +26,7 @@
             echo $this->Form->checkbox('repeatable');
             ?>
             </br>
-            <?php>
+            <?php
             echo __('Ekintza errepikakorra bada idatzi deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean...');
             echo $this->Form->textarea('frecdesc');
 

@@ -25,7 +25,7 @@
           echo $this->Form->checkbox('repeatable');
           ?>
           </br>
-          <?php>
+          <?php
           echo __('Ekintza errepikakorra bada idatzi deskribapena Adb.: Astelehenero, hilabeteko lehen ostegunean...');
           echo $this->Form->textarea('frecdesc')
           echo $this->Form->input('Data',array('label' => 'Hasiera data *', 'name'=>'hasdata','class' =>'selector' , 'value' => $event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day));
