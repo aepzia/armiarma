@@ -48,7 +48,6 @@ class Event extends Entity
         'active' => true,
         'user' => true,
         'repeatable' => true,
-        'frecuency' =>true,
         'frecdesc' => true
     ];
 }

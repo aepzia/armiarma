@@ -128,12 +128,6 @@ class EventsTable extends Table
             ->notEmpty('repeatable');
 
         $validator
-            ->scalar('frecuency')
-            ->maxLength('frecuency', 255)
-            ->requirePresence('frecuency', 'create')
-            ->allowEmpty('frecuency');
-
-        $validator
             ->scalar('frecdesc')
             ->maxLength('frecdesc', 255)
             ->requirePresence('frecdesc', 'create')
