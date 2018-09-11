@@ -166,7 +166,7 @@ class ReadersController extends AppController
             'order' => ['hasdata' => 'ASC']
         ]);
         $total = $events->where([
-          'hasdata >=' => $now,
+          'bukdata >=' => $now,
           'hasdata <=' => $twoMoth,
           'active' => 1,
           'repeatable' => 0
@@ -175,8 +175,8 @@ class ReadersController extends AppController
             'order' => ['hasdata' => 'ASC']
         ]);
         $totalRepetable = $eventsRepetable->where([
-          'hasdata <=' => $now,
           'bukdata >=' => $now,
+          'hasdata <=' => $twoMoth,
           'active' => 1,
           'repeatable' => 1
         ])->count();
