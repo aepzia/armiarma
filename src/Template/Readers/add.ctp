@@ -8,13 +8,14 @@
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
+      <li> <a href="https://armiarma.herokuapp.com">Eragilea naiz</li>
     </ul>
 </nav>
 <div class="readers form large-9 medium-8 columns content">
     <?= $this->Form->create($reader) ?>
     <fieldset>
         <legend>
-          <h1>Armiarma tresna, euskal komunitatearen saretzeko</h1>
+          <h1>Armiarma tresna, euskal komunitatearen saretzeko tresna</h1>
           <br>
           <br>
           <?= __("Armiarma tresna sortu da Hendaian. Euskal hiztun komunitatea saretzen laguntzea du xede nagusi. Bereziki Hendaiako euskarazko ikusgarri eta ekitaldi guziei buruzko informazioa jasotzea ahalbideratuko du. Behean ikus dezakezun bezala, beste aukera batzuk ere ematen ditu. \nZuk ere, eman izena!") ?>

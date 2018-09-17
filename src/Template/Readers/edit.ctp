@@ -14,7 +14,7 @@
    <?= $this->Form->create($reader) ?>
    <fieldset>
        <legend>
-         <h1>Armiarma tresna, euskal komunitatearen saretzeko</h1>
+         <h1>Armiarma tresna, euskal komunitatearen saretzeko tresna</h1>
          <?= __("Armiarma tresna sortu da Hendaian. Euskal hiztun komunitatea saretzen laguntzea du xede nagusi. Bereziki Hendaiako euskarazko ikusgarri eta ekitaldi guziei buruzko informazioa jasotzea ahalbideratuko du. Behean ikus dezakezun bezala, beste aukera batzuk ere ematen ditu. \nZuk ere, eman izena!") ?>
 
        </legend>
