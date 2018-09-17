@@ -22,13 +22,9 @@
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-							<li><?= $this -> Html -> link('Irakurleak', ['controller' => 'Readers', 'action' => 'index']) ?></li>
-							<li><?= $this -> Html -> link('Ekintzak', ['controller' => 'Events', 'action' => 'index']) ?></li>
             </ul>
             <ul class="right">
-							<li><?= $this->Html->link('Profila ikusi', ['controller' => 'Users', 'action' => 'view', $current_user['id']]) ?></li>
-            	<li><?= $this -> Html -> link('Saioa itxi', ['controller' => 'Users', 'action' => 'logout']) ?></li>
-            </ul>
+							<li><?= $this->Html->link('Erakundea naiz', ['controller' => 'Users', 'action' => 'login'?></li>            </ul>
         </div>
     </nav>
 
