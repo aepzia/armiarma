@@ -24,7 +24,7 @@
             <ul class="left">
             </ul>
             <ul class="right">
-							<li><?= $this->Html->link('Erakundea naiz', ['controller' => 'Users', 'action' => 'login'?></li>            </ul>
+							<li><?= $this->Html->link('Erakundea naiz', ['controller' => 'Users', 'action' => 'login'])?></li>            </ul>
         </div>
     </nav>
 
