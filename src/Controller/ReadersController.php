@@ -76,6 +76,8 @@ class ReadersController extends AppController
         }
         if(isset($current_user) && $current_user['role'] == 'admin'){
           $this -> viewBuilder() -> layout('admin');
+        }else{
+          $this -> viewBuilder() -> layout('default');
         }
 
         $reader = $this->Readers->newEntity();
