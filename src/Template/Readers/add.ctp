@@ -8,7 +8,7 @@
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-      <li> <a href="https://armiarma.herokuapp.com">Eragilea naiz</li>
+      <li><?= $this->Html->link(__('New Reader'), ['controller'=>'user','action' => 'login']) ?></li>
     </ul>
 </nav>
 <div class="readers form large-9 medium-8 columns content">
