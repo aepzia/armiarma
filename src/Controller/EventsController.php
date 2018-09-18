@@ -24,7 +24,7 @@ class EventsController extends AppController
      */
      public function beforeFilter(Event $event){
        parent::beforeFilter($event);
-       $this->Auth->allow(['view','addConfirm']);
+       $this->Auth->allow(['view']);
      }
     public function index()
     {
@@ -113,6 +113,11 @@ class EventsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
+     public function deleteConfirm($eventId = null){
+       if ($this->Events->delete($event)) {
+           //hilabete bat baino lehenago ezeztatu bada emailez bidali denei.
+         }
+     }
      public function addConfirm($eventId = null){
        $event = $this->Events->get($eventId, [
            'contain' => []
@@ -261,7 +266,7 @@ class EventsController extends AppController
 
                       }
                     }
-                    
+
                     $this->Flash->success(__('Ekitaldia ondo gorde da.'));
                     return $this->redirect(['action' => 'index']);
                 }
@@ -283,11 +288,37 @@ class EventsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $event = $this->Events->get($id);
-        if ($this->Events->delete($event)) {
-            $this->Flash->success(__('Ekitaldia ondo gorde da.'));
-        } else {
-            $this->Flash->error(__('Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez.'));
+        //erabiltzailera admina edo arduraduna da
+        if($this->Auth->user() != 'null'){
+          $current_user = $this->Auth->user();
         }
+        if(isset($current_user) && ($current_user['id'] == 'admin' || $current_user['id'] == $event['user'] ) ) {
+          //Emailez konfirmatu
+          Email::configTransport('sendgrid',[
+            'host' =>'smtp.sendgrid.net',
+            'port' =>587,
+            'username' => getenv('SENDGRID_USERNAME'),
+            'password' => getenv('SENDGRID_PASSWORD'),
+            'className' => 'Smtp'
+          ]);
+          $email = new Email('default');
+          //BIDALI ATRIBUTU GUZTIK
+          $email->from(['ababaze@gmail.com' => 'Armiarma'])
+                ->to($current_user['email'])
+                ->subject('Ekitaldi berria')
+                ->transport('sendgrid')
+                ->viewVars(['event' => $event])
+                ->template('eventsDelete')
+                ->emailFormat('html')
+                ->send();
+          //if ($this->Events->delete($event)) {
+              //emailez konfirmatu
+
+          /*} else {
+              $this->Flash->error(__('Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez.'));
+          }*/
+        }
+
 
         return $this->redirect(['action' => 'index']);
     }
