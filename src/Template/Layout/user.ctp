@@ -24,8 +24,11 @@
             <ul class="left">
             </ul>
             <ul class="right">
-							<li><?= $this->Html->link('Erakundea naiz', ['controller' => 'Users', 'action' => 'login'])?></li>            </ul>
-        </div>
+							<li><?= $this->Html->link('Erakundea naiz', ['controller' => 'Users', 'action' => 'login'])?></li>
+							<li><?= $this->Html->link('Oharrak gehitu', 'https://docs.google.com/forms/d/e/1FAIpQLSfmtaU8fq0ti4woTN-K6SitFZ6ksCvbYPCPMsiiZjI7PoKy-Q/viewform')?></li>          
+						</ul>
+
+			  </div>
     </nav>
 
     <?= $this->Flash->render() ?>
