@@ -205,6 +205,7 @@ class EventsController extends AppController
             'contain' => []
         ]);
 
+        $previousEvent = $event;
 
           if ($this->request->is(['patch', 'post', 'put'])) {
 
@@ -220,8 +221,48 @@ class EventsController extends AppController
             }
 
                 if ($this->Events->save($event)) {
-                    $this->Flash->success(__('Ekitaldia ondo gorde da.'));
+                    if($previousEvent['active'] == 0 && $event['active'] == 1){
+                      //Administratzaileak ekitaldia onartu du
+                      $now = Time::now();
+                      $nextDay = Time::now();
+                      if ($now->day > 1 && $now->day < 15) {
+                        //lehenengo hamabostaldia: hurrengo emaila 15ean:
+                        $nextDay->day(15)
+                      }else{
+                        //bgarren hamabostaldia: hurrengo emaila hurrengo hilabeteko 1ean:
+                        $nextDay->addMonth(1);
+                        $nextDay->day(1);
+                      }
+                      //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
+                      if($event['hasdata'] < $nextDay){
+                        //emaila bidali
+                        $readers = TableRegistry::get('Readers')->find('all');
 
+                          Email::configTransport('sendgrid',[
+                            'host' =>'smtp.sendgrid.net',
+                            'port' =>587,
+                            'username' => getenv('SENDGRID_USERNAME'),
+                            'password' => getenv('SENDGRID_PASSWORD'),
+                            'className' => 'Smtp'
+                          ]);
+                          $email = new Email('default');
+
+                          $email->from(['ababaze@gmail.com' => 'Armiarma']);
+
+                          foreach ($readers as $reader):
+                              $email->cc($reader->email)
+                                    ->subject('Azken ordukoa')
+                                    ->transport('sendgrid')
+                                    ->viewVars(['event' => $event, 'readerid'=> $reader->id])
+                                    ->template('eventsLast')
+                                    ->emailFormat('html')
+                                    ->send();
+                          endforeach;
+
+                      }
+                    }
+                    
+                    $this->Flash->success(__('Ekitaldia ondo gorde da.'));
                     return $this->redirect(['action' => 'index']);
                 }
                 $this->Flash->error(__("Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez."));
