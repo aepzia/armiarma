@@ -114,9 +114,38 @@ class EventsController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
      public function deleteConfirm($eventId = null){
-       if ($this->Events->delete($event)) {
-           //hilabete bat baino lehenago ezeztatu bada emailez bidali denei.
+       $event = $this->Events->get($eventId, [
+           'contain' => []
+       ]);
+       //hilabete bat baino lehenago ezeztatu bada emailez bidali denei.
+         $month= Time::now();
+         $month->addMonth(1);
+         if($event['hasdata'] < $month){
+           //emaila bidali
+           $readers = TableRegistry::get('Readers')->find('all');
+             Email::configTransport('sendgrid',[
+               'host' =>'smtp.sendgrid.net',
+               'port' =>587,
+               'username' => getenv('SENDGRID_USERNAME'),
+               'password' => getenv('SENDGRID_PASSWORD'),
+               'className' => 'Smtp'
+             ]);
+             $email = new Email('default');
+
+             $email->from(['ababaze@gmail.com' => 'Armiarma']);
+
+             foreach ($readers as $reader):
+                 $email->cc($reader->email)
+                       ->subject('Ekitaldi deuseztatua')
+                       ->transport('sendgrid')
+                       ->viewVars(['event' => $event, 'readerid'=> $reader->id])
+                       ->template('eventsDeleted')
+                       ->emailFormat('html')
+                       ->send();
+             endforeach;
+
          }
+       $this->Events->delete($event);
      }
      public function addConfirm($eventId = null){
        $event = $this->Events->get($eventId, [
@@ -311,12 +340,6 @@ class EventsController extends AppController
                 ->template('eventsDelete')
                 ->emailFormat('html')
                 ->send();
-          //if ($this->Events->delete($event)) {
-              //emailez konfirmatu
-
-          /*} else {
-              $this->Flash->error(__('Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez.'));
-          }*/
         }
 
 
