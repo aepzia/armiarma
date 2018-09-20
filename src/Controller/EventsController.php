@@ -286,16 +286,15 @@ class EventsController extends AppController
 
                           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-                      //    foreach ($readers as $reader):
-                            //  $email->cc($reader->email)
-                            $email->cc('ababaze@gmail.com')
+                          foreach ($readers as $reader):
+                            $email->cc($reader->email)
                                     ->subject('Azken ordukoa')
                                     ->transport('sendgrid')
-                                    ->viewVars(['event' => $event, 'readerid'=> 1])
+                                    ->viewVars(['event' => $event, 'readerid'=> $reader->id])
                                     ->template('eventsLast')
                                     ->emailFormat('html')
                                     ->send();
-                        //  endforeach;
+                          endforeach;
 
                      }
                    }
