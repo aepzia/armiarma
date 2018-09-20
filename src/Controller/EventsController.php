@@ -257,7 +257,7 @@ class EventsController extends AppController
             }
 
                 if ($this->Events->save($event)) {
-                    if($previousEvent['active'] == 0 && $event['active'] == 1){
+                    if($previousEvent['active'] == false && $event['active'] == true){
                       //Administratzaileak ekitaldia onartu du
                       $now = Time::now();
                       $nextDay = Time::now();
