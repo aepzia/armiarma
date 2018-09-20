@@ -120,9 +120,9 @@ class EventsController extends AppController
        //hilabete bat baino lehenago ezeztatu bada emailez bidali denei.
          $month= Time::now();
          $month->addMonth(1);
-         if($event['hasdata'] < $month){
+         if($event['active'] ==1 && $event['hasdata'] < $month){
            //emaila bidali
-           $readers = TableRegistry::get('Readers')->find('all');
+           $readers = TableRegistry::get('Readers');
              Email::configTransport('sendgrid',[
                'host' =>'smtp.sendgrid.net',
                'port' =>587,
@@ -270,7 +270,7 @@ class EventsController extends AppController
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
                       if($event['hasdata'] < $nextDay){
                         //emaila bidali
-                        $readers = TableRegistry::get('Readers')->find('all');
+                        $readers = TableRegistry::get('Readers');
 
                           Email::configTransport('sendgrid',[
                             'host' =>'smtp.sendgrid.net',
