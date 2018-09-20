@@ -334,15 +334,13 @@ class EventsController extends AppController
           //BIDALI ATRIBUTU GUZTIK
           $email->from(['ababaze@gmail.com' => 'Armiarma'])
                 ->to($current_user['email'])
-                ->subject('Ekitaldi berria')
+                ->subject('Ekitaldia ezeztatu')
                 ->transport('sendgrid')
                 ->viewVars(['event' => $event])
                 ->template('eventsDelete')
                 ->emailFormat('html')
                 ->send();
         }
-
-
         return $this->redirect(['action' => 'index']);
     }
 }

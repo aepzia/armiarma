@@ -13,4 +13,4 @@
 <img src="<?=$event->fitx ?>" width="150" height="150" alt="Ekintzaren kartela"></img><br>
 
 
-<a href="<?='http://armiarma.herokuapp.com/events/deteleConfirm/'.$event->id?>">Konfirmatu</a>
+<a href="<?='http://armiarma.herokuapp.com/events/deleteConfirm/'.$event->id?>">Konfirmatu</a>
