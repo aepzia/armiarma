@@ -124,7 +124,7 @@ class EventsController extends AppController
          if($event['active'] ==1 && $event['hasdata'] < $month){
            //emaila bidali
            $readers = TableRegistry::get('Readers')->find('all', [
-               'order' => ['hasdata' => 'ASC']
+               'order' => ['email' => 'ASC']
            ]);
              Email::configTransport('sendgrid',[
                'host' =>'smtp.sendgrid.net',
@@ -276,7 +276,7 @@ class EventsController extends AppController
                       if($event['hasdata'] < $nextDay){
                         //emaila bidali
                         $readers = TableRegistry::get('Readers')->find('all', [
-                            'order' => ['hasdata' => 'ASC']
+                            'order' => ['email' => 'ASC']
                         ]);
 
                           Email::configTransport('sendgrid',[
