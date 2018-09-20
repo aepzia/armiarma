@@ -262,7 +262,7 @@ class EventsController extends AppController
                       //Administratzaileak ekitaldia onartu du
                       $now = Time::now();
                       $nextDay = Time::now();
-                    /*  if ($now->day > 1 && $now->day < 15) {
+                     if ($now->day > 1 && $now->day < 15) {
                         //lehenengo hamabostaldia: hurrengo emaila 15ean:
                         $nextDay->day(15);
                       }else{
@@ -271,7 +271,7 @@ class EventsController extends AppController
                         $nextDay->day(1);
                       }
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
-                      if($event['hasdata'] < $nextDay){*/
+                      if($event['hasdata'] < $nextDay){
                         //emaila bidali
                         $readers = TableRegistry::get('Readers');
 
@@ -298,7 +298,7 @@ class EventsController extends AppController
                         //  endforeach;
 
                     //  }
-                  //  }
+                   }
 
                     $this->Flash->success(__('Ekitaldia ondo gorde da.'));
                     return $this->redirect(['action' => 'index']);
