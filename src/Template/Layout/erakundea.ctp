@@ -25,7 +25,8 @@
 						</ul>
             <ul class="right">
 							<li><?= $this->Html->link('Profila ikusi', ['controller' => 'Users', 'action' => 'edit', $current_user['id']]) ?></li>
-            	<li><?= $this -> Html -> link('Saioa itxi', ['controller' => 'Users', 'action' => 'logout']) ?></li>
+							<li><?= $this->Html->link('Oharrak gehitu', 'https://docs.google.com/forms/d/e/1FAIpQLSfmtaU8fq0ti4woTN-K6SitFZ6ksCvbYPCPMsiiZjI7PoKy-Q/viewform')?></li>          
+							<li><?= $this -> Html -> link('Saioa itxi', ['controller' => 'Users', 'action' => 'logout']) ?></li>
             </ul>
         </div>
     </nav>
