@@ -257,7 +257,7 @@ class EventsController extends AppController
             }
 
                 if ($this->Events->save($event)) {
-                    if($previousEvent->active == 0 && $event['active'] == 1){
+                  //  if($previousEvent->active == 0 && $event['active'] == 1){
                       //Administratzaileak ekitaldia onartu du
                       $now = Time::now();
                       $nextDay = Time::now();
@@ -285,17 +285,18 @@ class EventsController extends AppController
 
                           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-                          foreach ($readers as $reader):
-                              $email->cc($reader->email)
+                      //    foreach ($readers as $reader):
+                            //  $email->cc($reader->email)
+                            $email->cc('ababaze@gmail.com')
                                     ->subject('Azken ordukoa')
                                     ->transport('sendgrid')
                                     ->viewVars(['event' => $event, 'readerid'=> $reader->id])
                                     ->template('eventsLast')
                                     ->emailFormat('html')
                                     ->send();
-                          endforeach;
+                        //  endforeach;
 
-                      }
+                    //  }
                     }
 
                     $this->Flash->success(__('Ekitaldia ondo gorde da.'));
