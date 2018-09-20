@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\I18n\Time;
 use Cake\Mailer\Email;
+use Cake\ORM\TableRegistry;
 
 
 /**
