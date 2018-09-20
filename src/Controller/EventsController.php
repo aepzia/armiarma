@@ -125,7 +125,7 @@ class EventsController extends AppController
            //emaila bidali
            $readers = TableRegistry::get('Readers')->find('all', [
                'order' => ['hasdata' => 'ASC']
-           ]);           
+           ]);
              Email::configTransport('sendgrid',[
                'host' =>'smtp.sendgrid.net',
                'port' =>587,
@@ -290,15 +290,15 @@ class EventsController extends AppController
 
                           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-                          //foreach ($readers as $reader):
-                            $email->cc('ababaze@gmail.com')
+                          foreach ($readers as $reader):
+                            $email->cc($reader->email)
                                     ->subject('Azken ordukoa')
                                     ->transport('sendgrid')
-                                    ->viewVars(['event' => $event, 'readerid'=> $readers->size])
+                                    ->viewVars(['event' => $event, 'readerid'=> $reader->id])
                                     ->template('eventsLast')
                                     ->emailFormat('html')
                                     ->send();
-                        //  endforeach;
+                         endforeach;
 
                      }
                    }
