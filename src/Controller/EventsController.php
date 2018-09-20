@@ -239,7 +239,9 @@ class EventsController extends AppController
             'contain' => []
         ]);
 
-        $previousEvent = $event;
+        $previousEvent = $this->Events->get($id, [
+              'contain' => []
+          ]);
 
           if ($this->request->is(['patch', 'post', 'put'])) {
 
