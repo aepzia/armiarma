@@ -1,7 +1,7 @@
 
 <h1>Ekitaldi berri bat gehitu nahi duzu hurrengo datuekin?</h1>
 <h2>Izenburua: <?= h($event->izenburua)?></h2>
-<h2>Laburpena: <?= h($event->izenburua)?></h2>
+<h2>Laburpena: <?= h($event->laburpena)?></h2>
 <h2>Hasiera data <?= h($event->hasdata->year.'-'.$event->hasdata->month.'-'.$event->hasdata->day)?></h2>
 <h2>Bukaera data <?= h($event->bukdata->year.'-'.$event->bukdata->month.'-'.$event->bukdata->day)?></h2>
 <h2>Hasiera ordua: <?= h($event->hasordua)?></h2>
