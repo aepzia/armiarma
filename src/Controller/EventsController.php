@@ -328,7 +328,7 @@ class EventsController extends AppController
         if($this->Auth->user() != 'null'){
           $current_user = $this->Auth->user();
         }
-        if(isset($current_user) && ($current_user['role'] == 'admin' || $current_user['id'] == $event['user'] ) ) {
+        if(isset($current_user) && ($current_user['role'] == 'admin' || $current_user['id'] == $event->user) ) {
           //Emailez konfirmatu
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
