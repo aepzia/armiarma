@@ -154,7 +154,7 @@ class EventsController extends AppController
        $event = $this->Events->get($id, [
            'contain' => ['Users']
        ]);
-       $event['accepted'] = true;
+       $event->accepted = true;
        if ($this->Events->save($event)) {
              $this->Flash->success(__('Ekitaldia ondo gorde da.'));
          }
