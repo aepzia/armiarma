@@ -116,7 +116,7 @@ class EventsController extends AppController
      */
      public function deleteConfirm($eventId = null){
        $event = $this->Events->get($eventId, [
-           'contain' => []
+           'contain' => ['Users']
        ]);
        //hilabete bat baino lehenago ezeztatu bada emailez bidali denei.
          $month= Time::now();
@@ -150,15 +150,15 @@ class EventsController extends AppController
          }
        $this->Events->delete($event);
      }
-     public function addConfirm($eventId = null){
-       $event = $this->Events->get($eventId, [
-           'contain' => []
+     public function addConfirm($id = null){
+       $event = $this->Events->get($id, [
+           'contain' => ['Users']
        ]);
-       $event->accepted = true;
-           if ($this->Events->save($event)) {
-
-           }
-       }
+       $event['accepted'] = true;
+       if ($this->Events->save($event)) {
+             $this->Flash->success(__('Ekitaldia ondo gorde da.'));
+         }
+     }
     public function add()
     {
       if($this->Auth->user() != 'null'){
@@ -182,7 +182,7 @@ class EventsController extends AppController
               $event['fitx']= $result['url'];
             }
 
-            if($current_user['role'] == 'user'){
+            if(isset($current_user) && $current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
               $event['active'] =false;
             }
