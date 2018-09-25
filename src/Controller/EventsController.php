@@ -121,7 +121,7 @@ class EventsController extends AppController
        //hilabete bat baino lehenago ezeztatu bada emailez bidali denei.
          $month= Time::now();
          $month->addMonth(1);
-         if($event['active'] ==1 && $event['hasdata'] < $month){
+         if($event['active'] ==1 && $event['hasdata'] < $month && $event['hasdata'] > $now){
            //emaila bidali
            $readers = TableRegistry::get('Readers')->find('all', [
                'order' => ['email' => 'ASC']
