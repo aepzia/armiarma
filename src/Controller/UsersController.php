@@ -275,6 +275,9 @@ class UsersController extends AppController
           $total = $readers->where([
             'bolondres' => 1,
           ])->count();
+        }else if($this->request->data['subject'] == 4){
+          $subject = 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa';
+          $total = $readers->count();
         }
 
         if($total>0){

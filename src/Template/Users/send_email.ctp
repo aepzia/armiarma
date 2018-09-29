@@ -21,6 +21,7 @@
                 ['text' => 'Hendaiako euskal hizkuntza politikari loturiko informazioa', 'value' => '1'],
                 ['text' => 'Euskaraldiko (“Aho bizi / Belarri prest”) ekimenari buruzko informazioa', 'value' => '2'],
                 ['text' => 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa', 'value' => '3'],
+                ['text' => 'EBestelakoa', 'value' => '4'],
                 ];
             echo $this->Form->select('subject', $options);
             echo __('Bidali nahi den mezua');
