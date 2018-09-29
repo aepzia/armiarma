@@ -276,7 +276,7 @@ class UsersController extends AppController
             'bolondres' => 1,
           ])->count();
         }else if($this->request->data['subject'] == 4){
-          $subject = 'Euskararen aldeko ekimenetan, bolondres modura aritzeko informazioa';
+          $subject = 'Bestelakoa';
           $total = $readers->count();
         }
 
