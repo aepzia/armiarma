@@ -123,7 +123,6 @@
     );
     foreach ($events as $event):
       $today = date("Y-m-d");
-      if($today <= $event->hasdata):
         if($event->active == 1):
     ?>
     <tr>
@@ -226,7 +225,6 @@
       <tr class="espacio"></tr>
       <?php
 
-      endif;
       endif;
       endforeach; ?>
 
