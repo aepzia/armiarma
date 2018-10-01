@@ -122,7 +122,7 @@
       12 => "Abendua",
     );
     foreach ($events as $event):
-      $today = date("Y-m-d H:i:s");
+      $today = Time::now();
       if($today->day <= $event->bukdata->day && $today->month <= $event->bukdata->month && $today->year <= $event->bukdata->year):
         if($event->active == 1):
     ?>
