@@ -45,10 +45,8 @@ class EventsController extends AppController
         if ($current_user['role'] == 'admin'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
                 'bukdata >=' => $now,
-                'accepted' => 1
             ) )));        }if($current_user['role'] == 'user'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
-            'accepted' => 1,
             'bukdata >=' => $now,
               'or' => array(
                 'bukdata >=' => $now,
