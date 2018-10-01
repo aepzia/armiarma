@@ -123,7 +123,7 @@
     );
     foreach ($events as $event):
       $today = date("Y-m-d");
-      if($today->day <= $event->bukdata):
+      if($today <= $event->bukdata):
         if($event->active == 1):
     ?>
     <tr>
