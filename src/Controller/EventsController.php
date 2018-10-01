@@ -45,7 +45,6 @@ class EventsController extends AppController
         if ($current_user['role'] == 'admin'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
                 'bukdata >=' => $now,
-                'accepted =' => 1
             ) )));        }if($current_user['role'] == 'user'){
           $events = $this->paginate($this->Events->find('all', array('order'=>array('hasdata ASC') , 'conditions' => array(
             'bukdata >=' => $now,
@@ -150,17 +149,7 @@ class EventsController extends AppController
          }
        $this->Events->delete($event);
      }
-     public function addConfirm($id = null){
-       $event = $this->Events->get($id, [
-           'contain' => ['Users']
-       ]);
-       $event->accepted = true;
-       if ($this->Events->save($event)) {
-             $this->Flash->success(__('Ekitaldia ondo gorde da.'));
-       }else{
-         $this->Flash->error(__('Ekitaldia ezin izan da gorde. Saia zaitez berriro mesedez.'));
-       }
-     }
+
     public function add()
     {
       if($this->Auth->user() != 'null'){
@@ -187,9 +176,6 @@ class EventsController extends AppController
             if(isset($current_user) && $current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
               $event['active'] =false;
-              $event['accepted'] =false;
-            }else if (isset($current_user) && $current_user['role'] == 'admin'){
-              $event['accepted'] =false;
             }
 
             if ($this->Events->save($event)) {
