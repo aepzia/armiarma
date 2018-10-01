@@ -250,7 +250,7 @@ class EventsController extends AppController
             }
 
                 if ($this->Events->save($event)) {
-                    if($previousEvent->active == 0 && $event['active'] == 1){
+                    /*if($previousEvent->active == 0 && $event['active'] == 1){
                       //Administratzaileak ekitaldia onartu du
                       $now = Time::now();
                       $nextDay = Time::now();
@@ -290,7 +290,7 @@ class EventsController extends AppController
                                     ->send();
                          endforeach;
 
-                     }
+                     }*/
                    }
 
                     $this->Flash->success(__('Ekitaldia ondo gorde da.'));
