@@ -265,7 +265,7 @@ class EventsController extends AppController
                       }
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
                       $this->Flash->success(__($nextDay->day));
-                      $this->Flash->success(__($now->day));
+                      $this->Flash->success(__($nextDay->month));
 
                       if($event['hasdata'] < $nextDay){
                         //emaila bidali
@@ -284,7 +284,7 @@ class EventsController extends AppController
 
                           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-                          foreach ($readers as $reader):
+                        /*  foreach ($readers as $reader):
                             $email->cc($reader->email)
                                     ->subject('Azken ordukoa')
                                     ->transport('sendgrid')
@@ -292,8 +292,14 @@ class EventsController extends AppController
                                     ->template('eventsLast')
                                     ->emailFormat('html')
                                     ->send();
-                         endforeach;
-
+                         endforeach;*/
+                         $email->cc('ababaze@gmail.com')
+                                 ->subject('Azken ordukoa')
+                                 ->transport('sendgrid')
+                                 ->viewVars(['event' => $event, 'readerid'=>1])
+                                 ->template('eventsLast')
+                                 ->emailFormat('html')
+                                 ->send();
                      }
                    }
 
