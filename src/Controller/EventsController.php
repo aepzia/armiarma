@@ -248,9 +248,6 @@ class EventsController extends AppController
               $result = \Cloudinary\Uploader::upload($this->request->data['fitx']['tmp_name'], array("use_filename" => TRUE));
               $event['fitx']= $result['url'];
             }
-            $now = Time::now();
-
-            $this->Flash->success(__($now->day));
 
                 if ($this->Events->save($event)) {
                     if($previousEvent['active'] == 0 && $event['active'] == 1){
@@ -267,6 +264,10 @@ class EventsController extends AppController
                         $nextDay->day =1;
                       }
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
+                      $this->Flash->success(__($nextDay->day));
+                      $this->Flash->success(__($now->day));
+                      $this->Flash->success(__($event['hasdata']->day));
+
                       if($event['hasdata'] < $nextDay){
                         //emaila bidali
                         $readers = TableRegistry::get('Readers')->find('all', [
