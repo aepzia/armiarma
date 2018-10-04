@@ -267,7 +267,7 @@ class EventsController extends AppController
                       $this->Flash->success(__($nextDay->day));
                       $this->Flash->success(__($nextDay->month));
                       $this->Flash->success(__($nextDay->year));
-                      $this->Flash->success(__($event['hasdata']['year']));
+                      $this->Flash->success(__($previousEvent->hasdata->year));
 
                       if($event['hasdata'] < $nextDay){
                         //emaila bidali
