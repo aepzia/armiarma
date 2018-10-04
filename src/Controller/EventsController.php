@@ -298,7 +298,7 @@ class EventsController extends AppController
                          $email->cc('ababaze@gmail.com')
                                  ->subject('Azken ordukoa')
                                  ->transport('sendgrid')
-                                 ->viewVars(['event' => $event, 'readerid'=>1])
+                                 ->viewVars(['event' => $previousEvent, 'readerid'=>1])
                                  ->template('eventsLast')
                                  ->emailFormat('html')
                                  ->send();
