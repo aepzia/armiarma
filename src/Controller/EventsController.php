@@ -256,11 +256,11 @@ class EventsController extends AppController
                       $nextDay = Time::now();
                      if ($now->day > 1 && $now->day < 15) {
                         //lehenengo hamabostaldia: hurrengo emaila 15ean:
-                        $nextDay->day(15);
+                        $nextDay->day = 15;
                       }else{
                         //bgarren hamabostaldia: hurrengo emaila hurrengo hilabeteko 1ean:
                         $nextDay->addMonth(1);
-                        $nextDay->day(1);
+                        $nextDay->day =1;
                       }
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
                       if($event['hasdata'] < $nextDay){
