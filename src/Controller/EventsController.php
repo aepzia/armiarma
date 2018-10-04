@@ -138,7 +138,7 @@ class EventsController extends AppController
 
              foreach ($readers as $reader):
                  $email->cc($reader->email)
-                       ->subject('Ekitaldi deuseztatua')
+                       ->subject('Ekitaldi ezeztatua')
                        ->transport('sendgrid')
                        ->viewVars(['event' => $event, 'readerid'=> $reader->id])
                        ->template('eventsDeleted')
