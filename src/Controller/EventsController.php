@@ -264,11 +264,6 @@ class EventsController extends AppController
                         $nextDay->day =1;
                       }
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
-                      $this->Flash->success(__($nextDay->day));
-                      $this->Flash->success(__($nextDay->month));
-                      $this->Flash->success(__($nextDay->year));
-                      $this->Flash->success(__($previousEvent->hasdata->year));
-
                       if($previousEvent->hasdata < $nextDay){
                         //emaila bidali
                         $readers = TableRegistry::get('Readers')->find('all', [
