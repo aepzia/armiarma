@@ -248,10 +248,14 @@ class EventsController extends AppController
               $result = \Cloudinary\Uploader::upload($this->request->data['fitx']['tmp_name'], array("use_filename" => TRUE));
               $event['fitx']= $result['url'];
             }
+            $now = Time::now();
+
+            $this->Flash->success(__($now));
 
                 if ($this->Events->save($event)) {
                     if($previousEvent['active'] == 0 && $event['active'] == 1){
                       //Administratzaileak ekitaldia onartu du
+
                       $now = Time::now();
                       $nextDay = Time::now();
                      if ($now->day > 1 && $now->day < 15) {
