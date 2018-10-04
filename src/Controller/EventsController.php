@@ -250,7 +250,7 @@ class EventsController extends AppController
             }
             $now = Time::now();
 
-            $this->Flash->success(__($now));
+            $this->Flash->success(__($now->day));
 
                 if ($this->Events->save($event)) {
                     if($previousEvent['active'] == 0 && $event['active'] == 1){
