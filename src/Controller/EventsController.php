@@ -269,7 +269,7 @@ class EventsController extends AppController
                       $this->Flash->success(__($nextDay->year));
                       $this->Flash->success(__($previousEvent->hasdata->year));
 
-                      if($event['hasdata'] < $nextDay){
+                      if($previousEvent->hasdata < $nextDay){
                         //emaila bidali
                         $readers = TableRegistry::get('Readers')->find('all', [
                             'order' => ['email' => 'ASC']
