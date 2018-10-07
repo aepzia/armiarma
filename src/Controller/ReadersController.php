@@ -69,6 +69,13 @@ class ReadersController extends AppController
 
           }
       }
+    public function addMessage(){
+      if(isset($current_user) && $current_user['role'] == 'admin'){
+        $this -> viewBuilder() -> layout('admin');
+      }else{
+        $this -> viewBuilder() -> layout('user');
+      }
+    }
     public function add()
     {
         if($this->Auth->user() != 'null'){
@@ -109,7 +116,7 @@ class ReadersController extends AppController
                       ->send($message);
 
                 $this->Flash->success(__('Erabiltzailea ondo gorde da.'));
-                return $this->redirect(['action' => 'add']);
+                return $this->redirect(['action' => 'addMessage']);
             }
             $this->Flash->error(__('Erabiltzailea ezin izan da ondo gorde. Saia zaitez berriro mesedez.'));
         }
