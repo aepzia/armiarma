@@ -11,6 +11,6 @@
     </ul>
 </nav>
 <div class="readers form large-9 medium-8 columns content">
-  <legend><?= __('Zure erabiltzailea ondo gorde da,konfirmatu zure erabiltzailea emailera bidali zaizun mezuaren bidez.') ?></legend>
+  <p>Zure erabiltzailea ondo gorde da,konfirmatu zure erabiltzailea emailera bidali zaizun mezuaren bidez.') </p>
   <a href="<?='http://armiarma.herokuapp.com/readers/add/'?>">Sortu erabiltzaile berria</a>
 </div>
