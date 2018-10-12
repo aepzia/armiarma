@@ -264,7 +264,7 @@ class EventsController extends AppController
                         $nextDay->day =1;
                       }
                       //ekitaldiaren hasiera hurrengo emaila baina lehenago bada:
-                      if($previousEvent->hasdata < $nextDay){
+                      if($previousEvent->bukdata < $nextDay){
                         //emaila bidali
                         $readers = TableRegistry::get('Readers')->find('all', [
                             'order' => ['email' => 'ASC']
