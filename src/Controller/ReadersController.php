@@ -265,7 +265,7 @@ class ReadersController extends AppController
                 ->transport('sendgrid')
                 ->viewVars(['events' => $events])
                 ->template('eventsIndex')
-                ->emailFormat('html');
+                ->emailFormat('html')
                 ->send();
         }
       }
