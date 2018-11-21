@@ -25,4 +25,4 @@ if($totalRepetable > 0){?>
 }?>
 
 
-Emailak jasotzeko aukerak aldatu nahi badituzu egin klik <a href="<?='http://armiarma.herokuapp.com/readers/edit/'.$readerid?>">hemen</a>
+Emailak jasotzeko aukerak aldatu nahi badituzu jarri zaitez administratzailearen kontaktuan <a href="<?='https://docs.google.com/forms/d/e/1FAIpQLSfmtaU8fq0ti4woTN-K6SitFZ6ksCvbYPCPMsiiZjI7PoKy-Q/viewform'?>">hemen</a>

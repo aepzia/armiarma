@@ -202,22 +202,29 @@ class ReadersController extends AppController
           $email = new Email('default');
 
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
+
           $readers = $this->paginate($this->Readers);
+
+          $email->bcc('ababaze@gmail.com');
+
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              $email->cc($reader->email)
-                    ->subject('Datozten 2 hilabetetako egitaraua')
-                    ->transport('sendgrid')
-                    ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable, 'readerid'=> $reader->id])
-                    ->template('eventsIndexWeek')
-                    ->emailFormat('html')
-                    ->send();
+              $email->addBcc($reader->email);
             }
           endforeach;
+
+          $email->subject('Datozten 2 hilabetetako egitaraua')
+            ->transport('sendgrid')
+            ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable])
+            ->template('eventsIndexWeek')
+            ->emailFormat('html')
+            ->send();
+
         }else{
           $this->set('send',false);
         }
       }
+
       public function dayEmail(){
         $now = Time::now();
         $twoDays = Time::now();
@@ -246,17 +253,20 @@ class ReadersController extends AppController
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $readers = $this->paginate($this->Readers);
+          $email->bcc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->cc($reader->email)
-                    ->subject('Biharko egitaraua')
-                    ->transport('sendgrid')
-                    ->viewVars(['events' => $events, 'readerid'=> $reader->id])
-                    ->template('eventsIndex')
-                    ->emailFormat('html')
-                    ->send();
+              $email->addBcc($reader->email);
+
             }
           endforeach;
+
+          $email->subject('Biharko egitaraua')
+                ->transport('sendgrid')
+                ->viewVars(['events' => $events])
+                ->template('eventsIndex')
+                ->emailFormat('html');
+                ->send();
         }
       }
 }
