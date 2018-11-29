@@ -205,15 +205,17 @@ class ReadersController extends AppController
 
           $readers = $this->paginate($this->Readers);
 
-          $email->bcc('ababaze@gmail.com');
+          $emailReaders = array();
 
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              $email->addBcc($reader->email);
+                $emailReaders[] = $reader ->email;
             }
           endforeach;
 
-          $email->subject('Datozten 2 hilabetetako egitaraua')
+
+          $email->to($emailReaders)
+            ->subject('Datozten 2 hilabetetako egitaraua')
             ->transport('sendgrid')
             ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable])
             ->template('eventsIndexWeek')
@@ -253,15 +255,17 @@ class ReadersController extends AppController
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $readers = $this->paginate($this->Readers);
-          $email->bcc('ababaze@gmail.com');
+
+          $emailReaders = array();
+
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              $email->addBcc($reader->email);
-
+                $emailReaders[] = $reader ->email;
             }
           endforeach;
 
-          $email->subject('Biharko egitaraua')
+          $email->to($emailReaders)
+                ->subject('Biharko egitaraua')
                 ->transport('sendgrid')
                 ->viewVars(['events' => $events])
                 ->template('eventsIndex')
