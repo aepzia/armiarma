@@ -287,6 +287,7 @@ class ReadersController extends AppController
 
                 $email->from(['ababaze@gmail.com' => 'Armiarma']);
                 $email->bcc('ababaze@gmail.com');
+                $email->addBcc($reader->email);
               }
             }
           endforeach;
