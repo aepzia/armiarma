@@ -281,8 +281,12 @@ class ReadersController extends AppController
                       ->template('eventsIndex')
                       ->emailFormat('html')
                       ->send();
-                sleep(10*60); //Sleep 10 mins
-                $email->bcc($reader->email);
+                sleep(30*60); //Sleep 30 mins
+                $email = new Email('default');
+                $email->viewVars(['events' => $events]);
+
+                $email->from(['ababaze@gmail.com' => 'Armiarma']);
+                $email->bcc('ababaze@gmail.com');
               }
             }
           endforeach;
