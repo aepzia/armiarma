@@ -266,6 +266,9 @@ class ReadersController extends AppController
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
           $readers = $this->paginate($this->Readers);
+
+          $this->set(compact('readers'));
+
           $totalReaders = 0;
           $email->bcc('ababaze@gmail.com');
           foreach ($readers as $reader):
