@@ -203,26 +203,12 @@ class ReadersController extends AppController
 
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-          $readers = $this->paginate($this->Readers);
+          $readers = $this->Readers->find('all')->all();
 
-          $totalReaders = 0;
           $email->bcc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 1 || $reader->maiztasuna == 2 ){
-              if($totalReaders<=10){
-                  $email->addBcc($reader->email);
-                  $totalReaders = $totalReaders + 1;
-              }else{
-                $totalReaders=0;
-                $email->subject('Datozten 2 hilabetetako egitaraua')
-                  ->transport('sendgrid')
-                  ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable])
-                  ->template('eventsIndexWeek')
-                  ->emailFormat('html')
-                  ->send();
-                sleep(10*60); //Sleep 10 mins
-                $email->bcc($reader->email);
-              }
+                $email->addBcc($reader->email);
             }
           endforeach;
 
@@ -251,7 +237,7 @@ class ReadersController extends AppController
           'active' => 1,
           'repeatable' => 0
         ])->count();
-    //    if($total>0){
+        if($total>0){
 
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
@@ -267,38 +253,19 @@ class ReadersController extends AppController
 
           $readers = $this->Readers->find('all')->all();
 
-          $totalReaders = 0;
           $email->bcc('ababaze@gmail.com');
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
-              if($totalReaders<=10){
-                  //$email->addBcc($reader->email);
-                  $totalReaders = $totalReaders + 1;
-              }else{
-                $totalReaders=0;
-                $email->subject(sizeof($readers))
-                      ->transport('sendgrid')
-                      ->viewVars(['events' => $events])
-                      ->template('eventsIndex')
-                      ->emailFormat('html')
-                      ->send();
-              //  sleep(30*60); //Sleep 30 mins
-                $email = new Email('default');
-                $email->viewVars(['events' => $events]);
-
-                $email->from(['ababaze@gmail.com' => 'Armiarma']);
-                $email->bcc('ababaze@gmail.com');
-              //  $email->addBcc($reader->email);
+                  $email->addBcc($reader->email);
               }
-            }
           endforeach;
 
-          $email->subject($totalReaders)
+          $email->subject('Biharko egitaraua')
                 ->transport('sendgrid')
                 ->viewVars(['events' => $events])
                 ->template('eventsIndex')
                 ->emailFormat('html')
                 ->send();
         }
-    //  }
+      }
 }

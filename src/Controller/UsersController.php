@@ -209,12 +209,12 @@ class UsersController extends AppController
       $today = Time::now();
       $yesterday = Time::now();
       $yesterday->subDays(2);
-      $events = TableRegistry::get('Events')->find();
+      $events = TableRegistry::get('Events')->find('all');
       $totalEvents = $events->where([
         'modified >' => $yesterday,
         'modified <' => $today
       ])->count();
-      $users = TableRegistry::get('Users')->find();
+      $users = TableRegistry::get('Users')->find('all');
       $totalUsers = $users->where([
         'modified >' => $yesterday,
         'modified <' => $today
@@ -233,8 +233,7 @@ class UsersController extends AppController
         $email = new Email('default');
 
         $email->from(['ababaze@gmail.com' => 'Armiarma']);
-
-        $users= $this->paginate($this->Users);
+        $users = $this->Users->find('all')->all();
         foreach ($users as $user):
           if($user->role == 'admin'){
             $email->cc($user->email)
