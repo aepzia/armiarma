@@ -265,7 +265,7 @@ class ReadersController extends AppController
 
           $email->from(['ababaze@gmail.com' => 'Armiarma']);
 
-          $readers = $this->Readers->find('all');;
+          $readers = $this->Readers->find('all')->all();
 
           $totalReaders = 0;
           $email->bcc('ababaze@gmail.com');
