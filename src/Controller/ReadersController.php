@@ -275,7 +275,7 @@ class ReadersController extends AppController
                   $totalReaders = $totalReaders + 1;
               }else{
                 $totalReaders=0;
-                $email->subject($totalReaders)
+                $email->subject(sizeof($readers))
                       ->transport('sendgrid')
                       ->viewVars(['events' => $events])
                       ->template('eventsIndex')
