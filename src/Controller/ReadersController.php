@@ -275,7 +275,7 @@ class ReadersController extends AppController
                   $totalReaders = $totalReaders + 1;
               }else{
                 $totalReaders=0;
-                $email->subject('Biharko egitaraua')
+                $email->subject($totalReaders)
                       ->transport('sendgrid')
                       ->viewVars(['events' => $events])
                       ->template('eventsIndex')
@@ -292,7 +292,7 @@ class ReadersController extends AppController
             }
           endforeach;
 
-          $email->subject('Biharko egitaraua')
+          $email->subject($totalReaders)
                 ->transport('sendgrid')
                 ->viewVars(['events' => $events])
                 ->template('eventsIndex')
