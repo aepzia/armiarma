@@ -251,7 +251,7 @@ class ReadersController extends AppController
           'active' => 1,
           'repeatable' => 0
         ])->count();
-        if($total>0){
+    //    if($total>0){
 
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
@@ -271,7 +271,7 @@ class ReadersController extends AppController
           foreach ($readers as $reader):
             if($reader->maiztasuna == 2){
               if($totalReaders<=10){
-                  $email->addBcc($reader->email);
+                  //$email->addBcc($reader->email);
                   $totalReaders = $totalReaders + 1;
               }else{
                 $totalReaders=0;
@@ -281,13 +281,13 @@ class ReadersController extends AppController
                       ->template('eventsIndex')
                       ->emailFormat('html')
                       ->send();
-                sleep(30*60); //Sleep 30 mins
+              //  sleep(30*60); //Sleep 30 mins
                 $email = new Email('default');
                 $email->viewVars(['events' => $events]);
 
                 $email->from(['ababaze@gmail.com' => 'Armiarma']);
                 $email->bcc('ababaze@gmail.com');
-                $email->addBcc($reader->email);
+              //  $email->addBcc($reader->email);
               }
             }
           endforeach;
@@ -299,5 +299,5 @@ class ReadersController extends AppController
                 ->emailFormat('html')
                 ->send();
         }
-      }
+    //  }
 }
