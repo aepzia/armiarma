@@ -212,7 +212,7 @@ class ReadersController extends AppController
             }
           endforeach;
 
-          $email->subject('Datozten 2 hilabetetako egitaraua')
+          $email->subject('Datozen bi hilabetetako egitaraua')
             ->transport('sendgrid')
             ->viewVars(['events' => $events, 'repeatableEvents' => $eventsRepetable, 'totalRepetable' => $totalRepetable])
             ->template('eventsIndexWeek')
