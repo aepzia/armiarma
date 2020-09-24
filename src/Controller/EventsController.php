@@ -175,7 +175,7 @@ class EventsController extends AppController
 
             if(isset($current_user) && $current_user['role'] == 'user'){
               $event['user_id'] =$current_user['id'];
-              $event['active'] =false;
+              $event['active'] =true;
             }
 
             if ($this->Events->save($event)) {
