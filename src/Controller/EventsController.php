@@ -128,10 +128,9 @@ class EventsController extends AppController
              Email::configTransport('sendgrid',[
                'host' =>'smtp.sendgrid.net',
                'port' =>587,
-               'username' => getenv('SENDGRID_USERNAME'),
-               'password' => getenv('SENDGRID_PASSWORD'),
+               'username' => "apikey",
+               'password' => getenv('SENDGRID_API_KEY'),
                'className' => 'Smtp',
-               'tls' => true,
              ]);
              $email = new Email('default');
 
@@ -184,10 +183,9 @@ class EventsController extends AppController
               Email::configTransport('sendgrid',[
                 'host' =>'smtp.sendgrid.net',
                 'port' =>587,
-                'username' => getenv('SENDGRID_USERNAME'),
-                'password' => getenv('SENDGRID_PASSWORD'),
+                'username' => "apikey",
+                'password' => getenv('SENDGRID_API_KEY'),
                 'className' => 'Smtp',
-                'tls' => true,
               ]);
               $email = new Email('default');
               //BIDALI ATRIBUTU GUZTIK
@@ -327,9 +325,8 @@ class EventsController extends AppController
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
             'port' =>587,
-            'username' => getenv('SENDGRID_USERNAME'),
-            'password' => getenv('SENDGRID_PASSWORD'),
-            'tls' => true,
+            'username' => "apikey",
+            'password' => getenv('SENDGRID_API_KEY'),
             'className' => 'Smtp'
           ]);
           $email = new Email('default');

@@ -91,10 +91,9 @@ class UsersController extends AppController
                   Email::configTransport('sendgrid',[
                     'host' =>'smtp.sendgrid.net',
                     'port' =>587,
-                    'username' => getenv('SENDGRID_USERNAME'),
-                    'password' => getenv('SENDGRID_PASSWORD'),
-                    'className' => 'Smtp',
-                    'tls' => true
+                    'username' => "apikey",
+                    'password' => getenv('SENDGRID_API_KEY'),
+                    'className' => 'Smtp'
                   ]);
                   $email = new Email('default');
 
@@ -228,9 +227,8 @@ class UsersController extends AppController
         Email::configTransport('sendgrid',[
           'host' =>'smtp.sendgrid.net',
           'port' =>587,
-          'username' => getenv('SENDGRID_USERNAME'),
-          'password' => getenv('SENDGRID_PASSWORD'),
-          'tls' => true,
+          'username' => "apikey",
+          'password' => getenv('SENDGRID_API_KEY'),
           'className' => 'Smtp'
         ]);
         $email = new Email('default');
@@ -287,9 +285,8 @@ class UsersController extends AppController
           Email::configTransport('sendgrid',[
             'host' =>'smtp.sendgrid.net',
             'port' =>587,
-            'username' => getenv('SENDGRID_USERNAME'),
-            'password' => getenv('SENDGRID_PASSWORD'),
-            'tls' => true,
+            'username' => "apikey",
+            'password' => getenv('SENDGRID_API_KEY'),
             'className' => 'Smtp'
           ]);
           $email = new Email('default');
