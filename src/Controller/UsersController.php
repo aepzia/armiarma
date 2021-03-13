@@ -93,7 +93,8 @@ class UsersController extends AppController
                     'port' =>587,
                     'username' => getenv('SENDGRID_USERNAME'),
                     'password' => getenv('SENDGRID_PASSWORD'),
-                    'className' => 'Smtp'
+                    'className' => 'Smtp',
+                    'tls' => true
                   ]);
                   $email = new Email('default');
 
@@ -148,6 +149,7 @@ class UsersController extends AppController
                 'port' =>587,
                 'username' => getenv('SENDGRID_USERNAME'),
                 'password' => getenv('SENDGRID_PASSWORD'),
+                'tls' => true,
                 'className' => 'Smtp'
               ]);
               $email = new Email('default');
@@ -228,6 +230,7 @@ class UsersController extends AppController
           'port' =>587,
           'username' => getenv('SENDGRID_USERNAME'),
           'password' => getenv('SENDGRID_PASSWORD'),
+          'tls' => true,
           'className' => 'Smtp'
         ]);
         $email = new Email('default');
@@ -286,6 +289,7 @@ class UsersController extends AppController
             'port' =>587,
             'username' => getenv('SENDGRID_USERNAME'),
             'password' => getenv('SENDGRID_PASSWORD'),
+            'tls' => true,
             'className' => 'Smtp'
           ]);
           $email = new Email('default');
